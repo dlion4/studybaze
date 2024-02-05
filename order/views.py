@@ -15,4 +15,4 @@ class EssayFeedConfirmOrderView(TemplateView):
     template_name = "pages/confirm_order.html"
 
 
-essay_feed_confirm_order_view = EssayFeedOrderView.as_view()
+essay_feed_confirm_order_view = EssayFeedConfirmOrderView.as_view()

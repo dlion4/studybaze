@@ -5,7 +5,7 @@
 {{ block.super }}
 
 
-<script type="text/javascript" src="{% static 'Content/Cosmo/js/PlaceOrder.js' %}?v=09112023"></script>
+{% comment %} <script type="text/javascript" src="{% static 'Content/Cosmo/js/PlaceOrder.js' %}?v=09112023"></script> {% endcomment %}
 {% endblock css %}
 
 
@@ -493,7 +493,7 @@
                 </div>
               </div>
               <div class="orderbtn_bx">
-                <button name="btn_OrderNow" id="btn_OrderNow" type="button" class="btn_proceed bounce-effect">Confirm Order</button>
+                <a name="btn_OrderNow" id="btn_OrderNow" href="{% url 'confirm_order' %}" class="btn_proceed bounce-effect">Confirm Order</a>
               </div>
 
               <div class="border-order mt-4">

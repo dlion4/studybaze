@@ -1,0 +1,151 @@
+{% extends "accounts/profile/base.html" %}
+
+{% load static %}
+
+{% block css %}
+
+
+{% endblock css %}
+
+{% block main %}
+
+  {{ block.super }}
+    <section id="services" class="servicesBg pt-3">
+      <div class="container">
+        <div class="mainOrder row">
+          <div class="col-lg-8 col-sm-12 white-text wow fadeInLeft">
+            <div class="row">
+              <div class="col-6 col-sm-6 welcome padd-left">
+                <p>WELCOME
+                  <span class="user-name">
+                    <a>hgefgieyw iytefir73trfit7y,</a></span></p>
+              </div>
+              <div class="col-6 col-sm-6 text-end padd-right">
+                <div class="place-order">
+                  <a href="/Order/PlaceOrder">Place New Order</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mrg-search-section">
+              <div class="col-lg-6 col-md-6 col-sm-12 order-details padd-left">
+                <p>All Orders</p>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-12 text-end padd-right">
+                <div id="custom-search-input">
+                  <div class="input-group col-md-12">
+                    <input type="text" class="form-control input-lg" id="searchtext" placeholder="Search Order"/>
+                    <span class="input-group-btn">
+                      <button class="btn btn-info btn-lg" type="submit" id="searchOrder">
+                        <i class="fa fa-search"></i>
+                      </button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--===TABLE STARTS HERE ===-->
+            <div class="col-lg-12 col-md-12 col-sm-12">
+              <div class="table-responsive">
+                <table class="table table-striped aligment-table-text" id="table-orders">
+                  <thead class="aligment-table-text">
+                    <tr class="td-color">
+                      <th>Order ID</th>
+                      <th>Project</th>
+                      <th>Order Date</th>
+                      <th>Delivery Date</th>
+                      <th>Order Status</th>
+                    </tr>
+                  </thead>
+                  <tbody class="td-color">
+                    <tr>
+                      <td>ESFOC-12559457</td>
+                      <td>bSEDhbewr4</td>
+                      <td>Feb 05, 2024 11:56 AM</td>
+                      <td>Feb 20 2024 11:56 AM</td>
+                      <td>
+                        <a class="PlaceOrderConfirmBtn" href="/Order/ConfirmOrderDetails?rdata=2UkViILiYPIN2oY7H/LOcw==">Place Your Order</a>
+                        <hr id="rptSelectOrder_ctl01_oblique">
+                        <input type="hidden" id="OrderIDtxb" value="ESFOC-12559457"/>
+                        <a id="rptSelectOrder_ctl01_lnk_ordercancel" class="cursor-pointer">Cancel Your Order</a>
+                        <a id="rptSelectOrder_ctl01_lnk_ordercancel" class="lnk_ordercancel cursor-pointer" data-toggle="modal" data-target="#myModal" data-order-id="ESFOC-12559457"></a>
+                        <a id="rptSelectOrder_ctl01_lnk_ordercancel" class="lnk_ordercancel cursor-pointer" data-toggle="modal" data-target="#myModal" data-order-id="ESFOC-12559457"></a>
+                        <a id="rptSelectOrder_ctl01_lnk_ordercancel" class="lnk_ordercancel cursor-pointer" data-bs-toggle="modal" data-bs-target="#myModal" data-order-id="ESFOC-12559457"></a>
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12"></div>
+            <!--===TABLE STARTS HERE ===-->
+
+            <div class="table-responsive accountdetails mt-5 float-left hidden-xs pl-4 pr-4">
+              <table class="preview-table table-striped table table-hover">
+                <tbody>
+                  <tr>
+                    <td colspan="4" class="label tbl_head">Account Details</td>
+                  </tr>
+                  <tr>
+                    <td class="label">Name</td>
+                    <td>hgefgieyw iytefir73trfit7y</td>
+                    <td class="label">Customer ID</td>
+                    <td>ESFC-1847081</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="table-responsive accountdetails mt-3 float-left hidden-md pl-4 pr-4">
+              <table class="preview-table table table-striped table-hover">
+                <tbody>
+                  <tr>
+                    <td colspan="4" class="label tbl_head">Account Details</td>
+                  </tr>
+                  <tr>
+                    <td class="label">Name</td>
+                    <td>hgefgieyw iytefir73trfit7y</td>
+                  </tr>
+                  <tr>
+                    <td class="label">Customer ID</td>
+                    <td>ESFC-1847081</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-12 wow fadeInRight">
+            {% include "accounts/profile/customersupportcard.html" %}
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <div id="myModal" class="modal ordercancel" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Please give a reason for cancelling your order.</h4>
+            <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+          </div>
+          <form action="/Order/CancelOrder" method="post" id="cancelOrder-form">
+            <input name="__RequestVerificationToken" type="hidden" value="6escvHZY-9-Y1-UqiRspmhn0CIFbhl8oYBnVDYfJsMcFgBwLhQVF2oZAT1CJ2u-k1knm_2PTheK-W5imaWar7sjI09o1hb4SaSlR_cbgq55lhsqdC1L6mFqhB7wDbx-dJTngacxB_gIvnHWX6x3Ybw2"/>
+            <div class="modal-body">
+              <input type="hidden" name="orderID" id="Cancel_OrderID"/>
+              <textarea name="comments" rows="2" cols="20" id="txt_feedback" class="form-control" required="" autofocus=""></textarea>
+              <span id="reason_error" class="text-danger fw-bold dis_none">Please provide reason.</span>
+            </div>
+            <div class="modal-footer">
+              <input name="btn_feedback" value="Submit" id="btn_feedback" class="btn btn-primary float-right" type="submit">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+{% endblock main %}
+

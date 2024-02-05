@@ -5,10 +5,12 @@
   {{ block.super }}
 
 
-<script type="text/javascript" src="{% static 'Content/Cosmo/js/ConfirmOrderDetails.js' %}?v=09112023"></script>
+{% comment %} <script type="text/javascript" src="{% static 'Content/Cosmo/js/ConfirmOrderDetails.js' %}?v=09112023"></script> {% endcomment %}
 {% endblock css %}
 
 {% block main %}
+
+{{ block.super }}
 
   <!-- New Confirm Order Detail Page Starts -->
   <section class="banner_small banner_customer">

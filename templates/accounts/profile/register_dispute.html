@@ -1,0 +1,307 @@
+{% extends "accounts/profile/base.html" %}
+
+{% load static %}
+
+{% block css %}{% endblock css %}
+
+{% block main %}
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 main_title">
+        <h1>
+          <span>Register a Complaint</span>
+        </h1>
+        <span class="subheader">
+          Please inform us about any complaints and problems you may have
+        </span>
+        <!--End Row-->
+      </div>
+    </div>
+  </div>
+
+  {{ block.super }}
+
+  <div class="container">
+    <!-- Team Members Row -->
+    <div class="row py-2">
+      <div class="col-lg-8 col-sm-12 register_complain">
+        <div class="area">
+          <form name="Form2" method="post" action="/userarea/registercomplaint" id="Form2" target="_top">
+            <input name="__RequestVerificationToken" type="hidden" value="VF2Uvx8IVhdBJgmRarom9ef5k1_RdSmjrS13_elFZxDyVlwTE9VPtImrnwmQEArWkDLnS3OKnFqqPw3nME24bhNbNeYMkDUvH2himapSN_uDMMjyYOOeoB38DGIUQyi1zfq1A5bFga8HBgIBBA-GhA2"/>
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td class="tableHeaderNew" id="newtab1">
+                    Order Details
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="table table-borderless">
+              <tbody>
+                <tr>
+                  <td class="innerTableBorder">
+                    <p>
+                      <strong>Order Type:</strong>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="innerTableBorder">
+                    <select name="ServiceType" id="ddl_OrderType" class="form-control opr">
+                      <option selected="selected" value="Writing">Writing</option>
+                      <option value="Editing">Editing</option>
+                      <option value="Proofreading">Proofreading</option>
+
+                    </select>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="table table-borderless">
+              <tbody>
+                <tr>
+                  <td class="tableHeaderNew innerTableBorder" id="Td1">
+                    Nature Of Complaint
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="table table-borderless">
+              <tbody>
+                <tr>
+                  <td class="innerTableBorder">
+                    <p>
+                      <strong>What kind of complaint you want to submit?</strong>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="innerTableBorder">
+
+                    <select name="ComplaintType" id="ddl_complaintType" class="form-control">
+                      <option value="Work Quality">Work Quality</option>
+                      <option value="Customer Support">Customer Support</option>
+                      <option value="Order Delivery">Order Delivery</option>
+                      <option value="Plagiarism">Plagiarism</option>
+                      <option value="Other">Other</option>
+
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="innerTableBorder">
+                    <p>
+                      <strong>Explain your complaint<span></span></strong>
+                      <small>(Please provide your order ID number & other details.)</small>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="innerTableBorder">
+                    <textarea name="Comment" rows="2" cols="20" id="ta_complaintDescription" class="form-control" required="required"></textarea>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td class="tableHeaderNew">
+                    We'll get back to you soon
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td class="innerTableBorder">
+                    <div class="float-start pt-2">
+                      <p>
+                        <strong>Do you want us to communicate via email?:</strong>
+                      </p>
+                    </div>
+
+                  </td>
+                  <td class="innerTableBorder float-end">
+                    <table id="rd_communication_email" border="0">
+                      <tbody>
+                        <tr>
+                          <td>
+                            <span class="pe-4"><input id="rd_communication_email_0" type="radio" name="ContactViaEmail" value="false" checked="checked">
+                              <label for="rd_communication_email_0">&nbsp;No</label></span></td>
+                          <td>
+                            <span class="pe-4"><input id="rd_communication_email_1" type="radio" name="ContactViaEmail" value="true">
+                              <label for="rd_communication_email_1">&nbsp;Yes</label></span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="innerTableBorder">
+                    <div class="float-start pt-2">
+                      <p>
+                        <strong>Do you want us to communicate via Phone Call?:</strong>
+                      </p>
+                    </div>
+                  </td>
+                  <td class="innerTableBorder float-end">
+                    <table id="rd_confirm_phonecall" border="0">
+                      <tbody>
+                        <tr>
+                          <td>
+                            <span class="pe-4"><input id="rd_confirm_phonecall_0" type="radio" name="ContactViaPhone" value="false" checked="checked">
+                              <label for="rd_confirm_phonecall_0">&nbsp;No</label></span></td>
+                          <td>
+                            <span class="pe-4"><input id="rd_confirm_phonecall_1" type="radio" name="ContactViaPhone" value="true">
+                              <label for="rd_confirm_phonecall_1">&nbsp;Yes</label></span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="float-start">
+              <strong>Suitable time for Phone Call:</strong>
+            </p>
+            <div class="float-end">
+              <div class="float-start time">From:</div>
+              <div class="float-start">
+                <select name="ContactTimeFrom" id="ddl_call_time" class="form-control">
+                  <option value="12:00 am">12:00am</option>
+                  <option value="12:30 am">12:30am</option>
+                  <option value="01:00 am">01:00am</option>
+                  <option value="01:30 am">01:30am</option>
+                  <option value="02:00 am">02:00am</option>
+                  <option value="02:30 am">02:30am</option>
+                  <option value="03:00 am">03:00am</option>
+                  <option value="03:30 am">03:30am</option>
+                  <option value="04:00 am">04:00am</option>
+                  <option value="04:30 am">04:30am</option>
+                  <option value="05:00 am">05:00am</option>
+                  <option value="05:30 am">05:30am</option>
+                  <option value="06:00 am">06:00am</option>
+                  <option value="06:30 am">06:30am</option>
+                  <option value="07:00 am">07:00am</option>
+                  <option value="07:30 am">07:30am</option>
+                  <option value="08:00 am">08:00am</option>
+                  <option value="08:30 am">08:30am</option>
+                  <option value="09:00 am">09:00am</option>
+                  <option value="09:30 am">09:30am</option>
+                  <option value="10:00 am">10:00am</option>
+                  <option value="10:30 am">10:30am</option>
+                  <option value="11:00 am">11:00am</option>
+                  <option value="11:30 am">11:30am</option>
+                  <option selected="selected" value="12:00 pm">12:00pm</option>
+                  <option value="12:30 pm">12:30pm</option>
+                  <option value="01:00 pm">01:00pm</option>
+                  <option value="01:30 pm">01:30pm</option>
+                  <option value="02:00 pm">02:00pm</option>
+                  <option value="02:30 pm">02:30pm</option>
+                  <option value="03:00 pm">03:00pm</option>
+                  <option value="03:30 pm">03:30pm</option>
+                  <option value="04:00 pm">04:00pm</option>
+                  <option value="04:30 pm">04:30pm</option>
+                  <option value="05:00 pm">05:00pm</option>
+                  <option value="05:30 pm">05:30pm</option>
+                  <option value="06:00 pm">06:00pm</option>
+                  <option value="06:30 pm">06:30pm</option>
+                  <option value="07:00 pm">07:00pm</option>
+                  <option value="07:30 pm">07:30pm</option>
+                  <option value="08:00 pm">08:00pm</option>
+                  <option value="08:30 pm">08:30pm</option>
+                  <option value="09:00 pm">09:00pm</option>
+                  <option value="09:30 pm">09:30pm</option>
+                  <option value="10:00 pm">10:00pm</option>
+                  <option value="10:30 pm">10:30pm</option>
+                  <option value="11:00 pm">11:00pm</option>
+                  <option value="11:30 pm">11:30pm</option>
+
+                </select>
+              </div>
+              <div class="float-start time">
+                To:
+              </div>
+              <div class="float-start">
+                <select name="ContactTimeTo" id="ddl_call_timeto" class="form-control">
+                  <option value="12:00 am">12:00am</option>
+                  <option value="12:30 am">12:30am</option>
+                  <option value="01:00 am">01:00am</option>
+                  <option value="01:30 am">01:30am</option>
+                  <option value="02:00 am">02:00am</option>
+                  <option value="02:30 am">02:30am</option>
+                  <option value="03:00 am">03:00am</option>
+                  <option value="03:30 am">03:30am</option>
+                  <option value="04:00 am">04:00am</option>
+                  <option value="04:30 am">04:30am</option>
+                  <option value="05:00 am">05:00am</option>
+                  <option value="05:30 am">05:30am</option>
+                  <option value="06:00 am">06:00am</option>
+                  <option value="06:30 am">06:30am</option>
+                  <option value="07:00 am">07:00am</option>
+                  <option value="07:30 am">07:30am</option>
+                  <option value="08:00 am">08:00am</option>
+                  <option value="08:30 am">08:30am</option>
+                  <option value="09:00 am">09:00am</option>
+                  <option value="09:30 am">09:30am</option>
+                  <option value="10:00 am">10:00am</option>
+                  <option value="10:30 am">10:30am</option>
+                  <option value="11:00 am">11:00am</option>
+                  <option value="11:30 am">11:30am</option>
+                  <option selected="selected" value="12:00 pm">12:00pm</option>
+                  <option value="12:30 pm">12:30pm</option>
+                  <option value="01:00 pm">01:00pm</option>
+                  <option value="01:30 pm">01:30pm</option>
+                  <option value="02:00 pm">02:00pm</option>
+                  <option value="02:30 pm">02:30pm</option>
+                  <option value="03:00 pm">03:00pm</option>
+                  <option value="03:30 pm">03:30pm</option>
+                  <option value="04:00 pm">04:00pm</option>
+                  <option value="04:30 pm">04:30pm</option>
+                  <option value="05:00 pm">05:00pm</option>
+                  <option value="05:30 pm">05:30pm</option>
+                  <option value="06:00 pm">06:00pm</option>
+                  <option value="06:30 pm">06:30pm</option>
+                  <option value="07:00 pm">07:00pm</option>
+                  <option value="07:30 pm">07:30pm</option>
+                  <option value="08:00 pm">08:00pm</option>
+                  <option value="08:30 pm">08:30pm</option>
+                  <option value="09:00 pm">09:00pm</option>
+                  <option value="09:30 pm">09:30pm</option>
+                  <option value="10:00 pm">10:00pm</option>
+                  <option value="10:30 pm">10:30pm</option>
+                  <option value="11:00 pm">11:00pm</option>
+                  <option value="11:30 pm">11:30pm</option>
+
+                </select>
+              </div>
+            </div>
+
+            <table class="table borderless">
+              <tbody>
+                <tr>
+                  <td class="innerTableBorder text-center">
+                    <a href="{% url 'dispute_register_success_view' %}" type="submit" name="btn_share_complaint" value="Submit Complaint" id="btn_share_complaint" class="btn-primary btn">Submit Complaint</a>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </form>
+
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-sm-12">
+        {% include "accounts/profile/refcard.html" %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Common Footer Included -->
+
+{% endblock main %}

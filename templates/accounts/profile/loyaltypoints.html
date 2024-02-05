@@ -1,0 +1,86 @@
+{% extends "accounts/profile/base.html" %}
+
+{% load static %}
+
+{% block css %}{% endblock css %}
+
+{% block main %}
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 main_title">
+        <h1>
+          <span>View Loyalty Points</span>
+        </h1>
+        <span class="subheader">
+          You can see and keep tab on your loyalty points here
+        </span>
+        <!--End Row-->
+      </div>
+    </div>
+  </div>
+  {{ block.super }}
+  <section id="services" class="servicesBg">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>
+            <b></b>
+          </h2>
+        </div>
+      </div>
+      <div class="row py-2 mainOrder">
+        <div class="col-lg-8 col-sm-12">
+          <div class="col-md-12">
+            <div class="paddingDivli p-0">
+              <table class="table referaltbl">
+                <tbody>
+                  <tr>
+                    <td>
+                      <span class="fs-6 fw-bold">Loyalty Points</span>
+                    </td>
+                    <td>
+                      :
+                    </td>
+                    <td>
+                      <span id="lbl_LoyaltyPoints">0.00</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="fs-6 fw-bold">Points Redeemed</span>
+                    </td>
+                    <td>
+                      :
+                    </td>
+                    <td>
+                      <span id="lbl_Redemed">0.00</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="fs-6 fw-bold">Total Points Available</span>
+                    </td>
+                    <td>
+                      :
+                    </td>
+                    <td>
+                      <span id="lbl_TotPoints">0.00</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-lg-4 col-sm-12 wow fadeInRight marginBottom">
+          {% include "accounts/profile/customersupportcard.html" %}
+          <br>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+{% endblock main %}

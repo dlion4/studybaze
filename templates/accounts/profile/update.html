@@ -1,0 +1,277 @@
+{% extends "accounts/profile/base.html" %}
+
+{% load static %}
+
+{% block css %}{% endblock css %}
+
+{% block main %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 main_title">
+            <h1>
+                <span>Update Profile</span>
+            </h1>
+            <span class="subheader">
+                View your profile or update personal details whenever you like
+            </span>
+            <!--End Row-->
+        </div>
+    </div>
+</div>
+  {{ block.super }}
+
+  <section id="services" class="servicesBg">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>
+            <b></b>
+          </h2>
+        </div>
+      </div>
+
+      <div class="mainOrder row">
+        <div class="col-lg-8 col-sm-12 white-text wow fadeInLeft">
+          <!-- Start Project Details-->
+
+          <div class="row">
+            <div class="col-md-12">
+              <span id="lbl_successmsg" class="text-success"></span>
+              <span id="lbl_errormsg" class="text-danger"></span>
+
+              <div class="orderBox">
+                <p class="orderBoxHeading">
+                  Profile Details
+                </p>
+                <div class="orderBoxInner">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <form>
+                        <div class="row">
+                          <div class="col-md-3">
+                            <p class="orderBoxPara">Name</p>
+                          </div>
+                          <div class="col-md-7 col-9">
+                            <input name="FirstName" type="text" value="hgefgieyw iytefir73trfit7y" id="txt_fname" class="form-control ms-2" placeholder="Name" maxlength="200" readonly="readonly"/>
+                          </div>
+
+                          <div class="col-md-2 col-3">
+                            <i id="updateNameIcon" class="fa fa-edit" title="Edit Name"></i>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-3">
+                            <p class="orderBoxPara">Password</p>
+                          </div>
+                          <div class="col-md-7 col-9">
+                            <input type="password" class="form-control ms-2" placeholder="Password" readonly="readonly" ,value="12345678">
+
+                          </div>
+                          <div class="col-md-2 col-3">
+
+                            <i class="fa fa-edit" id="updatepasswordIcon" title="Update Password"></i>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-3">
+                            <p class="orderBoxPara">Email Address</p>
+                          </div>
+                          <div class="col-md-7 col-9">
+                            <input name="Email" type="text" value="***************" id="txt_email" readonly="readonly" class="form-control ms-2" placeholder="Current email address">
+                          </div>
+                          <div class="col-md-2 col-3">
+                            <i id="UpdateEmailIcon" class="fa fa-edit" title="Edit Email"></i>
+                            <i id="ViewEmailIcon" class="fa fa-eye view" title="View Email"></i>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-3">
+                            <p class="orderBoxPara">Phone Number</p>
+                          </div>
+                          <div class="col-md-7 col-9">
+                            <input type="text" value="************" readonly="readonly" id="phonetxb" class="form-control ms-2" placeholder="Phone Number">
+                          </div>
+                          <div class="col-md-2 col-3">
+                            <i id="UpdatePhoneIcon" class="fa fa-edit" title="Edit Phone"></i>
+                            <i id="ViewPhoneIcon" class="fa fa-eye view" title="View Phone"></i>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--Start More Details-->
+
+          <br>
+        </div>
+        <div class="col-lg-4 col-sm-12 wow fadeInRight">
+            {% include "accounts/profile/customersupportcard.html" %}
+        </div>
+      </div>
+    </div>
+    <!-- Upadate password Modal -->
+    <div class="modal" id="updatepasswordModel" role="dialog">
+      <div class="modal-dialog modal-sm vertical-align-center">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">
+              <strong>Update Password</strong>
+            </h4>
+            <button type="button" class="close" data-bs-dismiss="modal">x</button>
+          </div>
+          <form id="updatePasswordForm">
+            <input name="__RequestVerificationToken" type="hidden" value="mWh2yGelNmyjpv0sW29MSKhitLYNGHm8O0uIvLS72i0_Gu4KxfxaCGHMl61creP7judrOz2V5llEd2IAn-bRo5aqLuyw8fidTo_v65m6U9JsHDfKhLKVTLvM0HyUADOLumr_5ZYoN9AudHeRlTBm_w2"/>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <input name="txt_oldPass" type="password" id="txt_oldPass" class="form-control" placeholder="Enter your current password">
+                  </div>
+                  <label class="Error_label" id="Old_pass_error">Please Enter Your Old Password.</label>
+                  <div class="form-group">
+                    <input name="Password" type="password" id="txt_pass" class="form-control" autocomplete="new-password" controltovalidate="txt_pass" placeholder="Enter your new password">
+
+                  </div>
+                  <label id="new_pass_error" class="Error_label">Use 8 or more characters with a mix of letters, numbers & symbols without spaces.</label>
+                  <div class="form-group">
+                    <input name="txt_confirmPass" type="password" id="txt_confirmPass" class="form-control" placeholder="Re-enter your new password">
+                  </div>
+                  <label id="confirm_pass_error" class="Error_label">Please Re-Enter your new password.</label>
+                  <label id="missmatch_pass_error" class="Error_label">New password and confirm password must match.</label>
+                  <span id="ErrorMessage" class="errorclass"></span>
+                  <span id="SuccessMessage" class="successclass"></span>
+                  <div class="form-group">
+                    <input type="button" name="btn_Save" value="Update Password" id="btn_Update_password" class="btn-primary btn center-block">
+                  </div>
+                </div>
+                <table id="detailtab" class="myform"></table>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Upadate Name Modal -->
+    <div class="modal" id="updateNameModel" role="dialog">
+      <div class="modal-dialog modal-sm vertical-align-center">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">
+              <strong>Update Name</strong>
+            </h4>
+            <button type="button" class="close" data-bs-dismiss="modal">x</button>
+          </div>
+          <form id="UpdateNameForm">
+            <input name="__RequestVerificationToken" type="hidden" value="0iUxxVGBTQ8WIR-Usl57eWrlcXl_zS1CZkGGAWmqUUeMcYbwtUtVmxn6LN19N_kDyCbQadAbCzAHHwZ6sWAmwCy93OSGpXHFcSC-GN6vJzUrYZZClZWLcK60sWIruUQu9cfQHMeDMZkH3y3ePj44Hw2"/>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Current Name</label>
+                    <input type="text" id="oldName_txb" class="form-control" readonly="readonly">
+                  </div>
+                  <div class="form-group">
+                    <label>New Name</label>
+                    <input type="text" name="FirstName" id="NewName_txb" class="form-control" placeholder="Enter your name">
+                  </div>
+                  <label class="Error_label" id="New_Name_error">Please Provide Your New Name.</label>
+                  <label class="Success_label" id="New_Name_success">Name Updated</label>
+                  <div class="form-group">
+                    <input type="button" value="Update Name" id="btn_Update_Name" class="btn-primary btn center-block">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Upadate Phone Modal -->
+    <div class="modal" id="updateEmailModel" role="dialog">
+      <div class="modal-dialog modal-sm vertical-align-center">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">
+              <strong>Update Email</strong>
+            </h4>
+            <button type="button" class="close" data-bs-dismiss="modal">x</button>
+          </div>
+          <form id="UpdateEmailForm">
+            <input name="__RequestVerificationToken" type="hidden" value="3LyqqM64Drjkq4yVHjKS2rEJwxXthIUS28DFv9u60PejUl9-WFxtNNrF8OvlTDWWCrJUkMflGRtuzWSieglixVvYkqLa9LwnnUsTqgIBRG-nzMT9kh0gatKgZ0DEzJdDsdEadO24385YwSR8FofASQ2"/>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Current Email</label>
+                    <input type="text" id="oldEmail_txb" class="form-control" readonly="readonly">
+                  </div>
+                  <div class="form-group">
+                    <label>New Email</label>
+                    <input type="text" name="Email" id="NewEmail_txb" class="form-control" placeholder="Enter your email">
+                  </div>
+                  <label class="Error_label" id="New_Email_error">Please Provide a Valid Email.</label>
+                  <label class="Success_label" id="New_Email_success">Email Updated.</label>
+                  <div class="form-group">
+                    <input type="button" value="Update Email" id="btn_Update_Email" class="btn-primary btn center-block">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Upadate Phone Modal -->
+    <div class="modal" id="updatePhoneModel" role="dialog">
+      <div class="modal-dialog modal-sm vertical-align-center">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">
+              <strong>Update Phone</strong>
+            </h4>
+            <button type="button" class="close" data-bs-dismiss="modal">x</button>
+          </div>
+          <form id="UpdatePhoneForm">
+            <input name="__RequestVerificationToken" type="hidden" value="ZU7nzww2rdXOaW4Up4XhZs0lAP-_3b_QrvI4XBAC6HUwj4_sewkWPhPxUjV19xVLNqmCMioTy2hn-FYuqlFd3HHnU2jxPpRS7QlPQ0u2X0c-R5C5dqXwnbckdogsQM2O4-GL4pT37BPjPcyi-lLSOg2"/>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Current Phone Number</label>
+                    <input type="text" id="oldPhone_txb" class="form-control" readonly="readonly">
+                  </div>
+                  <div class="form-group">
+                    <span class="country-code">+1</span>
+                    <input type="hidden" id="CountryIsoCode" name="CountryIsoCode"/>
+                    <input type="hidden" id="Phonecode" name="PhoneCode" value="+1"/>
+                    <label for="phone" class="d-block">Phone Number</label>
+                    <select name="countrylist" id="countryddl" class="countrylist editprofile form-control">
+                     
+                      <option data-iso="AE" value="971">United Arab Emirates (+971)</option>
+                      <option data-iso="GB" value="44">United Kingdom (+44)</option>
+
+                    </select>
+                    <input name="PhoneNumber" value="" type="text" data-default-region="US" id="NewPhone_txb" minlength="5" maxlength="17" required="" placeholder="Enter your phone number" class="form-control d-block" autocomplete="off" aria-required="true"/>
+                  </div>
+
+                  <label class="Error_label" id="New_Phone_error">Please Provide a Valid Phone Number.</label>
+                  <label class="Success_label" id="New_Phone_success">Phone Number Updated.</label>
+                  <div class="form-group">
+                    <input type="button" value="Update Phone" id="btn_Update_Phone" class="btn-primary btn center-block">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+{% endblock main %}
