@@ -353,8 +353,9 @@
 
                           <!--*****Sign_In/Login Tab**** -->
                           <div id="sectionB" class="tab-pane fade">
-                            <form id="LoginForm" action="/Account/Login" method="post">
-                              <input name="__RequestVerificationToken" type="hidden" value="s6qXWZqkfdKAksQlBFYpkwVYGSth2SqAgOgC15-1RBPrm2-rXxcD2LUyTvXJ3LfxPF9IepUZ6f1HUk_Y71EPVc9k7ujRVQSv4VyPeC2vxw81"/>
+                            <form id="LoginForm" action="" method="">
+                                
+                                {% csrf_token %}
                               <div class="card-panel">
                                 <div class="row">
                                   <div class="col-md-12">
@@ -381,7 +382,7 @@
                                         <div class="pull-right">
                                           <a tabindex="-1" href="/Account/ForgotPassword" id="btnForgotPassword">Forgot your password?</a>
                                         </div>
-                                        <input type="submit" name="btnLogin" value="Log In" id="btnLogin" class="btn btn-primary btnFullWidth"/>
+                                        <input type="button" onclick="location.href={% url 'user_area_view' %}" name="btnLogin" value="Log In" class="btn btn-primary btnFullWidth"/>
                                       </div>
                                     </div>
                                   </div>

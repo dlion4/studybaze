@@ -22,7 +22,7 @@
               </div>
               <div class="col-6 col-sm-6 text-end padd-right">
                 <div class="place-order">
-                  <a href="/Order/PlaceOrder">Place New Order</a>
+                  <a href="{% url 'order' %}">Place New Order</a>
                 </div>
               </div>
             </div>
@@ -65,13 +65,11 @@
                       <td>Feb 05, 2024 11:56 AM</td>
                       <td>Feb 20 2024 11:56 AM</td>
                       <td>
-                        <a class="PlaceOrderConfirmBtn" href="/Order/ConfirmOrderDetails?rdata=2UkViILiYPIN2oY7H/LOcw==">Place Your Order</a>
+                        <a class="PlaceOrderConfirmBtn" href="">Place Your Order</a>
                         <hr id="rptSelectOrder_ctl01_oblique">
                         <input type="hidden" id="OrderIDtxb" value="ESFOC-12559457"/>
-                        <a id="rptSelectOrder_ctl01_lnk_ordercancel" class="cursor-pointer">Cancel Your Order</a>
-                        <a id="rptSelectOrder_ctl01_lnk_ordercancel" class="lnk_ordercancel cursor-pointer" data-toggle="modal" data-target="#myModal" data-order-id="ESFOC-12559457"></a>
-                        <a id="rptSelectOrder_ctl01_lnk_ordercancel" class="lnk_ordercancel cursor-pointer" data-toggle="modal" data-target="#myModal" data-order-id="ESFOC-12559457"></a>
-                        <a id="rptSelectOrder_ctl01_lnk_ordercancel" class="lnk_ordercancel cursor-pointer" data-bs-toggle="modal" data-bs-target="#myModal" data-order-id="ESFOC-12559457"></a>
+                        <a id="rptSelectOrder_ctl01_lnk_ordercancel" data-toggle="modal" data-target="#myModal"  class="cursor-pointer">Cancel Your Order</a>
+        
                       </td>
                     </tr>
 
@@ -123,29 +121,34 @@
         </div>
       </div>
     </section>
-    
-    <div id="myModal" class="modal ordercancel" role="dialog">
-      <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Please give a reason for cancelling your order.</h4>
-            <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
-          </div>
-          <form action="/Order/CancelOrder" method="post" id="cancelOrder-form">
-            <input name="__RequestVerificationToken" type="hidden" value="6escvHZY-9-Y1-UqiRspmhn0CIFbhl8oYBnVDYfJsMcFgBwLhQVF2oZAT1CJ2u-k1knm_2PTheK-W5imaWar7sjI09o1hb4SaSlR_cbgq55lhsqdC1L6mFqhB7wDbx-dJTngacxB_gIvnHWX6x3Ybw2"/>
-            <div class="modal-body">
-              <input type="hidden" name="orderID" id="Cancel_OrderID"/>
-              <textarea name="comments" rows="2" cols="20" id="txt_feedback" class="form-control" required="" autofocus=""></textarea>
-              <span id="reason_error" class="text-danger fw-bold dis_none">Please provide reason.</span>
-            </div>
-            <div class="modal-footer">
-              <input name="btn_feedback" value="Submit" id="btn_feedback" class="btn btn-primary float-right" type="submit">
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
+
 
 {% endblock main %}
 
+
+{% block modal %}
+
+<div id="myModal" class="modal ordercancel" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Please give a reason for cancelling your order.</h4>
+        <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+      </div>
+      <form action="" method="post" id="cancelOrder-form">
+        <input name="" type="hidden" value=""/>
+        <div class="modal-body">
+          <input type="hidden" name="orderID" id="Cancel_OrderID"/>
+          <textarea name="comments" rows="2" cols="20" id="txt_feedback" class="form-control" required="" autofocus=""></textarea>
+          <span id="reason_error" class="text-danger fw-bold dis_none">Please provide reason.</span>
+        </div>
+        <div class="modal-footer">
+          <input name="btn_feedback" value="Submit" id="btn_feedback" class="btn btn-primary float-right" type="submit">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock modal %}

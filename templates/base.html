@@ -3,52 +3,175 @@
 <html lang="en">
 
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
 
     <title>Paper Writing Service | Fast, Reliable and Secure | EssaysFeed</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Our custom paper writing service covers all your academic needs. 100% Plagiarism-Free Papers, Money-Back Guarantee, Unlimited Free Revisions, and 24/7 Support available.
-">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <meta name="keywords" content="Editing services, proofreading services English editing, editors, ">
-    <link sizes="24x24" type="image/icon" rel="icon" href="{% static 'images/ef_web-favicon.png' %}">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-    <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
-    <link href="{% static 'css/nunito.css' %}" rel="stylesheet">
-    <link href="{% static 'css/poppins.css' %}" rel="stylesheet">
-    <link href="{% static 'css/roboto.css' %}" rel="stylesheet">
-    <link href="{% static 'css/robotoo.css' %}" rel="stylesheet">
-    <link href="{% static 'css/lato.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}?v=2.5  " rel="stylesheet" type="text/css">
-    <link href="{% static 'css/responsive.css' %}?v=1.2" rel="stylesheet" type="text/css">
+"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+    <meta name="keywords" content="Editing services, proofreading services English editing, editors, "/>
+    <link sizes="24x24" type="image/icon" rel="icon" href="{% static 'images/ef_web-favicon.png' %}"/>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}"/>
+    <link href="{% static 'css/nunito.css' %}" rel="stylesheet"/>
+    <link href="{% static 'css/poppins.css' %}" rel="stylesheet"/>
+    <link href="{% static 'css/roboto.css' %}" rel="stylesheet"/>
+    <link href="{% static 'css/robotoo.css' %}" rel="stylesheet"/>
+    <link href="{% static 'css/lato.css' %}" rel="stylesheet"/>
+    <link href="{% static 'css/style.css' %}?v=2.5  " rel="stylesheet" type="text/css"/>
+    <link href="{% static 'css/responsive.css' %}?v=1.2" rel="stylesheet" type="text/css"/>
 
     <script src="{% static 'js/jquery.min.js' %}"></script>
 
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
-
-
-
   </head>
 
   <body>
-
     {% include "components/header.html" %}
-
     {% block 'main' %}{% endblock 'main' %}
-
     {% block footer %}
-    
-    {% include "components/footer.html" %}
-    
+      {% include "components/footer.html" %}
     {% endblock footer %}
+    {% block modal %}
 
-    <script type="text/javascript" src="{% static 'csp/initModel.js' %}"></script>
+      <div class="popup_form_wrapper">
+        <div id="login" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body">
+                <button data-bs-dismiss="modal" class="close">&times;</button>
+                <div class="container" id="container">
+                  <div class="form-container sign-in-container">
+                    <div class="contact_wrapper calculate_order calculate_order_form">
+                      <form id="lead_form_popup" method="POST" action="lite_common/form_handler.php">
+                        <div class="order-form">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="contact_left p-0">
+                                <div class="form-title text-center">
+                                  <h3>Act Fast - Save Big!</h3>
+                                </div>
+                                <div class="form_dis_banner">
+                                  <p>
+                                    <span>50%</span>
+                                    DISCOUNT</p>
 
-    <script type="text/javascript" src="{% static 'csp/tawkto.js' %}" chatid='654a111ef2439e1631ec8bfc/1hh42u4as' ip='154.159.252.154' websitename='EssaysFeed'></script>
-    <script src="{% static 'js/lead-forms.js' %}"></script>
-    <script src="{% static 'js/popup.js' %}"></script>
-  </body>
+                                  <div class="banner-ribon">
+                                    <p>
+                                      UP TO 20%
+                                      <span>EXTRA DISCOUNT</span>
+                                      ON BIG ORDERS
+                                    </p>
+                                  </div>
+                                  <div class="arrow-left1"></div>
+                                </div>
+                                <div class="row mb-3 form-start">
+                                  <div class="col-md-12">
+                                    <input type="hidden" name="origin" value="index.php"/>
+                                    <input type="hidden" name="website" value="essaysfeed.com"/>
+                                    <input type="hidden" name="RefrenceNo" value=""/>
+                                    <input type="hidden" name="ReferalURL" value=""/>
+                                    <label>Name
+                                      <span class="text-danger">*</span></label>
+                                    <i class="fas fa-user ml-3 icons"></i>
+                                    <input type="text" id="f_name_popup" name="name" class="mb-2" placeholder="Enter Your Full Name" required=""/>
+                                    <span id="nameError_popup" class="text-danger password_require pop_cmn_err d-none"></span>
+                                  </div>
+                                  <div class="col-md-12">
+                                    <label>Email Address
+                                      <span class="text-danger">*</span></label>
+                                    <i class="fas fa-envelope ml-3 icons"></i>
+                                    <input type="email" id="f_email_popup" name="email" class="mb-2" placeholder="Enter Your Email Address"  required=""/>
+                                    <span id="emailError_popup" class="text-danger password_require pop_cmn_err d-none"></span>
+                                  </div>
 
-</html>
+                                  <div class="col-md-12">
+                                    <label>Select Country
+                                      <span class="text-danger">*</span></label>
+                                    <div class="form_sel_wrapper">
+                                      <input type="hidden" id="Phonecode_popup" name="Phonecode" value=""/>
+                                      <input type="hidden" id="CountryIsoCode_popup" name="CountryIsoCode" value=""/>
+                                      <i class="fas fa-globe"></i>
+                                      <select name="countrylist" id="countryddl_popup" class="countrylist form-control sel_ctry">
+                                        <option data-iso="AF" value="93">Afghanistan (+93)</option>
+                                        <option data-iso="AX" value="358">Åland Islands (+358)</option>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                      <label>Phone Number
+                                        <span class="text-danger">*</span></label>
+                                      <div class="form_phone">
+                                        <i class="fas fa-phone-alt" ></i>
+                                        <input type="tel" name="phone" id="phone_popup" class="form_control" placeholder="Enter Your Phone Number" required=""/>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-12 sbmt_btn_adj">
+                                <div class="coupon-wrapper">
+                                  <div class="coupon-wrapper-adj">
+                                    <div class="lowest_lft">
+                                      <p>Lowest
+                                        <br/>Price</p>
+                                      <p>GUARANTEED</p>
+                                      <div class="arrow-down3"></div>
+                                    </div>
+                                    <div class="coupan_details">
+                                      <h4>Coupons Left Today</h4>
+                                      <p>
+                                        <span>Get it</span>
+                                        Before offer Ends!</p>
+                                    </div>
+                                    <div class="coupan_square">
+                                      <p class="ReviewCounter-container">
+                                        <span class="ReviewCounter">
+                                          <span class="odometer" data-value="9"></span>
+                                        </span>
+                                      </p>
+                                      <p>Coupons</p>
+                                      <div class="vl">
+                                        <div class="small_circle_top"></div>
+                                        <div class="small_circle_btm"></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <span class="ripple_yellow ripple_yellow_submit_cal">
+                                  <button name="contact_with_expert_form" value="submit" id="f_submit1" class="btn btn-success black-btn2 mt-2 mb-2 OrderNow" type="button">
+                                    Place Your Order Now
+                                  </button>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                        <!--Error Message-->
+                        <div class="col-md-12 pad-25">
+                          <div id="auto-response">
+                            <p>Warning! Operation Unsuccessfull,Invalid Data</p>
+                          </div>
+                        </div>
+                        <div class="result"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      {% endblock modal %}
+
+      <script type="text/javascript" src="{% static 'csp/initModel.js' %}"></script>
+
+      <script type="text/javascript" src="{% static 'csp/tawkto.js' %}" chatid="654a111ef2439e1631ec8bfc/1hh42u4as" ip="154.159.252.154" websitename="EssaysFeed"></script>
+      <script src="{% static 'js/lead-forms.js' %}"></script>
+      <script src="{% static 'js/popup.js' %}"></script>
+    </body>
+
+  </html>

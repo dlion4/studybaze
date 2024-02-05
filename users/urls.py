@@ -12,4 +12,5 @@ urlpatterns = [
     path("open-dispute/", views.essay_feed_open_dispute_view, name="open_dispute_view"),
     path("loyalty-points/", views.essay_feed_loyalty_point_view, name="loyalty_points_view"),
     path("referrer-friend/", views.essay_feed_referral_view, name="referrer"),
+    path("customerfeedback/", views.essay_feed_customerfeedback_view, name="customerfeedback_view"),
 ]

@@ -60,3 +60,10 @@ class EssayFeedReferralView(TemplateView):
     template_name = "accounts/profile/referral.html"
 
 essay_feed_referral_view = EssayFeedReferralView.as_view()
+
+
+class EssayFeedCustomerFeedBackView(TemplateView):
+    template_name = "accounts/profile/customerfeedback.html"
+
+
+essay_feed_customerfeedback_view = EssayFeedCustomerFeedBackView.as_view()
