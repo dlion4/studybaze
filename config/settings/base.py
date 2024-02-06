@@ -72,6 +72,7 @@ DJANGO_APPS = [
     # "django.contrib.humanize", # Handy template tags
     "django.contrib.admin",
     "django.forms",
+    "django.contrib.flatpages",
 ]
 THIRD_PARTY_APPS = [
     "crispy_forms",
@@ -84,11 +85,14 @@ THIRD_PARTY_APPS = [
     "rest_framework.authtoken",
     "corsheaders",
     "drf_spectacular",
+    "phonenumber_field",
+    'widget_tweaks',
 ]
 
 LOCAL_APPS = [
     "essayfeeds.users",
     # Your stuff: custom apps go here
+    "essayfeeds.classwork",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -192,9 +196,14 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 "essayfeeds.users.context_processors.allauth_settings",
             ],
+
+            "builtins": [
+                "widget_tweaks.templatetags.widget_tweaks",
+                ],
         },
     }
 ]
+
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#form-renderer
 FORM_RENDERER = "django.forms.renderers.TemplatesSetting"
@@ -222,7 +231,7 @@ X_FRAME_OPTIONS = "DENY"
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
 EMAIL_BACKEND = os.environ.get(
     "DJANGO_EMAIL_BACKEND",
-    default="django.core.mail.backends.smtp.EmailBackend",
+    default="django.core.mail.backends.console.EmailBackend",
 )
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-timeout
 EMAIL_TIMEOUT = 5
@@ -308,7 +317,7 @@ ACCOUNT_USERNAME_REQUIRED = False
 # https://docs.allauth.org/en/latest/account/configuration.html
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 # https://docs.allauth.org/en/latest/account/configuration.html
-ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+# ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 # https://docs.allauth.org/en/latest/account/configuration.html
 ACCOUNT_ADAPTER = "essayfeeds.users.adapters.AccountAdapter"
 # https://docs.allauth.org/en/latest/account/forms.html

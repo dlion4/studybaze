@@ -1,9 +1,13 @@
+from typing import Any
 from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
+from django.db.models.base import Model as Model
+from django.db.models.query import QuerySet
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import DetailView, RedirectView, UpdateView, TemplateView
+from .models import Profile
 
 User = get_user_model()
 
@@ -12,6 +16,14 @@ class UserDetailView(LoginRequiredMixin, DetailView):
     model = User
     slug_field = "id"
     slug_url_kwarg = "id"
+    template_name = "accounts/profile/user_view.html"
+
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['client'] = Profile.objects.get(user=self.get_object())
+        print(context)
+        return context
 
 
 user_detail_view = UserDetailView.as_view()

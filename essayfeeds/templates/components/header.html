@@ -1,4 +1,4 @@
-{% load static %}
+{% load static i18n %}
 
 <header id="topnav" class="defaultscroll sticky bg-white w-100">
   <div class="container">
@@ -55,21 +55,27 @@
               </li>
             </ul>
             <ul class="navbar_btns">
+              {% if request.user.is_authenticated %}
               <li>
-                <a href="{% url 'user_area_view' %}" class="btn_user bordered_btn">
+                {% comment %} <a href="{% url 'user_area_view' %}" class="btn_user bordered_btn"> {% endcomment %}
+                <a href="{% url 'users:detail' request.user.pk %}" class="btn_user bordered_btn">
                  UserArea
                 </a>
               </li>
-              <li>
-                <a href="{% url 'login' %}" class="btn_user bordered_btn">
-                  Log In
-                </a>
-              </li>
               <li class="hidden-xs">
-                <a href="order.php" class="btn_user shared_order">
+                <a href="" class="btn_user shared_order">
                   Order Now
                 </a>
               </li>
+              {% else %} 
+              {% if ACCOUNT_ALLOW_REGISTRATION %}
+              <li>
+                <a href="{% url 'account_login' %}" class="btn_user bordered_btn">
+                  {% translate "Log In" %}
+                </a>
+              </li>
+              {% endif %}
+              {% endif %}
             </ul>
           </div>
         </nav>
@@ -106,3 +112,7 @@
     </div>
   </div>
 </header>
+
+
+
+

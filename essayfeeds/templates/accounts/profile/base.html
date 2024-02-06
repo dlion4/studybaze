@@ -54,7 +54,7 @@
                 </a>
                 <span class="btns_xs">
                   <!--mobile view buttons -->
-                  <a href="/userarea" class="btn_user_mbile">User Area</a>
+                  <a href="" class="btn_user_mbile">User Area</a>
 
                 </span>
 
@@ -76,10 +76,10 @@
                       </a>
                     </li>
                     <li>
-                      <a href="{% url 'login' %}" class="btn_user">Log Out</a>
+                      <a href="{% url 'account_logout' %}" class="btn_user">Log Out</a>
                     </li>
                     <li>
-                      <a href="{% url 'user_area_view' %}" class="btn_user hidden-xs">User Area</a>
+                      <a href="{% url 'users:detail' request.user.pk %}" class="btn_user hidden-xs">User Area</a>
                     </li>
                   </ul>
                 </div>
@@ -112,27 +112,27 @@
                             <a href="">User Area</a>
                           </li>
                           <li class="dropdown-header">
-                            <a href="{% url 'user_update_view' %}">Update Profile</a>
+                            <a href="{% url 'users:user_update_view' %}">Update Profile</a>
                           </li>
                           <li class="dropdown-header">Complaints & Disputes</li>
                           <li>
-                            <a href="{% url 'dispute_register_view' %}">Register Complaints</a>
+                            <a href="{% url 'users:dispute_register_view' %}">Register Complaints</a>
                           </li>
                           <li>
-                            <a href="{% url 'open_dispute_view' %}">Open Dispute</a>
+                            <a href="{% url 'users:open_dispute_view' %}">Open Dispute</a>
                           </li>
                           <li>
-                            <a href="{% url 'dispute_view' %}">View Disputes</a>
+                            <a href="{% url 'users:dispute_view' %}">View Disputes</a>
                           </li>
                           <li class="dropdown-header">
-                            <a href="{% url 'loyalty_points_view' %}">Loyalty Points</a>
+                            <a href="{% url 'users:loyalty_points_view' %}">Loyalty Points</a>
                           </li>
                         </ul>
                       </li>
                       <li class="col-sm-6">
                         <ul>
                           <li class="dropdown-header">
-                            <a href="{% url 'referrer' %}">Refer a Friend</a>
+                            <a href="{% url 'users:referrer' %}">Refer a Friend</a>
                           </li>
 
                           {% for page in flatpages %}
@@ -141,11 +141,11 @@
                             </li>
                           {% endfor %}
                           <li class="dropdown-header">
-                            <a href="{% url 'customerfeedback_view' %}">Suggestion & Feedback</a>
+                            <a href="{% url 'users:customerfeedback_view' %}">Suggestion & Feedback</a>
                           </li>
 
                           <li class="dropdown-header">
-                            <a href="{% url 'home' %}">Log Out</a>
+                            <a href="{% url 'account_logout' %}">Log Out</a>
                           </li>
                         </ul>
                       </li>
