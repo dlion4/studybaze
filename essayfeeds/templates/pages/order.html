@@ -30,7 +30,7 @@
       <div class="row form_area_row">
         <div id="form-data" class="col-md-12">
           <form id="placeOrderForm" action="" method="post" name="order-form" class="row oder_form order-set" enctype="multipart/form-data">
-            <input name="__RequestVerificationToken" type="hidden" value="490aUMW_dcKtiCrVpAn3babPIxc_S2ablu0R67-X6f8AWGZYA5VqEGtfftM07RUqr9Lj-Hj-S9EqTCwuwNlloayTwbImx3oFLd-pWyF6S_7pMC00_33qaAYMyDJVxdpVQtJ14c04bnaWgvseEAHaZg2"/>
+            {% csrf_token %}
             <div class="col-md-6 col-lg-7">
               <div class="border-order">
                 <h4 class="fw-700 mb-3">Order Details</h4>
@@ -42,12 +42,9 @@
                       </i>
                     </span>
                   </label>
-                  <select class="opr form-control" data-val="true" data-val-number="The field ServiceCode must be a number." data-val-required="The ServiceCode field is required." id="ServiceCode" name="ServiceCode">
-                    <option selected="selected" value="1">Writing</option>
-                    <option value="2">Editing</option>
-                    <option value="3">Proofreading</option>
-                  </select>
+     
 
+                  {% render_field form.service class="opr form-control" %}
                 </div>
                 <div class="form-group">
                   <label class="mb-2" for="DocumentTypeCode">Type of Work<span class="tool-wrap">
@@ -58,63 +55,19 @@
                     </span>
                   </label>
                   <input name="hdn_ppp" id="hdn_ppp" value="16.00" type="hidden">
-                  <select class="opr form-control mb-3" data-val="true" data-val-number="The field DocumentTypeCode must be a number." data-val-required="The DocumentTypeCode field is required." id="ddl_type" name="DocumentTypeCode">
-                    <option value="21">Admission Essay</option>
-                    <option value="22">Annotated Bibliography</option>
-                    <option value="23">Application Letter</option>
-                    <option value="24">Argumentative Essay</option>
-                    <option value="19">Article</option>
-                    <option value="15">Assignment</option>
-                    <option value="25">Biography</option>
-                    <option value="8">Book Report</option>
-                    <option value="9">Book Review</option>
-                    <option value="26">Business Plan</option>
-                    <option value="20">Case Study</option>
-                    <option value="16">College Paper</option>
-                    <option value="4">Coursework</option>
-                    <option value="27">Cover Letter</option>
-                    <option value="28">Creative Writing</option>
-                    <option value="29">Critical Thinking</option>
-                    <option value="5">Dissertation</option>
-                    <option value="10">eBook</option>
-                    <option selected="selected" value="1">Essay</option>
-                    <option value="11">Homework</option>
-                    <option value="12">Lab Report</option>
-                    <option value="30">Literature Review</option>
-                    <option value="13">Movie Review</option>
-                    <option value="14">News Release</option>
-                    <option value="31">Personal Statement</option>
-                    <option value="36">PowerPoint Presentation</option>
-                    <option value="32">Presentation</option>
-                    <option value="33">Report</option>
-                    <option value="3">Research Paper</option>
-                    <option value="7">Research proposal</option>
-                    <option value="17">School Paper</option>
-                    <option value="34">Scholarship Essay</option>
-                    <option value="18">Speech</option>
-                    <option value="2">Term Paper</option>
-                    <option value="6">Thesis</option>
-                    <option value="35">Thesis Proposal</option>
-                  </select>
-
+                  {% render_field form.type_of_work class="form-control opr" %}
                 </div>
                 <div class="form-group">
-                  <label class="mb-2" for="academic-level">Academic Level<span class="tool-wrap">
+                  <label class="mb-2" for="academic-level">
+                    {% render_field form.academic_level.label %}
+                    <span class="tool-wrap">
                       <i class="fas fa-question question">
                         <span class="tool">Choose the education level for this order.
                         </span>
                       </i>
                     </span>
                   </label>
-
-                  <select class="form-control opr" data-val="true" data-val-number="The field AcademicLevelCode must be a number." data-val-required="The AcademicLevelCode field is required." id="ddl_lvl" name="AcademicLevelCode">
-                    <option selected="selected" value="1">High School</option>
-                    <option value="2">College</option>
-                    <option value="4">Undergraduate</option>
-                    <option value="5">Masters</option>
-                    <option value="6">PhD</option>
-                  </select>
-
+                  {% render_field form.academic_level class="form-control opr" %}
                 </div>
                 <div class="form-group">
                   <label class="mb-2" for="project-ptitle">Project Title<span class="tool-wrap">
@@ -124,11 +77,9 @@
                       </i>
                     </span>
                   </label>
-                  <input type="text" class="form-control" name="ProjectName" id="txt_topic" placeholder="Enter the title of your project" required="" data-parsley-required="" data-parsley-trigger="focusout" data-parsley-trigger-after-failure="focusout">
-                  <div id="titleError" class="message_box mt-3 input_title-error-container dis_none">
-                    <p class="text-danger text-left pl-3">Please enter the project title to proceed.
-                    </p>
-                  </div>
+             
+                  {% render_field form.title class="form-control" placeholder=form.title.label %}
+              
                 </div>
                 <div class="form-group">
                   <label class="mb-2" for="subject-area">Subject<span class="tool-wrap">
@@ -138,111 +89,10 @@
                       </i>
                     </span>
                   </label>
-                  <select class="form-control mb-3 opr" name="SubjectFieldCode" id="ddl_subject">
-                    <option selected="selected" value="0">Please select subject</option>
-                    <option value="1" class="parent_category">Art</option>
-                    <option value="2">&nbsp;&nbsp;Architecture</option>
-                    <option value="3">&nbsp;&nbsp;Dance</option>
-                    <option value="4">&nbsp;&nbsp;Design</option>
-                    <option value="5">&nbsp;&nbsp;Analysis</option>
-                    <option value="6">&nbsp;&nbsp;Drama</option>
-                    <option value="7">&nbsp;&nbsp;Movies</option>
-                    <option value="8">&nbsp;&nbsp;Music</option>
-                    <option value="9">&nbsp;&nbsp;Paintings</option>
-                    <option value="10">&nbsp;&nbsp;Theatre</option>
-                    <option value="11">Biology</option>
-                    <option value="12">Business</option>
-                    <option value="13">Chemistry</option>
-                    <option value="14" class="parent_category">Communications and Media</option>
-                    <option value="15">&nbsp;&nbsp;Advertising</option>
-                    <option value="16">&nbsp;&nbsp;Communication</option>
-                    <option value="17">&nbsp;&nbsp;Strategies</option>
-                    <option value="18">&nbsp;&nbsp;Journalism</option>
-                    <option value="19">&nbsp;&nbsp;Public Relations</option>
-                    <option value="20" class="parent_category">Economics</option>
-                    <option value="21">&nbsp;&nbsp;Company</option>
-                    <option value="22">&nbsp;&nbsp;Analysis</option>
-                    <option value="23">&nbsp;&nbsp;E-Commerce</option>
-                    <option value="24">&nbsp;&nbsp;Investment</option>
-                    <option value="25">&nbsp;&nbsp;Logistics</option>
-                    <option value="26">&nbsp;&nbsp;Trade</option>
-                    <option value="27" class="parent_category">Education</option>
-                    <option value="28">&nbsp;&nbsp;Application Essay</option>
-                    <option value="29">&nbsp;&nbsp;Education Theories</option>
-                    <option value="30">&nbsp;&nbsp;Pedagogy</option>
-                    <option value="31">&nbsp;&nbsp;Teachers Career</option>
-                    <option value="32">Engineering</option>
-                    <option value="33">English</option>
-                    <option value="34">Ethics</option>
-                    <option value="35" class="parent_category">History</option>
-                    <option value="36">&nbsp;&nbsp;African-American Studies</option>
-                    <option value="37">&nbsp;&nbsp;American History</option>
-                    <option value="38">&nbsp;&nbsp;Asian Studies</option>
-                    <option value="39">&nbsp;&nbsp;Canadian Studies</option>
-                    <option value="40">&nbsp;&nbsp;East European Studies</option>
-                    <option value="41">&nbsp;&nbsp;Holocaust</option>
-                    <option value="42">&nbsp;&nbsp;Latin-American Studies</option>
-                    <option value="43">&nbsp;&nbsp;Native-American Studies</option>
-                    <option value="44">&nbsp;&nbsp;West European Studies</option>
-                    <option value="45" class="parent_category">Law</option>
-                    <option value="46">&nbsp;&nbsp;Criminology</option>
-                    <option value="47">&nbsp;&nbsp;Legal Issues</option>
-                    <option value="48" class="parent_category">Literature</option>
-                    <option value="49">&nbsp;&nbsp;American Literature</option>
-                    <option value="50">&nbsp;&nbsp;Antique Literature</option>
-                    <option value="51">&nbsp;&nbsp;Asian Literature</option>
-                    <option value="52">&nbsp;&nbsp;English Literature</option>
-                    <option value="53">&nbsp;&nbsp;Shakespeare Studies</option>
-                    <option value="54">Management</option>
-                    <option value="55">Marketing</option>
-                    <option value="56">Mathematics</option>
-                    <option value="57">Medicine and Health</option>
-                    <option value="58" class="parent_category">Alternative Medicine</option>
-                    <option value="59">&nbsp;&nbsp;Healthcare</option>
-                    <option value="60">&nbsp;&nbsp;Nursing</option>
-                    <option value="61">&nbsp;&nbsp;Nutrition</option>
-                    <option value="62">&nbsp;&nbsp;Pharmacology</option>
-                    <option value="63" class="parent_category">Nature</option>
-                    <option value="64">&nbsp;&nbsp;Agricultural Studies</option>
-                    <option value="65">&nbsp;&nbsp;Anthropology</option>
-                    <option value="66">&nbsp;&nbsp;Astronomy</option>
-                    <option value="67">&nbsp;&nbsp;Environmental Issues</option>
-                    <option value="68">&nbsp;&nbsp;Geography</option>
-                    <option value="69">&nbsp;&nbsp;Geology</option>
-                    <option value="70">Philosophy</option>
-                    <option value="71">Physics</option>
-                    <option value="72">Political Science</option>
-                    <option value="73">Psychology</option>
-                    <option value="74" class="parent_category">Religion and Theology</option>
-                    <option value="75">&nbsp;&nbsp;Normal</option>
-                    <option value="76">&nbsp;&nbsp;Bible</option>
-                    <option value="77">Sociology</option>
-                    <option value="78" class="parent_category">Technology</option>
-                    <option value="79">&nbsp;&nbsp;Aeronautics</option>
-                    <option value="80">&nbsp;&nbsp;Aviation</option>
-                    <option value="81">&nbsp;&nbsp;Computer</option>
-                    <option value="82">&nbsp;&nbsp;Science</option>
-                    <option value="83">&nbsp;&nbsp;Internet</option>
-                    <option value="84">&nbsp;&nbsp;IT</option>
-                    <option value="85">&nbsp;&nbsp;Management</option>
-                    <option value="86">&nbsp;&nbsp;Web Design</option>
-                    <option value="87">Tourism</option>
-                    <option value="89">Auditing</option>
-                    <option value="90">Financial Analysis</option>
-                    <option value="91" class="parent_category">Finance</option>
-                    <option value="92">&nbsp;&nbsp;Theory</option>
-                    <option value="93">Statistical Analysis</option>
-                    <option value="94" class="parent_category">Statistics</option>
-                    <option value="95">&nbsp;&nbsp;Theory</option>
-                    <option value="96" class="parent_category">Accounting</option>
-                    <option value="97">&nbsp;&nbsp;Analysis</option>
-                    <option value="98">&nbsp;&nbsp;Theory</option>
-                    <option value="99">Other</option>
-                  </select>
-                  <div id="ddlsError" class="message_box mt-3 input_title-error-container dis_none">
-                    <p class="text-danger text-left pl-3">Please select subject.
-                    </p>
-                  </div>
+          
+                  {% render_field form.subject class="form-control mb-3 opr" %}
+
+      
                 </div>
                 <div class="form-group">
                   <label class="mb-2" for="deadline">Deadline<span class="tool-wrap">
@@ -252,19 +102,8 @@
                       </i>
                     </span>
                   </label>
-                  <select name="DeadlineCode" id="ddl_date" class="form-control opr">
-                    <option value="1">15 days</option>
-                    <option value="2">10 days</option>
-                    <option value="3">7 days</option>
-                    <option value="4">5 days</option>
-                    <option value="5">4 days</option>
-                    <option value="6">3 days</option>
-                    <option value="7">48 hours</option>
-                    <option value="8">24 hours</option>
-                    <option value="9">12 hours</option>
-                    <option value="10">6 hours</option>
-                    <option value="11">3 hours</option>
-                  </select>
+                
+                  {% render_field form.deadline class="form-control opr" %}
 
                 </div>
                 <div class="form-row">
@@ -322,10 +161,9 @@
                       </i>
                     </span>
                   </label>
-                  <textarea name="ProjectDescription" id="txt_description" class="form-control" placeholder="Tell us more about your project and its requirements" rows="2" required="" data-parsley-required="" data-parsley-trigger="focusout" data-parsley-trigger-after-failure="focusout"></textarea>
-                  <div id="descriptionError" class="message_box mt-2 txt_description-error-container dis_none">
-                    <p class="text-danger text-left pl-3">Please enter the guidelines of your project to proceed.</p>
-                  </div>
+                  
+                  {% render_field form.instructions class="form-control" placeholder="Tell us more about your project and its requirements" rows="3" %}
+
                   <div class="text-left">
                     <a class="guide-line">
                       <span>
@@ -342,22 +180,10 @@
                       </i>
                     </span>
                   </label>
-                  <select class="form-control" name="CitationStyleCode" id="ddl_style">
-                    <option selected="selected" value="10">Non Specific</option>
-                    <option value="1">APA</option>
-                    <option value="8">CBE</option>
-                    <option value="4">Chicago</option>
-                    <option value="5">Harvard</option>
-                    <option value="2">MLA</option>
-                    <option value="6">Oxford</option>
-                    <option value="3">Turabian</option>
-                    <option value="7">Vancouver</option>
-                    <option value="9">Other</option>
-                  </select>
-                  <span class="othsty my-0 pt-2 pb-1 dis_none" id="spn_othsty">
-                    <label class="d-none" for="citation-style"></label>
-                    <input name="txt_StyleOther" maxlength="255" id="txt_StyleOther" class="form-control dis_none" placeholder="Please Specify Style" data-parsley-style-other="" data-parsley-trigger="focusout" data-parsley-trigger-after-failure="focusout" type="text">
-                  </span>
+       
+                  {% render_field form.citation_style class="form-control" %}
+
+                
                   <div id="citationError" class="message_box input_txt_StyleOther-error-container col-md-12 dis_none">
                     <p class="text-danger text-left pl-3">Please provide citation details</p>
                   </div>
@@ -374,145 +200,22 @@
                     <span class="q_minus_ref">
                       <i class="fa fa-minus"></i>
                     </span>
-                    <input id="txt_nor" name="References" type="text" class="form-control" value="0" required="">
+                    {% render_field form.references class="form-control" min="0"  %}
                     <span class="q_plus_ref">
                       <i class="fa fa-plus"></i>
                     </span>
                   </div>
+                </div>
+              </div>
 
-                </div>
-                <div class="form-group">
-                  <label class="mb-2" for="font-style">Font Style<span class="tool-wrap">
-                      <i class="fas fa-question question">
-                        <span class="tool">Select your preferred font style.
-                        </span>
-                      </i>
-                    </span>
-                  </label>
-                  <select class="form-control" name="FontStyleCode" id="ddl_fontface">
-                    <option selected="selected" value="1">Calibri (Standard)</option>
-                    <option value="2">Arial</option>
-                    <option value="3">Times New Roman</option>
-                    <option value="4">Verdana</option>
-                    <option value="5">Georgia</option>
-                    <option value="6">Trebuchet MS</option>
-                    <option value="7">Courier New</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label class="mb-2" for="language">Language<span class="tool-wrap">
-                      <i class="fas fa-question question">
-                        <span class="tool">Select your language preference.
-                        </span>
-                      </i>
-                    </span>
-                  </label>
-                  <select class="form-control" name="LanguageCode" id="ddl_lang">
-                    <option selected="selected" value="1">US English</option>
-                    <option value="2">UK English</option>
-                    <option value="3">EFL (English as Foreign Language)</option>
-                  </select>
-                </div>
-              </div>
-              <div class="border-order">
-                <div class="form-group">
-                  <h4 class="fw-700 mb-3">Add-ons</h4>
-                  <label class="custom-check" for="chk_writer">
-                    <input type="checkbox" name="chk_writer" id="chk_writer" class="opr">
-                    <span class="checkmark"></span>
-                    Choose Preferred Expert<span class="tool-wrap">
-                      <i class="fas fa-question question">
-                        <span class="tool">Have your preferred expert work on your paper.
-                        </span>
-                      </i>
-                    </span>
-                    <span class="pull-right price_label"><span class="CurrencySymbol">$</span><span id="lbl_Writer">8.75
-                      </span>
-                    </span>
-                  </label>
-                </div>
-                <div class="form-group">
-                  <label class="custom-check" for="chk_grmmrRpt">
-                    <input name="chk_grmmrRpt" type="checkbox" id="chk_grmmrRpt" class="opr">
-                    <span class="checkmark"></span>
-                    Grammar Check Report<span class="tool-wrap">
-                      <i class="fas fa-question question">
-                        <span class="tool">A report to guarantee the absence of grammatical errors.
-                        </span>
-                      </i>
-                    </span>
-                    <span class="pull-right price_label"><span class="CurrencySymbol">$</span><span id="lbl_grmrRpt">6.75
-                      </span>
-                    </span>
-                  </label>
-                </div>
-                <div class="form-group">
-                  <label class="custom-check" for="chk_summary">
-                    <input type="checkbox" name="chk_summary" id="chk_summary" class="opr">
-                    <span class="checkmark"></span>
-                    One Page Summary<span class="tool-wrap">
-                      <i class="fas fa-question question">
-                        <span class="tool">A neutral and condensed summary of your whole paper.
-                        </span>
-                      </i>
-                    </span>
-                    <span class="pull-right price_label">
-                      <span class="CurrencySymbol">$</span><span id="chk_smry">8.00</span>
-                    </span>
-                  </label>
-                </div>
-                <div class="form-group">
-                  <label class="custom-check" for="chk_abstrctpge">
-                    <input type="checkbox" name="chk_abstrctpge" id="chk_abstrctpge" class="opr">
-                    <span class="checkmark"></span>
-                    Abstract Page<span class="tool-wrap">
-                      <i class="fas fa-question question">
-                        <span class="tool">An official report to ensure the authenticity of your project/paper.
-                        </span>
-                      </i>
-                    </span>
-                    <span class="pull-right price_label">
-                      <span class="CurrencySymbol">$</span><span id="chk_abstrt">8.00</span>
-                    </span>
-                  </label>
-                </div>
-                <div class="form-group">
-                  <label class="custom-check" for="chk_dblqltychk">
-                    <input type="checkbox" name="chk_dblqltychk" id="chk_dblqltychk" class="opr" data-price="3.75">
-                    <span class="checkmark"></span>
-                    Quality Double-check<span class="tool-wrap">
-                      <i class="fas fa-question question">
-                        <span class="tool">Ensure the finest quality of your paper through dual quality review with this feature.
-                        </span>
-                      </i>
-                    </span>
-                    <span class="pull-right price_label">
-                      <span class="CurrencySymbol">$</span><span id="lbl_dblQtyChk">2.00</span>
-                    </span>
-                  </label>
-                </div>
-              </div>
+              {% include "pages/order/addons.html" %}
+
               <div class="orderbtn_bx">
                 <a name="btn_OrderNow" id="btn_OrderNow" href="{% url 'confirm_order' %}" class="btn_proceed bounce-effect">Confirm Order</a>
               </div>
 
               <div class="border-order mt-4">
-                <div class="form-group">
-                  <h4 class="fw-700 mb-3">Account Details</h4>
-                  <label class="custom-check" for="customername">
-                    Name
-                    <span class="pull-right price_label" id="customername">
-                      <span>rszhu4ree5ju5tr5h
-                      </span>
-                    </span>
-                  </label>
-                  <label class="custom-check mt-3" for="customerid">
-                    Customer ID
-                    <span class="pull-right price_label" id="customerid">
-                      <span>ESFC-1847061</span>
-                    </span>
-                  </label>
-                </div>
+               {% include "pages/order/user_card.html" %}
               </div>
             </div>
 

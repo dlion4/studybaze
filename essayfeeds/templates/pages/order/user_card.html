@@ -1,0 +1,20 @@
+{% load static %}
+
+
+
+<div class="form-group">
+    <h4 class="fw-700 mb-3">Account Details</h4>
+    <label class="custom-check" for="customername">
+      Name
+      <span class="pull-right price_label" id="customername">
+        <span>{{client}}
+        </span>
+      </span>
+    </label>
+    <label class="custom-check mt-3" for="customerid">
+      Customer ID
+      <span class="pull-right price_label" id="customerid">
+        <span>{{client.clientId}}</span>
+      </span>
+    </label>
+  </div>

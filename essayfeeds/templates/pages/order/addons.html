@@ -1,0 +1,25 @@
+{% load static %}
+
+<div class="border-order">
+  <div class="form-group">
+    {% if addons %}
+      <h4 class="fw-700 mb-3">Add-ons</h4>
+      {% for addon in addons %}
+        <label class="custom-check my-2" for="chk_writerchk_writer-{{addon.id}}" style="display: flex; align-items: center; justify-content: space-around;">
+          <input type="checkbox" name="{{addon.addon}}" id="chk_writer-{{addon.id}}" class="opr">
+          <span class="checkmark"></span>
+          {{addon.addon}}
+          <span class="tool-wrap">
+            <i class="fas fa-question question">
+              <span class="tool">Have your preferred expert work on your paper.
+              </span>
+            </i>
+          </span>
+          <span class="pull-right price_label"><span class="CurrencySymbol">$</span><span id="lbl_Writer">{{addon.price}}
+            </span>
+          </span>
+        </label>
+      {% endfor %}
+    {% endif %}
+  </div>
+</div>
