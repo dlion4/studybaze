@@ -1,0 +1,50 @@
+{% extends "accounts/base.html" %}
+{% load static %}
+
+
+{% block css %}
+  <link type="text/css" rel="stylesheet" href="{% static 'Content/Cosmo/UserArea/css/new_header_footer_common.css' %}?v=12272023">
+  <!-- Jquery & JavaScript CDN'S, Files -->
+  <script type="text/javascript" src="{% static 'Content/CustomCDN/js/jquery.3.7.1.js' %}"></script>
+  <script type="text/javascript" src="{% static 'Content/CustomCDN/js/bootstrap.5.3.2.js' %}"></script>
+  <script type="text/javascript" src="{% static 'Content/CustomCDN/js/parsley.2.9.2.min.js' %}"></script>
+
+  <link type="text/css" rel="stylesheet" href="{% static 'Content/Cosmo/UserArea/css/orderpage.css' %}?v=08212023"/>
+{% endblock css %}
+
+{% block main %}
+
+  <!-- Order+Preview Page Order Steps -->
+  <div class="headerOrder ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <a href="">
+            <img src="https://acds3bucketlog.s3.amazonaws.com/images/ef_web-logo.png" class="img-responsive">
+          </a>
+        </div>
+        <div id="order-nav" class="col-md-12 col-sm-12 hideOrder">
+          <ul class="list-inline orderProcess">
+            <li data-val="place" class="active">
+              <a href="#">Share Order Details</a>
+              <span class="orderProcessSign">&gt;</span>
+            </li>
+            <li data-val="preview">
+              <a href="#">Confirm Your Order</a>
+              <span class="orderProcessSign">&gt;</span>
+            </li>
+            <li data-val="payment">
+              <a href="#">Deposit Funds</a>
+              <span class="orderProcessSign">&gt;</span>
+            </li>
+            <li>
+              <a href="#">Track Progress</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock main %}

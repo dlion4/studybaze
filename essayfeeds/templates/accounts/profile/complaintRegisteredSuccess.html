@@ -1,0 +1,77 @@
+{% extends "accounts/profile/base.html" %}
+
+{% load static %}
+
+{% block css %}{% endblock css %}
+
+{% block main %}
+
+  <div class="gradient">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 maintitle_side">
+          <div class="header">
+            <h1>
+              <span>Thank You!</span>
+            </h1>
+            <span class="subheader">
+              We are ready to help you round the clock. We'd love to hear from you
+            </span>
+            <!--End Row-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container sidebarpages">
+    <!-- Team Members Row -->
+    <div class="row mt-5">
+      <div class="col-lg-8 col-sm-12">
+        <span id="lbl_errormsg"></span>
+        <div id="thanks_UserFeedback">
+          <h3 class="font-22">Your valuable feedback is<span class="orang_colr">
+              successfully received.</span></h3>
+          <div class="inline-cta">
+            <p>
+              Thanks for sharing your feedback. We will try to serve you better in the future.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <hr>
+            <div class="ctaSmall">
+              <div class="float-md-start">
+                <p>
+                  <span class="ctaSmall-tag">Need Assistance? Get Connected Now!</span>
+                </p>
+                <p>
+                  <span class="ctaSmall-contact">
+                    <a class="chaton" href="#">Start Live Chat</a>
+                    OR Call: +1 (877) 728-7387
+                  </span>
+                </p>
+              </div>
+              <p>
+                <a class="order-button1" href="{% url 'order' %}">ORDER NOW!</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="py-3">
+          <p>
+            Please know that your privacy is important to us and we will never share your information with any other company, third-party websites, or individuals who are not a part of EssaysFeed.
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-12">
+        {% include "accounts/profile/refcard.html" %}
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Common Footer Included -->
+
+{% endblock main %}

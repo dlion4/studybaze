@@ -1,0 +1,157 @@
+version: '3'
+
+volumes:
+  essayfeeds_local_postgres_data: {}
+  essayfeeds_local_postgres_data_backups: {}
+
+services:
+  django: &django
+    build:
+      context: .
+      dockerfile: ./compose/local/django/Dockerfile
+    image: essayfeeds_local_django
+    container_name: essayfeeds_local_django
+    depends_on:
+      - postgres
+      - redis
+      - mailpit
+    volumes:
+      - .:/app:z
+    # env_file:
+    #   - ./.envs/.local/.django
+    #   - ./.envs/.local/.postgres
+    environments:
+      - DATABASE_URL=postgres://postgres:1234@localhost:5432/essayfeeds
+      - POSTGRES_HOST=localhost
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=essayfeeds
+      - POSTGRES_USER=postgres 
+      - POSTGRES_PASSWORD=1234
+
+      - DJANGO_READ_DOT_ENV_FILE=True
+        # ------------------------------------------------------------------------------
+      - USE_DOCKER=yes
+      - IPYTHONDIR=/app/.ipython
+        # Redis
+        # ------------------------------------------------------------------------------
+      - REDIS_URL=redis://redis:6379/0
+
+        # Celery
+        # ------------------------------------------------------------------------------
+
+        # Flower
+      - CELERY_FLOWER_USER=debug
+      - CELERY_FLOWER_PASSWORD=debug
+
+    ports:
+      - '8000:8000'
+    command: /start
+
+  postgres:
+    build:
+      context: .
+      dockerfile: ./compose/production/postgres/Dockerfile
+    image: essayfeeds_production_postgres
+    container_name: essayfeeds_local_postgres
+    volumes:
+      - essayfeeds_local_postgres_data:/var/lib/postgresql/data
+      - essayfeeds_local_postgres_data_backups:/backups
+    # env_file:
+    #   - ./.envs/.local/.postgres
+    environments:
+      - DATABASE_URL=postgres://postgres:1234@localhost:5432/essayfeeds
+      - POSTGRES_HOST=localhost
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=essayfeeds
+      - POSTGRES_USER=postgres 
+      - POSTGRES_PASSWORD=1234
+
+
+      - DJANGO_READ_DOT_ENV_FILE=True
+
+    # ------------------------------------------------------------------------------
+      - USE_DOCKER=yes
+      - IPYTHONDIR=/app/.ipython
+    # Redis
+    # ------------------------------------------------------------------------------
+      - REDIS_URL=redis://redis:6379/0
+
+    # Celery
+    # ------------------------------------------------------------------------------
+
+    # Flower
+      - CELERY_FLOWER_USER=debug
+      - CELERY_FLOWER_PASSWORD=debug
+
+  docs:
+    image: essayfeeds_local_docs
+    container_name: essayfeeds_local_docs
+    build:
+      context: .
+      dockerfile: ./compose/local/docs/Dockerfile
+    # env_file:
+    #   - ./.envs/.local/.django
+    environments:
+      - DJANGO_READ_DOT_ENV_FILE=True
+      - DATABASE_URL=postgres://postgres:1234@localhost:5432/essayfeeds
+
+    # ------------------------------------------------------------------------------
+      - USE_DOCKER=yes
+      - IPYTHONDIR=/app/.ipython
+    # Redis
+    # ------------------------------------------------------------------------------
+      - REDIS_URL=redis://redis:6379/0
+
+    # Celery
+    # ------------------------------------------------------------------------------
+
+    # Flower
+      - CELERY_FLOWER_USER=debug
+      - CELERY_FLOWER_PASSWORD=debug
+    volumes:
+      - ./docs:/docs:z
+      - ./config:/app/config:z
+      - ./essayfeeds:/app/essayfeeds:z
+    ports:
+      - '9000:9000'
+    command: /start-docs
+
+  mailpit:
+    image: docker.io/axllent/mailpit:latest
+    container_name: essayfeeds_local_mailpit
+    ports:
+      - "8025:8025"
+
+  redis:
+    image: docker.io/redis:6
+    container_name: essayfeeds_local_redis
+
+  celeryworker:
+    <<: *django
+    image: essayfeeds_local_celeryworker
+    container_name: essayfeeds_local_celeryworker
+    depends_on:
+      - redis
+      - postgres
+      - mailpit
+    ports: []
+    command: /start-celeryworker
+
+  celerybeat:
+    <<: *django
+    image: essayfeeds_local_celerybeat
+    container_name: essayfeeds_local_celerybeat
+    depends_on:
+      - redis
+      - postgres
+      - mailpit
+    ports: []
+    command: /start-celerybeat
+
+  flower:
+    <<: *django
+    image: essayfeeds_local_flower
+    container_name: essayfeeds_local_flower
+    ports:
+      - '5555:5555'
+    command: /start-flower

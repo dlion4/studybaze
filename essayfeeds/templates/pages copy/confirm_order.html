@@ -1,0 +1,386 @@
+{% extends "pages/order/base.html" %}
+{% load static %}
+{% block css %}
+
+  {{ block.super }}
+
+
+{% comment %} <script type="text/javascript" src="{% static 'Content/Cosmo/js/ConfirmOrderDetails.js' %}?v=09112023"></script> {% endcomment %}
+{% endblock css %}
+
+{% block main %}
+
+{{ block.super }}
+
+  <!-- New Confirm Order Detail Page Starts -->
+  <section class="banner_small banner_customer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="page_tagline">Have a look at the summary of your order</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="preview">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-md-6 col-lg-7">
+          <!--Order general details-->
+          <!--Desktop Order Details Table-->
+          <div class="table-responsive hidden-xs">
+            <table id="general_details" class="preview-table table table-hover table-striped">
+              <tbody>
+                <tr>
+                  <td colspan="3" class="label tbl_head">
+                    Order Details</td>
+                  <td class="text-right">
+                    <span>
+                      <a class="editOrder" id="edit-order" href="">
+                        Edit Order
+                        <i class="far fa-edit"></i>
+                      </a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="label">Order ID</td>
+                  <td id="lbl_orderID">ESFOC-12559457
+                  </td>
+                  <td class="label">Deadline</td>
+                  <td>15 days
+                  </td>
+
+                </tr>
+                <tr>
+                  <td class="label">Academic Level</td>
+                  <td>High School
+                  </td>
+                  <td class="label">Line Spacing</td>
+                  <td>Double Spaced</td>
+                </tr>
+                <tr>
+                  <td class="label">Service</td>
+                  <td>Writing</td>
+                  <td class="label">Subject</td>
+                  <td>Communications and Media
+                  </td>
+
+                </tr>
+                <tr>
+                  <td class="label">Document Type</td>
+                  <td>Essay</td>
+                  <td class="label">No. of Pages</td>
+                  <td>4
+                  </td>
+
+                </tr>
+                <tr>
+                  <td class="label">Topic</td>
+                  <td>bSEDhbewr4
+                  </td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="label lbl_guideline">Guidelines</td>
+                  <td colspan="3">
+                    <div class="guideline_content text-left">fgxkrsi6rtjy6ju
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--Mobile Order Details Table-->
+          <div class="table-responsive hidden-md">
+            <table id="general_details" class="preview-table table table-hover table-striped">
+              <tbody>
+                <tr>
+                  <td colspan="2" class="label tbl_head">
+                    Order Details</td>
+                  <td class="text-right">
+                    <span>
+                      <a class="editOrder" id="edit-order" href="">
+                        Edit Order
+                        <i class="far fa-edit"></i>
+                      </a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="label">Order ID</td>
+                  <td colspan="2" id="lbl_orderID">ESFOC-12559457
+                  </td>
+                </tr>
+                <tr>
+                  <td class="label">Academic Level</td>
+                  <td colspan="2">High School
+                  </td>
+                </tr>
+                <tr>
+                  <td class="label">Service</td>
+                  <td colspan="2">Writing</td>
+                </tr>
+                <tr>
+                  <td class="label">Document Type</td>
+                  <td colspan="2">Essay</td>
+                </tr>
+                <tr>
+                  <td class="label">Topic</td>
+                  <td colspan="2">bSEDhbewr4
+                  </td>
+                </tr>
+                <tr>
+                  <td class="label">Deadline</td>
+                  <td colspan="2">15 days
+                  </td>
+                </tr>
+                <tr>
+                  <td class="label">Subject</td>
+                  <td colspan="2">Communications and Media
+                  </td>
+                </tr>
+                <tr>
+                  <td class="label">No. of Pages</td>
+                  <td colspan="2">4
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="label">Line Spacing</td>
+                  <td>Double Spaced</td>
+                </tr>
+                <tr>
+                  <td class="label lbl_guideline">Guidelines</td>
+                  <td colspan="2">
+                    <div class="guideline_content text-left">fgxkrsi6rtjy6ju
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--Order styling details-->
+          <!--Desktop More Details Table-->
+          <div class="table-responsive mt-4 hidden-xs">
+            <table id="more_details" class="preview-table table table-hover table-striped">
+              <tbody>
+                <tr>
+                  <td colspan="4" class="label tbl_head">More Details</td>
+                </tr>
+                <tr>
+                  <td class="label">Citation Style</td>
+                  <td>Non Specific</td>
+                  <td class="label">Font Face</td>
+                  <td>Calibri (Standard)</td>
+
+                </tr>
+                <tr>
+                  <td class="label">References</td>
+                  <td>6</td>
+                  <td class="label">Language</td>
+                  <td>US English</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--Mobile More Details Table-->
+          <div class="table-responsive mt-4 hidden-md">
+            <table id="more_details" class="preview-table table table-hover table-striped">
+              <tbody>
+                <tr>
+                  <td colspan="3" class="label tbl_head">More Details</td>
+                </tr>
+                <tr>
+                  <td class="label">Citation Style</td>
+                  <td colspan="2">Non Specific</td>
+                </tr>
+                <tr>
+                  <td class="label">References</td>
+                  <td colspan="2">6</td>
+                </tr>
+                <tr>
+                  <td class="label">Font Face</td>
+
+                  <td colspan="2">Calibri (Standard)</td>
+                </tr>
+                <tr>
+                  <td class="label">Language</td>
+                  <td colspan="2">US English</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--Order Add-on details-->
+          <div class="table-responsive mt-5">
+            <table id="addon_details" class="preview-table table table-hover table-striped">
+              <tbody>
+                <tr id="addonRow">
+                  <td colspan="3" class="label tbl_head">Add-ons</td>
+                </tr>
+
+                <tr>
+                  <td colspan="2" class="label">
+                    Preferred Expert To Work
+                  </td>
+                  <td>
+                    <span class="addon_amount">
+                      $8.75
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="label">
+                    Quality Double-check
+                  </td>
+                  <td>
+                    <span class="addon_amount">
+                      $8.00
+                    </span>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+          <ul class="guarantee_seals">
+            <li class="seal_satisfaction starburst example">
+              <img src="{% static 'Content/Cosmo/UserArea/images/satisfaction.png' %}"/>
+            </li>
+            <li class="seal_lowprice starburst example">
+              <img src="{% static 'Content/Cosmo/UserArea/images/lowest-price.png' %}"/>
+            </li>
+            <li class="seal_moneyback starburst example">
+              <img src="{% static 'Content/Cosmo/UserArea/images/money-back.png' %}"/>
+            </li>
+          </ul>
+
+          <div class="table-responsive mt-5 hidden-xs">
+            <table id="more_details" class="preview-table table table-hover table-striped">
+              <tbody>
+                <tr>
+                  <td colspan="4" class="label tbl_head">Account Details</td>
+                </tr>
+                <tr>
+                  <td class="label">Name</td>
+                  <td>hgefgieyw iytefir73trfit7y</td>
+                  <td class="label">Customer ID</td>
+                  <td>ESFC-1847081</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="table-responsive mt-5 hidden-md">
+            <table id="more_details" class="preview-table table table-hover table-striped">
+              <tbody>
+                <tr>
+                  <td colspan="4" class="label tbl_head">Account Details</td>
+                </tr>
+                <tr>
+                  <td class="label">Name</td>
+                  <td colspan="2">hgefgieyw iytefir73trfit7y</td>
+                </tr>
+                <tr>
+                  <td class="label">Customer ID</td>
+                  <td colspan="2">ESFC-1847081</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-5 position-relative">
+          <div id="preview_sidebar" class="order_sidebar confirm">
+            <div class="pricing_detail_bx">
+              <h4 class="mb-3 box_title">ORDER COST</h4>
+              <ul class="cost_checklist">
+                <li>
+                  <span class="lbl">Service Cost</span>
+                  <span class="p_tag">$64.00</span>
+                </li>
+                <li>
+
+                  <span class="lbl fw-bold">Limited Time Discount
+                    <span class="DiscountPercentage">50
+                    </span>%</span>
+                  <span class="p_tag fw-bold">$32.00</span>
+                </li>
+
+                <li>
+                  <span class="lbl">Add-ons Cost</span>
+                  <span class="p_tag">$16.75</span>
+                </li>
+
+              </ul>
+              <div class="price_box">
+                <h4>
+                  FINAL AMOUNT
+                  <span class="order_price">
+                    <span class="total_cost">$48.75</span>
+                  </span>
+                </h4>
+                <button id="btnProceedPaymentMiddleware" class="btn_proceed bounce-effect">DEPOSIT FUNDS</button>
+                <span class="bestprice">Best price guaranteed</span>
+              </div>
+              <div>
+                <div class="discount">Enter Promo Code (Optional)</div>
+                <div class="promocode">
+                  <input name="__RequestVerificationToken" type="hidden" value="QQtNmxDs0O8HznQ4XQxNacjT9-Clj4uZjXydfnJYGVCCfdxAIceEN5BIfTWatiOM_rEQRrnzrVG86p-c_KK_icZ-42ZXpf_htDzfztcFoDTOyB-udZo5KsM5dyaPCaBrP3S5VkJKONSNy_Ds5FUdKg2"/>
+                  <span class="promo-loader dis_none"><img src="{% static 'Content/Cosmo/images/loading.gif' %}"/></span>
+                  <input type="text" placeholder="Promo Code" id="txtPromoCode" class="txtPromoCode" value="" data-parsley-required="" data-parsley-maxlength="6" data-parsley-minlength="6" data-parsley-trigger-after-failure="focusout" data-parsley-whitespace="trim"/>
+                </div>
+              </div>
+              <div>
+                <div class="mt usecode">
+                  <input id="btnPromoCode" class="btnPromoCode" type="button" value="Use Code"/>
+                  <div class="promoError text-danger pp"></div>
+                  <div class="nopromocode">
+                    <span>Don't have a code?</span>
+                    <a href="#" class="chaton">Request Code</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="userarea_counter" class="pay_after text-center email-landing">
+              <img class="announcement_icon" src="{% static 'Content/Cosmo/UserArea/images/announcement_icon.png' %}" alt="Announcement Icon">
+              <h4>PAY AFTER DELIVERY<br/>
+              </h4>
+              <div class="desc_box">
+                <p>
+                  Feel relieved & secure with our
+                  <br class="d-none d-md-block">
+                  '<b>Pay After Delivery</b>' guarantee. Receive
+                  <br class="d-none d-md-block">
+                  order first, ensure its quality and
+                  <br class="d-none d-md-block">
+                  satisfaction, and then release payment.
+                </p>
+              </div>
+              <div class="counter3">
+                <div class="mt-4 mb-3 text-center">
+                  <img src="{% static 'Content/Cosmo/UserArea/images/payment_icons.png' %}" alt="credit card">
+                </div>
+                <div class="my-3 text-center">
+                  <img src="{% static 'Content/Cosmo/UserArea/images/norton_mcfee_sprites.png' %}" alt="Norton mcafee">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="place-bar">
+            <p>
+              <span id="lbl_atotal_m">$48.75</span>
+              <br/>
+              <span id="lbl_gtotal_m">$64.00</span>
+            </p>
+            <button name="btn_OrderNow" id="btn_proceed" class="btn_proceed" type="submit">DEPOSIT FUNDS</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/#services-->
+  <!-- Common Footer Included -->
+
+{% endblock main %}

@@ -1,0 +1,218 @@
+{% extends "accounts/profile/base.html" %}
+
+{% load static %}
+
+{% block css %}{% endblock css %}
+
+{% block main %}
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 main_title">
+        <h1>
+          <span>Refer a Friend</span>
+        </h1>
+        <span class="subheader">
+          Start referring friends right away to earn credit.
+        </span>
+        <!--End Row-->
+      </div>
+    </div>
+  </div>
+  {{ block.super }}
+  <section id="services" class="servicesBg">
+    <div class="container">
+      <input type="hidden" id="ReferralLink" value="">
+      <div class="row py-2 mainOrder">
+        <div class="col-lg-8 col-sm-12 white-text wow fadeInLeft ">
+          <!-- Start Project Details-->
+          <div class="row" id="promo-row">
+            <div class="col-lg-12">
+              <div class="orderBox">
+                <p class="orderBoxHeading">
+                  Reward Details
+                </p>
+                <div class="orderBoxInner table-responsive">
+                  <table class="table orderBoxPara" id="tblRefer">
+                    <tbody>
+                      <tr>
+                        <td class="col-md-3">Your Status</td>
+                        <td class="col-md-3 orderBoxParaPreview">
+                          <span id="lbl_orderID" class="fw-bold">N/A</span>
+                        </td>
+                        <td class="col-md-3">Credit Used or Deducted
+                        </td>
+                        <td class="col-md-3 orderBoxParaPreview">
+                          <span id="lbl_complexity">$ 0</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="col-md-3">Credit Available
+                        </td>
+                        <td class="col-md-3 orderBoxParaPreview">
+                          <span id="lbl_service_type" class="fw-bold">$ 0</span>
+                        </td>
+                        <td class="col-md-3">Credit Details
+                        </td>
+                        <td class="col-md-3 orderBoxParaPreview">
+                          <span id="lbl_nop">
+                            <a href="/UserArea/CreditHistory" class="hasa">View History</a>
+                          </span>
+                        </td>
+                      </tr>
+                      <tr class="borderless">
+                        <td class="col-md-3">Total Credit Earned
+                        </td>
+                        <td class="col-md-3 orderBoxParaPreview">
+                          <span id="lbl_doctype" class="fw-bold">$ 0</span>
+                        </td>
+                        <td class="col-md-3">Invite Link
+                        </td>
+                        <td class="orderBoxParaPreview">
+                          <div class="input-group mail-text" data-tooltip="Click to Copy">
+                            <input type="text" class="form-control Link" id="txtLink" readonly="readonly" value="system.essaysfeed.com/Account/Register/1847081ERP">
+                            <span class="input-group-btn">
+                              <button class="btn btn-primary btnCopy rounded-0" data-clipboard-target="#txtLink" type="button">
+                                Copy
+                              </button>
+                            </span>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-12 text-end float-right mt-2">
+              <div class="place-order">
+                <a data-bs-toggle="modal" id="modal" data-bs-target="#modalLoginForm">Refer a Friend</a>
+              </div>
+            </div>
+          </div>
+          <!--End Project Details-->
+
+          <div class="row mrg-search-section">
+            <div class="col-lg-6 col-md-6 col-sm-12 order-details padd-left">
+              <p>Referral's Detail</p>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 text-end padd-right">
+              <div id="custom-search-input">
+                <div class="input-group col-md-12">
+                  <input type="text" class="form-control input-lg" id="searchtext" placeholder="Search Name"/>
+                  <span class="input-group-btn">
+                    <button class="btn btn-info btn-lg" type="submit" id="searchOrder">
+                      <i class="fa fa-search"></i>
+                    </button>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <label id="email_Msg" class="dis_none text-danger"></label>
+          <!--===TABLE STARTS HERE ===-->
+          <div class="col-lg-12 col-md-12 col-sm-12 padd-0">
+            <div class="table-responsive">
+              <table class="table table-striped aligment-table-text" id="table-orders">
+                <thead class="aligment-table-text">
+                  <tr class="td-color">
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Confirmation Status</th>
+                    <th>Invitation Options</th>
+                  </tr>
+                </thead>
+                <tbody class="td-color"></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="col-lg-12 col-md-12 col-sm-12"></div>
+          <!--===TABLE STARTS HERE ===-->
+        </div>
+
+        <div class="col-lg-4 col-sm-12">
+
+          <div class="refersd text-center">
+            <h3>Refer Your Friend in 3 Steps</h3>
+            <div class="col-md-12">
+              <div class="row">
+                <div class="col-md-5 col-xs-5 txtadjus">
+                  <h5>Invite Friends</h5>
+                  <p>Share the referral link with your friends.</p>
+                </div>
+                <div class="col-md-3 col-xs-3  mt-4">
+                  <div class="circo">
+                    <img src="{% static 'Content/Cosmo/images/icos1.png' %}" class="img-responsive" alt="icon Credit Card"/>
+                  </div>
+                </div>
+                <div class="col-md-4 col-xs-4 txtadjus">
+                  <h5>Redeem Credit</h5>
+                  <p>Redeem credit whenever you like.</p>
+                </div>
+              </div>
+              <div class="row mt-3 text-center">
+                <div class="col-md-4 col-xs-4 padd-0">
+                  <div class="parent">
+                    <div class="child">
+                      1
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-xs-4 padd-0">
+                  <div class="parent">
+                    <div class="child1">
+                      2
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-xs-4 padd-0">
+                  <div class="parent">
+                    <div class="child">
+                      3
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4 col-xs-4 mt-4">
+                  <div class="circo1">
+                    <img src="{% static 'Content/Cosmo/images/icos3.png' %}" class="img-responsive" alt="icon Credit Card"/>
+                  </div>
+                </div>
+                <div class="col-md-4 col-xs-4 txtadjus1">
+                  <h5>Earn Credit</h5>
+                  <p>Win credit on referrals’ paid orders.</p>
+                </div>
+                <div class="col-md-4 col-xs-4 mt-4">
+                  <div class="circo1">
+                    <img src="{% static 'Content/Cosmo/images/icos2.png' %}" class="img-responsive" alt="icon Credit Card"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row bcgs mt-4">
+            <div class="col-md-12 p-0">
+              <h3>Redeem Credit</h3>
+            </div>
+            <div class="col-md-3 col-4">
+              <img src="{% static 'Content/Cosmo/images/message.png' %}" class="img-responsive" alt="message"/>
+            </div>
+            <div class="col-md-9 col-8 bdrlt">
+              <p>Please send an email to
+                <br/>
+                <a href="" class="text-success fw-bold">care@essaysfeed.com</a>
+                <br/>
+                to redeem your credit.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<!-- Common Footer Included -->
+
+
+{% endblock main %}

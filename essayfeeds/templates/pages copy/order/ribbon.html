@@ -1,0 +1,208 @@
+{% load static %}
+
+<div id="placeorder_sidebar" class="order_sidebar">
+
+    <div class="disc_ribbonbox nobulk">
+      <p class="first">
+        <span>50%</span>
+        DISCOUNT
+      </p>
+    </div>
+    <div class="feature_listbox">
+      <span class="circletopleft circle1"></span>
+      <span class="circletopright circle1"></span>
+      <ul>
+        <li>
+          <img src="{% static 'Content/Cosmo/UserArea/images/premium-quality.png' %}"/>
+          <span class="content">
+            Premium Quality
+            <br>
+            Papers
+          </span>
+        </li>
+        <span class="circlebotmleft">
+          <span class="circle1"></span>
+          <span class="circle2"></span>
+        </span>
+        <li>
+          <img src="{% static 'Content/Cosmo/UserArea/images/top-phd.png' %}"/>
+          <span class="content">
+            Top Ph.D.
+            <br>
+            Experts
+          </span>
+        </li>
+        <span class="circlebotmright">
+          <span class="circle1"></span>
+          <span class="circle2"></span>
+        </span>
+        <li>
+          <img src="{% static 'Content/Cosmo/UserArea/images/plagiarism-free.png' %}"/>
+          <span class="content">
+            100% Plagiarism
+            <br>
+            Free
+          </span>
+        </li>
+        <li>
+          <img src="{% static 'Content/Cosmo/UserArea/images/unlimited-revisions.png' %}"/>
+          <span class="content">
+            Unlimited Free
+            <br>
+            Revisions
+          </span>
+        </li>
+      </ul>
+    </div>
+    <div class="pricing_detail_bx featuresbx">
+      <div class="d-none">
+        <h4 class="mb-3 box_title">ORDER COST</h4>
+        <ul class="cost_checklist">
+          <li>
+            <span class="lbl">Service Cost</span>
+            <span class="p_tag">
+              <span class="CurrencySymbol">$</span>
+              <span id="lbl_atotal">
+                16.00
+              </span>
+            </span>
+          </li>
+          <li>
+            <span class="lbl">Limited Time Discount
+              <span class="DiscountPercentage">50</span>%</span>
+            <span class="p_tag">
+              <span class="CurrencySymbol">$</span>
+              <span id="lbl_dtotal">
+                8.00
+
+              </span>
+            </span>
+          </li>
+
+          <li id="bulkDiscountID" class="dis_none">
+            <span class="lbl">
+              Special Discount
+              <span class="BlukOrderDiscount" id="BlukOrderDiscount">
+                0.00
+
+              </span>%
+            </span>
+            <span class="p_tag">
+              <span class="CurrencySymbol">$</span>
+              <span id="lbl_bototal">
+                8.00
+
+              </span>
+            </span>
+          </li>
+          <li class="dis_none">
+            <span class="lbl">Promo Discount
+              <span class="PDiscountPercentage">0</span>%</span>
+            <span class="p_tag"><span class="CurrencySymbol">$</span>
+              <span id="lbl_pdtotal">
+                0.00</span></span>
+          </li>
+          <li>
+            <span class="lbl">Add-ons Cost</span>
+            <span class="p_tag"><span class="CurrencySymbol">$</span>
+              <span id="lbl_ftotal">
+                0.00</span></span>
+          </li>
+        </ul>
+        <div class="price_box">
+          <h4>
+            FINAL AMOUNT
+            <span class="order_price">
+              <span class="total_cost">
+                <span class="CurrencySymbol">$</span>
+                <span id="lbl_gtotal">
+                  8.00
+                </span>
+              </span>
+            </span>
+          </h4>
+          <input name="PPT" value="0" type="hidden">
+          <input name="lbl_check" id="lbl_check" value="0" type="hidden">
+          <label class="text-danger" id="orderErrorMessage"></label>
+        </div>
+      </div>
+      <div id="free_plan" class="pricing-rates starter-plan free_plan shadow rounded">
+        <h4 class="text-center features_heading">Free Features Worth
+          <b>$79</b>
+        </h4>
+        <ul class="feature list-unstyled pl-0">
+          <li class="feature-list">
+            <i class="fa fa-check"></i>
+            Choose a 5-star Writer
+            <span class="text-center price_tag"><span class="single_price me-1">$7</span><span class="free">FREE</span></span>
+          </li>
+          <li class="feature-list">
+            <i class="fa fa-check"></i>
+            Paper Formatting
+            <span class="text-center price_tag"><span class="single_price me-1">$6</span><span class="free">FREE</span></span>
+          </li>
+          <li class="feature-list">
+            <i class="fa fa-check"></i>
+            Referencing &amp; Bibliography
+            <span class="text-center price_tag"><span class="single_price me-1">$9</span><span class="free">FREE</span></span>
+          </li>
+          <li class="feature-list">
+            <i class="fa fa-check"></i>
+            Cover Page
+            <span class="text-center price_tag"><span class="single_price me-1">$10</span><span class="free">FREE</span></span>
+          </li>
+          <li class="feature-list">
+            <i class="fa fa-check"></i>
+            24/7 Order Tracking
+            <span class="text-center price_tag"><span class="single_price me-1">$10</span><span class="free">FREE</span></span>
+          </li>
+          <li class="feature-list">
+            <i class="fa fa-check"></i>
+            Turnitin Report
+            <span class="text-center price_tag"><span class="single_price me-1">$9</span><span class="free">FREE</span></span>
+          </li>
+          <li class="feature-list">
+            <i class="fa fa-check"></i>
+            Unlimited Revisions
+            <span class="text-center price_tag"><span class="single_price me-1">$8</span><span class="free">FREE</span></span>
+          </li>
+          <li class="feature-list">
+            <i class="fa fa-check"></i>
+            Outline
+            <span class="text-center price_tag"><span class="single_price me-1">$7</span><span class="free">FREE</span></span>
+          </li>
+          <li class="feature-list">
+            <i class="fa fa-check"></i>
+            Dedicated User Area
+            <span class="text-center price_tag"><span class="single_price me-1">$7</span><span class="free">FREE</span></span>
+          </li>
+          <li class="feature-list">
+            <i class="fa fa-check"></i>
+            Periodic Email Alerts
+            <span class="text-center price_tag"><span class="single_price me-1">$6</span><span class="free">FREE</span></span>
+          </li>
+        </ul>
+      </div>
+      <input name="hf_urgency" id="hf_urgency" type="hidden">
+      <input name="hf_ServiceType" id="hf_ServiceType" value="0" type="hidden">
+      <input name="hf_olderdate" id="hf_olderdate" value="true" type="hidden">
+      <input name="hf_orderdays" id="hf_orderdays" type="hidden">
+      <input name="hf_Flag" id="hf_Flag" type="hidden">
+    </div>
+
+  </div>
+
+  <div class="place-bar">
+    <p class="d-none">
+      <span class="CurrencySymbol">$</span>
+      <span id="lbl_atotal_m">
+        8.00
+      </span>
+      <br>
+      <span class="CurrencySymbol">$</span>
+      <span id="lbl_gtotal_m">
+        16.00
+      </span>
+    </p>
+    <button name="btn_OrderNow" id="btn_proceed" class="btn_proceed" type="button">Confirm Order</button>
+  </div>
