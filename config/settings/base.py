@@ -87,12 +87,14 @@ THIRD_PARTY_APPS = [
     "drf_spectacular",
     "phonenumber_field",
     'widget_tweaks',
+     'formtools',
 ]
 
 LOCAL_APPS = [
     "essayfeeds.users",
     # Your stuff: custom apps go here
     "essayfeeds.classwork",
+    "essayfeeds.payments",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

@@ -1,0 +1,178 @@
+<form id="placeOrderForm" action="" method="post" name="order-form" enctype="multipart/form-data" class="oder_form mb-4">
+  {% csrf_token %}
+  <div class="border-order">
+    <h4 class="fw-700 mb-3">Order Details</h4>
+    <div class="form-group">
+      <label class="mb-2" for="ServiceCode">Type of Service<span class="tool-wrap">
+          <i class="fas fa-question question">
+            <span class="tool">Select the service you want.
+            </span>
+          </i>
+        </span>
+      </label>
+
+      {% render_field form.service class="opr form-control" %}
+    </div>
+    <div class="form-group">
+      <label class="mb-2" for="DocumentTypeCode">Type of Work<span class="tool-wrap">
+          <i class="fas fa-question question">
+            <span class="tool">Select the type of work from our range of classifications here.
+            </span>
+          </i>
+        </span>
+      </label>
+      <input name="hdn_ppp" id="hdn_ppp" value="16.00" type="hidden">
+      {% render_field form.type_of_work class="form-control opr" %}
+    </div>
+    <div class="form-group">
+      <label class="mb-2" for="academic-level">
+        {% render_field form.academic_level.label %}
+        <span class="tool-wrap">
+          <i class="fas fa-question question">
+            <span class="tool">Choose the education level for this order.
+            </span>
+          </i>
+        </span>
+      </label>
+      {% render_field form.academic_level class="form-control opr" %}
+    </div>
+    <div class="form-group">
+      <label class="mb-2" for="project-ptitle">Project Title<span class="tool-wrap">
+          <i class="fas fa-question question">
+            <span class="tool">Enter the title of your project.
+            </span>
+          </i>
+        </span>
+      </label>
+
+      {% render_field form.title class="form-control" placeholder=form.title.label %}
+
+    </div>
+    <div class="form-group">
+      <label class="mb-2" for="subject-area">Subject<span class="tool-wrap">
+          <i class="fas fa-question question">
+            <span class="tool">Select your subject to get linked with the most relevant writers.
+            </span>
+          </i>
+        </span>
+      </label>
+
+      {% render_field form.subject class="form-control mb-3 opr" %}
+
+    </div>
+    <div class="form-group">
+      <label class="mb-2" for="deadline">Deadline<span class="tool-wrap">
+          <i class="fas fa-question question">
+            <span class="tool">The time your order needs to be completed by.
+            </span>
+          </i>
+        </span>
+      </label>
+
+      {% render_field form.deadline class="form-control opr" %}
+
+    </div>
+    <div class="form-row">
+      <div class="form-group col-xl-4">
+        <label for="pages" class="mb-2">Number of Pages<span class="tool-wrap">
+            <i class="fas fa-question question">
+              <span class="tool">Price is calculated by number of words per page and line spacing.
+              </span>
+            </i>
+          </span>
+        </label>
+        <div class="input-group">
+          <span class="q_minus">
+            <i class="fa fa-minus"></i>
+          </span>
+          <input id="txt_nop" name="Pages" type="text" class="form-control" min="1" value="1" required="" data-parsley-required="" data-parsley-trigger="focusout" data-parsley-trigger-after-failure="focusout">
+          <span class="q_plus">
+            <i class="fa fa-plus"></i>
+          </span>
+        </div>
+
+        <input name="hf_nop" id="hf_nop" min="1" value="1" type="hidden">
+      </div>
+      <div class="form-group col-xl-3">
+        <label class="mb-2" for="">Word Count<span class="tool-wrap">
+            <i class="fas fa-question question">
+              <span class="tool">Estimated number of words in your project (excluding references).
+              </span>
+            </i>
+          </span>
+        </label>
+        <input name="txt_now" id="txt_now" readonly="readonly" type="text" class="form-control" value="275 Words">
+      </div>
+      <div class="form-group col-xl-5">
+        <label class="mb-2" for="pagespace">Line Spacing<span class="tool-wrap">
+            <i class="fas fa-question question">
+              <span class="tool">Select the line spacing of your project.
+              </span>
+            </i>
+          </span>
+        </label>
+        <select class="form-control opr" data-val="true" data-val-number="The field LineSpacingCode must be a number." data-val-required="The LineSpacingCode field is required." id="ddl_LineSpacing" name="LineSpacingCode">
+          <option selected="selected" value="2">Double Line Space</option>
+          <option value="1">Single Line Space</option>
+        </select>
+
+        <input name="hf_Spacing" id="hf_Spacing" value="1" type="hidden">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="mb-2" for="requirements">Project Guidelines<span class="tool-wrap">
+          <i class="fas fa-question question">
+            <span class="tool">Enter the guidelines in as much details as possible here. It would improve the accuracy of your project.
+            </span>
+          </i>
+        </span>
+      </label>
+
+      {% render_field form.instructions class="form-control" placeholder="Tell us more about your project and its requirements" rows="3" %}
+
+      <div class="text-left">
+        <a class="guide-line">
+          <span>
+            You can send attachments after processing the order.
+          </span>
+        </a>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="mb-2" for="citation-style">Citation Style<span class="tool-wrap">
+          <i class="fas fa-question question">
+            <span class="tool">Select the citation style.
+            </span>
+          </i>
+        </span>
+      </label>
+
+      {% render_field form.citation_style class="form-control" %}
+
+      <div id="citationError" class="message_box input_txt_StyleOther-error-container col-md-12 dis_none">
+        <p class="text-danger text-left pl-3">Please provide citation details</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="mb-2" for="refrences">References<span class="tool-wrap">
+          <i class="fas fa-question question">
+            <span class="tool">Mention the number of references you want in your assignment.
+            </span>
+          </i>
+        </span>
+      </label>
+      <div class="input-group">
+        <span class="q_minus_ref">
+          <i class="fa fa-minus"></i>
+        </span>
+        {% render_field form.references class="form-control" min="0"  %}
+        <span class="q_plus_ref">
+          <i class="fa fa-plus"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="orderbtn_bx">
+    <a name="btn_OrderNow" id="btn_OrderNow" href="{% url 'confirm_order' %}" class="btn_proceed bounce-effect">Confirm Order</a>
+  </div>
+</form>

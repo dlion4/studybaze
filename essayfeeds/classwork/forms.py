@@ -5,13 +5,12 @@ TypeOfWork,
 Subject,
 Citation,
 )
-from .custom_form_widgets import FriendlySplitDateTimeWidget
 
 """Will be impelementing the renderfield model form using the django package
 This will apply mostly for allmost the enetire forms
 The implementaion is applied on the forms to avoid duplication of code both imn the admin
 """
-OrderFormFieldList = ["service","type_of_work","academic_level","title","subject","deadline","pages_number","word_count","instructions","citation_style", "references"
+OrderFormFieldList = ["service","type_of_work","academic_level","title","subject","deadline","pages_number","instructions","addons","citation_style", "references"
 ]
 
 
@@ -36,7 +35,8 @@ class OrderForm(forms.ModelForm):
         model_queryset=Citation,
         initial_value="MLA"
     )
-    deadline = forms.DateTimeField()
+    deadline = forms.DateTimeField(widget=forms.DateTimeInput(attrs={"type":"datetime-local"}))
+    addons = forms.ModelMultipleChoiceField(queryset=Addon.objects.all(), help_text="Hold down “Control”, or “Command” on a Mac, to select more than one.", required=False, widget=forms.SelectMultiple)
     # This noew sema more readable and clean
 
     class Meta:
@@ -44,16 +44,17 @@ class OrderForm(forms.ModelForm):
         fields = OrderFormFieldList
         widgets = {
             "service": forms.Select(choices=(
-                get_select_choices(
-                Writing="Writing",Editing="Editing",Proof="Proof"
-            )
+                ("Writing","Writing"),("Editing","Editing"),("Proof","Proof")
             )),
             "academic_level": forms.Select(choices=(
-                get_select_choices(HighSchool="High School",College="College",Masters="Masters", PhD='PhD')
+                ("HighSchool","High School"),("College","College"),("Masters","Masters"), ("PhD",'PhD')
             )),
             
             "title": forms.TextInput(attrs={"class": ""}),
-            "instructions": forms.Textarea()
+            "instructions": forms.Textarea(),
+            "references":forms.NumberInput(attrs={"min":"1"}),
+            "pages_number":forms.NumberInput(attrs={"min":"1"}),
+
         }
         labels = {
             "title": "Please enter the project title to proceed."
@@ -64,10 +65,3 @@ class OrderForm(forms.ModelForm):
 
 
 
-class AddonForm(forms.ModelForm):
-    class Meta:
-        model = Addon
-        fields = [
-            "selected",
-            "price"
-        ]

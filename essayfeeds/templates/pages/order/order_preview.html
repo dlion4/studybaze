@@ -1,0 +1,73 @@
+{% extends "pages/order/base.html" %}
+{% load static i18n crispy_forms_tags %}
+{% block head %}
+  {{ wizard.form.media }}
+{% endblock %}
+{% block css %}
+  {{ block.super }}
+{% endblock css %}
+
+{% block main %}
+  {{ block.super }}
+
+  <section class="banner_small banner_customer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="page_tagline">{% translate "Have a look at the summary of your order" %}</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="preview">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-md-6 col-lg-7">
+          <table>
+            {% for field in form %}
+              <tr>
+                <th>{{ field.label }}:</th>
+                <td>{{ field.data }}</td>
+              </tr>
+            {% endfor %}
+          </table>
+
+          <p>{% blocktranslate %}Security hash:
+            {{ hash_value }}{% endblocktranslate %}</p>
+
+          <form action="" method="post">{% csrf_token %}
+            {% for field in form %}{{ field.as_hidden }}
+            {% endfor %}
+            <input type="hidden" name="{{ stage_field }}" value="2"/>
+            <input type="hidden" name="{{ hash_field }}" value="{{ hash_value }}"/>
+            <p><input type="submit" value="{% translate "Submit" %}"/></p>
+          </form>
+
+          <h1>{% translate "Or edit it again" %}</h1>
+
+          <form action="" method="post">{% csrf_token %}
+            <table>
+              {{ form.as_table }}
+            </table>
+            <input type="hidden" name="{{ stage_field }}" value="1"/>
+            <p><input type="submit" value="{% translate "Preview" %}"/></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock main %}
+
+<h1></h1>
+
+<table>
+  {% for field in form %}
+    <tr>
+      <th>{{ field.label }}:</th>
+      <td>{{ field.data }}</td>
+    </tr>
+  {% endfor %}
+</table>
+
+<h1>{% translate "Or edit it again" %}</h1>

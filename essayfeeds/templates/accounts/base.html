@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% load static %}
+{% load static i18n %}
 
 <html lang="en">
 
@@ -75,13 +75,27 @@
                         </span>
                       </a>
                     </li>
+                    {% if request.user.is_authenticated %}
                     <li>
-                      <a href="" class="btn_user">Log In</a>
+                      {% comment %} <a href="{% url 'user_area_view' %}" class="btn_user bordered_btn"> {% endcomment %}
+                      <a href="{% url 'users:detail' request.user.pk %}" class="btn_user bordered_btn">
+                       UserArea
+                      </a>
                     </li>
                     <li class="hidden-xs">
-                      <a href="{% url 'order' %}" class="btn_user">Order Now</a>
+                      <a href="{% url 'order' %}" class="btn_user shared_order">
+                        Order Now
+                      </a>
                     </li>
-                  </ul>
+                    {% else %} 
+                    {% if ACCOUNT_ALLOW_REGISTRATION %}
+                    <li>
+                      <a href="{% url 'account_login' %}" class="btn_user bordered_btn">
+                        {% translate "Log In" %}
+                      </a>
+                    </li>
+                    {% endif %}
+                    {% endif %}
                 </div>
               </nav>
             </div>

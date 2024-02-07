@@ -1,0 +1,59 @@
+<tbody>
+    <tr>
+      <td colspan="3" class="label tbl_head">
+        Order Details</td>
+      <td class="text-right">
+        <span>
+          <a class="editOrder" id="edit-order" href="{% url 'order_update' order.pk %}">
+            Edit Order
+            <i class="far fa-edit"></i>
+          </a>
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td class="label">Order ID</td>
+      <td id="lbl_orderID">{{order.orderId}}
+      </td>
+      <td class="label">Due In</td>
+      <td>{{order.get_deadline_countdown.days}} days {{order.get_formated_deadline_countdown}} hours
+      </td> 
+    </tr>
+    <tr>
+      <td class="label">Academic Level</td>
+      <td>{{order.academic_level}}
+      </td>
+      <td class="label">Line Spacing</td>
+      <td>Double Spaced</td>
+    </tr>
+    <tr>
+      <td class="label">Service</td>
+      <td>{{order.service}}</td>
+      <td class="label">Subject</td>
+      <td>{{order.subject}}
+      </td>
+
+    </tr>
+    <tr>
+      <td class="label">Document Type</td>
+      <td>{{order.type_of_work}}</td>
+      <td class="label">No. of Pages</td>
+      <td>{{order.pages_number}}
+      </td>
+
+    </tr>
+    <tr>
+      <td class="label">Topic</td>
+      <td>{{order.title}}
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="label lbl_guideline">Guidelines</td>
+      <td colspan="3">
+        <div class="guideline_content text-left">{{order.instructions}}
+        </div>
+      </td>
+    </tr>
+  </tbody>
