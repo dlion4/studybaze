@@ -6,11 +6,29 @@ Subject,
 Citation,
 )
 
+class MultipleFileInput(forms.ClearableFileInput):
+    allow_multiple_selected = True
+
+class MultipleFileField(forms.FileField):
+    def __init__(self, *args, **kwargs):
+        kwargs.setdefault("widget", MultipleFileInput())
+        super().__init__(*args, **kwargs)
+
+    def clean(self, data, initial=None):
+        single_file_clean = super().clean
+        if isinstance(data, (list, tuple)):
+            result = [single_file_clean(d, initial) for d in data]
+        else:
+            result = single_file_clean(data, initial)
+        return result
+
+
+
 """Will be impelementing the renderfield model form using the django package
 This will apply mostly for allmost the enetire forms
 The implementaion is applied on the forms to avoid duplication of code both imn the admin
 """
-OrderFormFieldList = ["service","type_of_work","academic_level","title","subject","deadline","pages_number","instructions","addons","citation_style", "references"
+OrderFormFieldList = ["service","type_of_work","academic_level","title","subject","deadline","pages_number","instructions","addons","citation_style", "references", "files",
 ]
 
 
@@ -38,7 +56,7 @@ class OrderForm(forms.ModelForm):
     deadline = forms.DateTimeField(widget=forms.DateTimeInput(attrs={"type":"datetime-local"}))
     addons = forms.ModelMultipleChoiceField(queryset=Addon.objects.all(), help_text="Hold down “Control”, or “Command” on a Mac, to select more than one.", required=False, widget=forms.SelectMultiple)
     # This noew sema more readable and clean
-
+    files = MultipleFileField()
     class Meta:
         model = Order
         fields = OrderFormFieldList
@@ -54,10 +72,14 @@ class OrderForm(forms.ModelForm):
             "instructions": forms.Textarea(),
             "references":forms.NumberInput(attrs={"min":"1"}),
             "pages_number":forms.NumberInput(attrs={"min":"1"}),
-
+            "files": MultipleFileInput(attrs={'multiple': True, "class": "form-control"})
         }
         labels = {
-            "title": "Please enter the project title to proceed."
+            "title": "Please enter the project title to proceed.",
+            "files": "Assignment Files (Optional)"
+        }
+        help_text = {
+            "files": "You can upload multiple files here."
         }
 
     def __init__(self, *args, **kwargs):

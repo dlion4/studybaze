@@ -1,4 +1,6 @@
+from typing import Any
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 from django.views.generic import TemplateView, UpdateView
 from essayfeeds.users.models import Profile, User
 from essayfeeds.classwork.models import Order
@@ -8,7 +10,8 @@ from essayfeeds.classwork.forms import OrderForm
 from django.utils.translation import gettext_lazy as _
 from formtools.wizard.views import SessionWizardView
 from django.http import HttpResponse, HttpResponseRedirect
-
+from .models import OrderItem
+from paypal.standard.forms import PayPalPaymentsForm
 # Create your views here.
 class EssayFeedOrderItemView(TemplateView):
     template_name = "pages/confirm_order.html"
@@ -20,8 +23,56 @@ class EssayFeedOrderItemView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['client'] = Profile.objects.get(user=self.request.user)
         context['order'] = self.get_order_object(**kwargs)
+        # context['form'] = self.get_payment_context_data(**kwargs)
         return context
     
+    # def get_payment_context_data(self, **kwargs):
+    #     order = self.get_order_object(**kwargs)
+    #     paypal_dict = {
+    #         "business": "receiver_email@example.com",
+    #         "amount": float(order.price),
+    #         "item_name": str(order.title),
+    #         "invoice":  str(order.orderId),
+    #         # "notify_url": self.request.build_absolute_uri(reverse('paypal-ipn')),
+    #         "return": self.request.build_absolute_uri(reverse('payment-success')),
+    #         "cancel_return": self.request.build_absolute_uri(reverse('payment-failed')),
+    #         # "custom": "premium_plan",  # Custom command to correlate to some function later (optional)
+    #     }
+    #     form = PayPalPaymentsForm(initial=paypal_dict)
+    #     return form
+    
+    def post(self, request, *args, **kwargs):
+        order = self.get_order_object(**kwargs)
+        # order_item, _ = OrderItem.objects.update_or_create(order=order, price=order.price)
+        # order_item.save()
+        order_item = OrderItem.objects.filter(order=order)
+        if order_item.exists():
+            new_order_item = order_item.first()
+            new_order_item.order=order
+            new_order_item.price=order.price
+            new_order_item.save()
+            return redirect(new_order_item)
+        else:
+            order_item, _ = OrderItem.objects.update_or_create(order=order, price=order.price)
+            return redirect(order_item)
+
+
+
+def get_payment_view(request, order_pk):
+    order_item = get_object_or_404(OrderItem, pk=order_pk)
+    paypal_dict = {
+            "business": "sb-ruw7126979243@business.example.com",
+            "amount": float(order_item.price),
+            "item_name": str(order_item.order.title),
+            "invoice":  str(order_item.order.orderId),
+            # "notify_url": self.request.build_absolute_uri(reverse('paypal-ipn')),
+            "return": request.build_absolute_uri(reverse('payment-success' , kwargs={"id": order_pk})),
+            "cancel_return": request.build_absolute_uri(reverse('payment-failed', kwargs={"id": order_pk})),
+            # "custom": "premium_plan",  # Custom command to correlate to some function later (optional)
+        }
+    form = PayPalPaymentsForm(initial=paypal_dict)
+    return render(request, "pages/order/payment.html", {"form": form})
+        
 
 
 
@@ -53,4 +104,32 @@ class EssayFeedsOrderUpdateView(LoginRequiredMixin,TemplateView):
     
 
 
+
+class EssayFeedMixinView(TemplateView):
+
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context['item'] = self.get_object(**kwargs)
+        return context
+    
+    def get_object(self,is_paid:bool=False, **kwargs):
+        # return get_object_or_404(Order, pk=kwargs.get("pk"))
+        order_item = get_object_or_404(OrderItem, pk=kwargs.get("id"))
+        order_item.is_paid=is_paid
+        order_item.save()
+        return order_item
+    
+class EssayFeedsPaymentSuccessFulView(EssayFeedMixinView):
+    template_name = "pages/order/success.html"
+
+    def get_object(self, is_paid: bool = True, **kwargs):
+        return super().get_object(is_paid, **kwargs)
+
+    
+class EssayFeedsPaymentFailedView(EssayFeedMixinView):
+    template_name = "pages/order/fail.html"
+    
+
+
+    
 

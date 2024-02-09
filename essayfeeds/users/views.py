@@ -1,16 +1,63 @@
 from typing import Any
-from django.contrib.auth import get_user_model
+from django.shortcuts import redirect
+from django.contrib.auth import get_user_model, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
+
 from django.db.models.base import Model as Model
 from django.db.models.query import QuerySet
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import DetailView, RedirectView, UpdateView, TemplateView
 from .models import Profile
-
+from essayfeeds.payments.models import OrderItem
+from essayfeeds.classwork.models import Order
+from allauth.account.views import SignupView
+from .forms import UserProfileSignUpForm
+from essayfeeds.payments.mixins import SuccessRedirectView
 User = get_user_model()
 
+
+class AccountProfileSignupView(SuccessRedirectView):
+    # tHIS IS NBOT AN OPTIMIZED METHOD YET
+
+    form_class = UserProfileSignUpForm
+    user = User
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data.get("email")
+            user = self.user.objects.filter(email=email)
+            if user.exists():
+                return redirect("account_login")
+            else:
+                password = form.cleaned_password2()
+                if password:
+                    user = User.objects.create(email=email)
+                    user.set_password(password)
+                    user.save()
+                    user.backend = 'django.contrib.auth.backends.ModelBackend'
+                    login(request, user)
+                    return redirect(user)
+                messages.error(request, "Password did nbot match!")
+        return self.get_redirect_url()
+    
+
+
+account_profile_signup_view = AccountProfileSignupView.as_view()
+
+class AccountLogoutView(SuccessRedirectView):
+    def post(self, request, *args, **kwargs):
+        logout(request)
+        return redirect("home")
+    
+user_logout_view = AccountLogoutView.as_view()
+
+# def get_logout_view(request):
+#     if request.method == "POST":
+#         user = User.objects.get(pk=request.POST.get("user_id"))
+#         logout(request)
 
 class UserDetailView(LoginRequiredMixin, DetailView):
     model = User
@@ -19,10 +66,15 @@ class UserDetailView(LoginRequiredMixin, DetailView):
     template_name = "accounts/profile/user_view.html"
 
 
+    def get_profile(self, **kwargs):
+        """This functionreturn the related profile with the current user in session"""
+        return Profile.objects.get(user=self.get_object())
+
     def get_context_data(self, **kwargs):
+        # This will then update the context dictionary to be displayed on the user ui
         context = super().get_context_data(**kwargs)
-        context['client'] = Profile.objects.get(user=self.get_object())
-        print(context)
+        context['client'] = self.get_profile(**kwargs)
+        context['orders'] = OrderItem.objects.filter(order__profile=self.get_profile(**kwargs), status="Active").all()
         return context
 
 

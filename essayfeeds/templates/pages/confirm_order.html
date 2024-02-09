@@ -150,20 +150,18 @@
         </div>
         <div class="col-md-6 col-lg-5 position-relative">
           <div id="preview_sidebar" class="order_sidebar confirm">
+
             <div class="pricing_detail_bx">
+              <form method="post" action="">
+                {% csrf_token %}
+                <input type="hidden" name="order" value="{{order.pk}}" />
               <h4 class="mb-3 box_title">ORDER COST</h4>
               <ul class="cost_checklist">
                 <li>
                   <span class="lbl">Service Cost</span>
                   <span class="p_tag">${{order.price}}</span>
                 </li>
-                {% comment %} <li>
-
-                  <span class="lbl fw-bold">Limited Time Discount
-                    <span class="DiscountPercentage">50
-                    </span>%</span>
-                  <span class="p_tag fw-bold">$32.00</span>
-                </li> {% endcomment %}
+               
                 {% if order.addons %}
                 <li>
                   <span class="lbl">Add-ons Cost</span>
@@ -178,7 +176,7 @@
                     <span class="total_cost">${{order.price}}</span>
                   </span>
                 </h4>
-                <button id="btnProceedPaymentMiddleware" class="btn_proceed bounce-effect">DEPOSIT FUNDS</button>
+                <button id="btnProceedPaymentMiddleware" class="btn_proceed bounce-effect" type="submit">DEPOSIT FUNDS</button>
                 <span class="bestprice">Best price guaranteed</span>
               </div>
               <div>
@@ -198,7 +196,9 @@
                   </div>
                 </div>
               </div>
+             <form>
             </div>
+            
             <div id="userarea_counter" class="pay_after text-center email-landing">
               <img class="announcement_icon" src="{% static 'Content/Cosmo/UserArea/images/announcement_icon.png' %}" alt="Announcement Icon">
               <h4>PAY AFTER DELIVERY<br/>

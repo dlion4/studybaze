@@ -4,6 +4,9 @@ from django.contrib.auth import forms as admin_forms
 from django.contrib.auth import get_user_model
 from django.forms import EmailField
 from django.utils.translation import gettext_lazy as _
+from django import forms
+from .models import Profile
+
 
 User = get_user_model()
 
@@ -43,3 +46,20 @@ class UserSocialSignupForm(SocialSignupForm):
     Default fields will be added automatically.
     See UserSignupForm otherwise.
     """
+
+class UserProfileSignUpForm(forms.ModelForm):
+    password1 = forms.CharField(widget=forms.PasswordInput(), label="Password")
+    password2 = forms.CharField(widget=forms.PasswordInput(), label="Confirm Password")
+    email = forms.EmailField(widget=forms.EmailInput(), label="Email Address")
+    class Meta:
+        model = Profile
+        fields = ['email', 'full_name', 'password1', 'password2']
+
+    def cleaned_password2(self):
+        password1 = self.cleaned_data.get("password1")
+        password2 = self.cleaned_data.get("password2")
+        if password1 == password2:
+            return password2
+        return False
+    
+

@@ -5,5 +5,5 @@ from .models import OrderItem
 
 @admin.register(OrderItem)
 class OrderItemAdmin(admin.ModelAdmin):
-    list_display = ['order', 'status', 'price']
+    list_display = ['order', 'status', 'price', 'is_paid']
 

@@ -145,7 +145,10 @@
                           </li>
 
                           <li class="dropdown-header">
-                            <a href="{% url 'account_logout' %}">Log Out</a>
+                            <form method='post' action="{% url 'users:logout' %}">
+                              {% csrf_token %}
+                              <button type='submit'>Log Out</button>
+                            </form>
                           </li>
                         </ul>
                       </li>

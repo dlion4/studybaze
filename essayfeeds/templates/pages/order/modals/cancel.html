@@ -1,0 +1,21 @@
+<div class="modal fade" id="exampleModalToggle{{order.pk}}" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+  <form method="post" action="
+  {{order.get_cancel_url}}">
+    {% csrf_token %}
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Cancel order</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to cancel order
+          {{order.order.orderId}}
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">cancel order</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

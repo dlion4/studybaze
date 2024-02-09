@@ -1,0 +1,116 @@
+{% load static %}
+{% comment %} 
+
+{% endcomment %}
+<form method="POST" action="{% url 'users:account_profile_signup' %}">
+  {% csrf_token %}
+  <div class="order-form">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="contact_left p-0">
+          <div class="form-title text-center">
+            <h3>Act Fast - Save Big!</h3>
+          </div>
+          <div class="form_dis_banner">
+            <p>
+              <span>50%</span>
+              DISCOUNT
+            </p>
+
+            <div class="banner-ribon">
+              <p>
+                UP TO 20%
+                <span>EXTRA DISCOUNT</span>
+                ON BIG ORDERS
+              </p>
+
+            </div>
+            <div class="arrow-left1"></div>
+          </div>
+          <div class="row mb-3 form-start">
+            <div class="col-md-12">
+
+              <label>{{form.full_name.label}}
+                <span class="text-danger">*</span></label>
+              <i class="fas fa-user ml-3 icons"></i>
+              {% render_field form.full_name class='mb-2' placeholder="Enter your name" id="f_full_name" %}
+            </div>
+            <div class="col-md-12">
+
+              <label>{{form.email.label}}
+                <span class="text-danger">*</span></label>
+              <i class="fas fa-envelope ml-3 icons"></i>
+              {% render_field form.email class='mb-2' placeholder="enter your email" id="f_email" %}
+            </div>
+            <div class="col-md-12">
+
+              <label>{{form.password1.label}}
+                <span class="text-danger">*</span></label>
+              <div class="form_sel_wrapper">
+                <i class="fas fa-lock"></i>
+                {% render_field form.password1 class='mb-2' placeholder="Enter password" id="f_password1" %}
+
+              </div>
+            </div>
+            <div class="col-md-12">
+              <label>{{form.password2.label}}
+                <span class="text-danger">*</span></label>
+              <div class="form_phone">
+                <i class="fas fa-lock"></i>
+                {% render_field form.password2 class='mb-2' placeholder="Enter password" id="f_password2" %}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 sbmt_btn_adj">
+        <div class="coupon-wrapper ">
+          <div class="coupon-wrapper-adj">
+            <div class="lowest_lft">
+              <p>
+                Lowest
+                <br>Price
+              </p>
+              <p>
+                GUARANTEED
+              </p>
+              <div class="arrow-down3"></div>
+            </div>
+            <div class="coupan_details">
+              <h4>
+                Coupons Left Today
+              </h4>
+              <p>
+                <span>Get it</span>
+                Before offer Ends!
+              </p>
+            </div>
+            <div class="coupan_square">
+              <p class="ReviewCounter-container">
+                <span class="ReviewCounter">
+
+                  <span class="odometer" data-value="9"></span>
+                </span>
+
+              </p>
+              <p>
+                Coupons
+              </p>
+              <div class="vl">
+                <div class="small_circle_top"></div>
+                <div class="small_circle_btm"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <span class="ripple_yellow ripple_yellow_submit_cal">
+          <button name="contact_with_expert_form" value="submit" id="f_submit" class="btn btn-success black-btn2 mt-2 mb-2 OrderNow">
+            Place Your Order Now
+          </button>
+        </span>
+      </div>
+    </div>
+  </div>
+</form>

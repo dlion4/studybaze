@@ -1,4 +1,5 @@
 import os
+from typing import Any
 from django.shortcuts import redirect
 from django.shortcuts import render
 from django.views.generic import TemplateView
@@ -12,10 +13,20 @@ from formtools.preview import FormPreview
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 from essayfeeds.utils import generate_random_id
+from essayfeeds.users.forms import UserProfileSignUpForm
 
 # Create your views here.
 class EssayFeedHomeView(TemplateView):
     template_name = "home.html"
+
+    form_class = UserProfileSignUpForm
+
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context['form'] = self.form_class()
+        return context
+    
+
 
 
 essay_feed_home_view = EssayFeedHomeView.as_view()

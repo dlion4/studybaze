@@ -35,6 +35,8 @@ class Order(models.Model):
     references = models.IntegerField(default=0)
     orderId = models.CharField(max_length=20, unique=True)
     price = models.FloatField(default=0.00)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    files = models.FileField(upload_to='assignments/', blank=True, null=True)
 
 
     def __str__(self):

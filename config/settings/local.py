@@ -89,3 +89,8 @@ from sentry_sdk.integrations.django import DjangoIntegration
 
 #     send_default_pii=True
 # )
+
+
+
+
+PAYPAL_TEST = True

@@ -1,0 +1,27 @@
+{% extends "pages/order/base.html" %}
+{% load static %}
+{% block css %}
+
+  {{ block.super }}
+
+
+{% comment %} <script type="text/javascript" src="{% static 'Content/Cosmo/js/ConfirmOrderDetails.js' %}?v=09112023"></script> {% endcomment %}
+{% endblock css %}
+
+{% block main %}
+
+<section class="banner_small banner_customer mb-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="page_tagline">Order Successfully placed</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+{% endblock main %}

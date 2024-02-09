@@ -6,7 +6,11 @@
 {% block head_title %}
   {% translate "Signup" %}
 {% endblock head_title %}
-{% block inner %}
+
+
+{% block content %}
+<div style="margin-top:100px">
+
   <h1>{% translate "Sign Up" %}</h1>
   <p>
     {% blocktranslate %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktranslate %}
@@ -14,7 +18,7 @@
   <form class="signup"
         id="signup_form"
         method="post"
-        action="{% url 'account_signup' %}">
+        action="{% url 'users:account_signup' %}">
     {% csrf_token %}
     {{ form|crispy }}
     {% if redirect_field_value %}
@@ -24,4 +28,5 @@
     {% endif %}
     <button class="btn btn-primary" type="submit">{% translate "Sign Up" %} »</button>
   </form>
-{% endblock inner %}
+</div>
+{% endblock content %}
