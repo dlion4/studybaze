@@ -57,7 +57,6 @@
             <ul class="navbar_btns">
               {% if request.user.is_authenticated %}
               <li>
-                {% comment %} <a href="{% url 'user_area_view' %}" class="btn_user bordered_btn"> {% endcomment %}
                 <a href="{% url 'users:detail' request.user.pk %}" class="btn_user bordered_btn">
                  Dashboard
                 </a>
