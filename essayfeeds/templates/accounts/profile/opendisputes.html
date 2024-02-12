@@ -39,19 +39,38 @@
                   <thead>
                     <tr class="trfirst">
                       <th>Order ID</th>
-                      <th class="w-25">Topic</th>
-                      <th>Order Date
+                      <th class="w-25">Complaint</th>
+                      <th>Work Type
                       </th>
-                      <th>Delivery Date</th>
-                      <th>Status</th>
-                      <th>Action</th>
+                      <th>Response Channel</th>
+                      <th>Timestamp</th>
                     </tr>
                   </thead>
+                  {% for dispute in disputes %}
+                  <tr>
+                    <td>
+                      {{dispute.order_item.order.orderId}}
+                    </td>
+                    <td>
+                      {{dispute.nature}}
+                    </td>
+                    <td>
+                      {{dispute.order_type}}
+                    </td>
+                    <td>
+                      {{dispute.channel}}
+                    </td>
+                    <td>
+                      {{dispute.timestamp}}
+                    </td>
+                    {% empty %}
                   <tr>
                     <td colspan="6" class="text-center">
                       No Record Found
                     </td>
                   </tr>
+                </tr>
+                  {% endfor %}
                 </table>
               </div>
             </div>

@@ -1,0 +1,30 @@
+<div class="modal" id="updatePhoneModel" role="dialog">
+    <div class="modal-dialog modal-sm vertical-align-center">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">
+            <strong>Update Phone</strong>
+          </h4>
+          <button type="button" class="close" data-bs-dismiss="modal">x</button>
+        </div>
+        <form actioon="{% url 'users:update-phone' %}" method="post">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Current Phone Number</label>
+                <input type="text" id="" value="{{client.phone_number}}" class="form-control" readonly="readonly">
+              </div>
+              <div class="form-group">
+                <label for="phone" class="d-block">Phone Number</label>
+                <input name="phone_number" value="" type="text"   minlength="5" maxlength="17" required="" placeholder="Enter your phone number" class="form-control d-block" autocomplete="off" aria-required="true"/>
+              </div>
+              <div class="form-group">
+                <input type="submit" value="Update Phone" class="btn-primary btn center-block">
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>

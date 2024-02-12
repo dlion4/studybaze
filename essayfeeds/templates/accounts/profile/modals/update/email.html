@@ -1,0 +1,31 @@
+<div class="modal" id="updateEmailModel" role="dialog">
+  <div class="modal-dialog modal-sm vertical-align-center">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">
+          <strong>Update Email</strong>
+        </h4>
+        <button type="button" class="close" data-bs-dismiss="modal">x</button>
+      </div>
+      <form action="{% url 'users:update-email' %}" method="post">
+        {% csrf_token %}
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>Current Email</label>
+              <input value="{{client.user.email}}" type="email" class="form-control" readonly="readonly">
+            </div>
+            <div class="form-group">
+              <label>New Email</label>
+              <input type="email" name="new_email" value="" class="form-control" placeholder="Enter your email">
+            </div>
+            <label class="Success_label" id="New_Email_success">Email Updated.</label>
+            <div class="form-group">
+              <input type="submit" value="Update Email" class="btn-primary btn center-block">
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

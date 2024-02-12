@@ -4,7 +4,7 @@ from django.contrib.auth import get_user_model, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
-
+from django.http import HttpResponseRedirect
 from django.db.models.base import Model as Model
 from django.db.models.query import QuerySet
 from django.urls import reverse
@@ -16,6 +16,10 @@ from essayfeeds.classwork.models import Order
 from allauth.account.views import SignupView
 from .forms import UserProfileSignUpForm
 from essayfeeds.payments.mixins import SuccessRedirectView
+from essayfeeds.issues.forms import ComplaintForm
+from essayfeeds.issues.models import Complaint
+
+
 User = get_user_model()
 
 
@@ -75,6 +79,8 @@ class UserDetailView(LoginRequiredMixin, DetailView):
         context = super().get_context_data(**kwargs)
         context['client'] = self.get_profile(**kwargs)
         context['orders'] = OrderItem.objects.filter(order__profile=self.get_profile(**kwargs), status="Active").all()
+        context['cancelled'] = OrderItem.objects.filter(order__profile=self.get_profile(**kwargs), status="Cancelled").all()
+        context['completed'] = OrderItem.objects.filter(order__profile=self.get_profile(**kwargs), status="Completed").all()
         return context
 
 
@@ -124,16 +130,51 @@ class EssayFeedUserAreaView(TemplateView):
 essay_feed_user_view = EssayFeedUserAreaView.as_view()
 
 
-class EssayFeedUserUpdateView(TemplateView):
+class EssayFeedUserUpdateView(LoginRequiredMixin, TemplateView):
     template_name = "accounts/profile/update.html"
+    
+    def get_profile(self, **kwargs):
+        """This functionreturn the related profile with the current user in session"""
+        return Profile.objects.get(user=self.request.user)
+    
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context['client'] = self.get_profile(**kwargs)
+        return context
 
 essay_feed_user_update_view = EssayFeedUserUpdateView.as_view()
 
 
-class EssayFeedRegisterDisputeView(TemplateView):
+class EssayFeedRegisterDisputeView(LoginRequiredMixin, TemplateView):
     template_name = "accounts/profile/register_dispute.html"
+    form_class = ComplaintForm
+
+    def get_profile(self):
+        return Profile.objects.get(user=self.request.user)
 
 
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context =  super().get_context_data(**kwargs)
+        context['form'] = self.form_class()
+        return context
+    
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(self.request.POST)
+        if form.is_valid():
+            order = OrderItem.objects.filter(order__orderId=form.cleaned_data.get("order_id"))
+            instance = form.save(commit=False)
+            instance.client = self.get_profile()
+            if order.exists():
+                instance.order_item = order.first()
+                instance.save()
+                form.save()
+                messages.success(self.request, "Complaint registered succussfully")
+                return redirect("users:dispute_register_success_view")
+        
+        messages.error(self.request, "Erro submitting. Please try again later!")
+        return HttpResponseRedirect(self.request.META.get("HTTP_REFERER"))
+
+    
 essay_feed_register_dispute_view = EssayFeedRegisterDisputeView.as_view()
 
 
@@ -143,17 +184,34 @@ class EssayFeedRegisterDisputeSuccessView(TemplateView):
 
 essay_feed_register_dispute_sucess_view = EssayFeedRegisterDisputeSuccessView.as_view()
 
-class EssayFeedViewDisputeView(TemplateView):
+class EssayFeedViewDisputeView(LoginRequiredMixin, TemplateView):
     template_name = "accounts/profile/view_dispute.html"
+
+    def get_profile(self):
+        return Profile.objects.get(user=self.request.user)
+    
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context =  super().get_context_data(**kwargs)
+        context['disputes'] = Complaint.objects.filter(client=self.get_profile()).all()
+        return context
 
 
 essay_feed_dispute_view = EssayFeedViewDisputeView.as_view()
 
 
-class EssayFeedOpenDisputeView(TemplateView):
+class EssayFeedOpenDisputeView(LoginRequiredMixin,TemplateView):
     template_name = "accounts/profile/opendisputes.html"
 
+    def get_profile(self):
+        return Profile.objects.get(user=self.request.user)
+    
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context =  super().get_context_data(**kwargs)
+        context['disputes'] = Complaint.objects.filter(status="O", client=self.get_profile()).all()
+        return context
+
 essay_feed_open_dispute_view = EssayFeedOpenDisputeView.as_view()
+
 
 
 class EssayFeedLoyaltyView(TemplateView):

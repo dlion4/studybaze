@@ -1,0 +1,34 @@
+<div class="modal" id="updateNameModel" role="dialog">
+  <div class="modal-dialog modal-sm vertical-align-center">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">
+          <strong>Update Name</strong>
+        </h4>
+        <button type="button" class="close" data-bs-dismiss="modal">x</button>
+      </div>
+      <form action='{% url "users:update-name" %}' method="post">
+        {% csrf_token %}
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Current Name</label>
+                <input value="{{client.full_name}}" type="text" id="oldName_txb" class="form-control" readonly="readonly">
+              </div>
+              <div class="form-group">
+                <label>New Name</label>
+                <input value="" type="text" name="new_name" id="NewName_txb" class="form-control" placeholder="Enter your name">
+              </div>
+              <label class="Error_label" id="New_Name_error">Please Provide Your New Name.</label>
+              <label class="Success_label" id="New_Name_success">Name Updated</label>
+              <div class="form-group">
+                <input type="submit" value="Update Name" id="btn_Update_Name" class="btn-primary btn center-block">
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

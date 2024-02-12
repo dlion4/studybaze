@@ -27,7 +27,8 @@
     <div class="row py-2">
       <div class="col-lg-8 col-sm-12 register_complain">
         <div class="area">
-          <form name="Form2" method="post" action="" id="Form2" target="_top">
+          <form method="post" action="">
+            {% csrf_token %}
             <table class="table">
               <tbody>
                 <tr>
@@ -48,11 +49,7 @@
                 </tr>
                 <tr>
                   <td class="innerTableBorder">
-                    <select name="ServiceType" id="ddl_OrderType" class="form-control opr">
-                      <option selected="selected" value="Writing">Writing</option>
-                      <option value="Editing">Editing</option>
-                      <option value="Proofreading">Proofreading</option>
-                    </select>
+                    {% render_field form.order_type class="form-control opr" %}
                   </td>
                 </tr>
               </tbody>
@@ -77,28 +74,20 @@
                 </tr>
                 <tr>
                   <td class="innerTableBorder">
-
-                    <select name="ComplaintType" id="ddl_complaintType" class="form-control">
-                      <option value="Work Quality">Work Quality</option>
-                      <option value="Customer Support">Customer Support</option>
-                      <option value="Order Delivery">Order Delivery</option>
-                      <option value="Plagiarism">Plagiarism</option>
-                      <option value="Other">Other</option>
-
-                    </select>
+                    {% render_field form.nature  class="form-control" %}
                   </td>
                 </tr>
                 <tr>
                   <td class="innerTableBorder">
                     <p>
                       <strong>Explain your complaint<span></span></strong>
-                      <small>(Please provide your order ID number & other details.)</small>
+                      <small>(Please provide your order ID number)</small>
                     </p>
                   </td>
                 </tr>
                 <tr>
                   <td class="innerTableBorder">
-                    <textarea name="Comment" rows="2" cols="20" id="ta_complaintDescription" class="form-control" required="required"></textarea>
+                    {% render_field form.order_id class="form-control"  %}
                   </td>
                 </tr>
               </tbody>
@@ -118,7 +107,7 @@
                   <td class="innerTableBorder">
                     <div class="float-start pt-2">
                       <p>
-                        <strong>Do you want us to communicate via email?:</strong>
+                        <strong>How do you want us to get back to you?:</strong>
                       </p>
                     </div>
 
@@ -127,75 +116,25 @@
                     <table id="rd_communication_email" border="0">
                       <tbody>
                         <tr>
-                          <td>
-                            <span class="pe-4"><input id="rd_communication_email_0" type="radio" name="ContactViaEmail" value="false" checked="checked">
-                              <label for="rd_communication_email_0">&nbsp;No</label></span></td>
-                          <td>
-                            <span class="pe-4"><input id="rd_communication_email_1" type="radio" name="ContactViaEmail" value="true">
-                              <label for="rd_communication_email_1">&nbsp;Yes</label></span></td>
+                            {% render_field form.channel %}
                         </tr>
                       </tbody>
                     </table>
                   </td>
                 </tr>
-                <tr>
-                  <td class="innerTableBorder">
-                    <div class="float-start pt-2">
-                      <p>
-                        <strong>Do you want us to communicate via Phone Call?:</strong>
-                      </p>
-                    </div>
-                  </td>
-                  <td class="innerTableBorder float-end">
-                    <table id="rd_confirm_phonecall" border="0">
-                      <tbody>
-                        <tr>
-                          <td>
-                            <span class="pe-4"><input id="rd_confirm_phonecall_0" type="radio" name="ContactViaPhone" value="false" checked="checked">
-                              <label for="rd_confirm_phonecall_0">&nbsp;No</label></span></td>
-                          <td>
-                            <span class="pe-4"><input id="rd_confirm_phonecall_1" type="radio" name="ContactViaPhone" value="true">
-                              <label for="rd_confirm_phonecall_1">&nbsp;Yes</label></span></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </td>
-                </tr>
+              
               </tbody>
             </table>
-            <p class="float-start">
-              <strong>Suitable time for Phone Call:</strong>
-            </p>
-            <div class="float-end">
-              <div class="float-start time">From:</div>
-              <div class="float-start">
-                <select name="ContactTimeFrom" id="ddl_call_time" class="form-control">
-                  <option value="12:00 am">12:00am</option>
-                 
-                  <option value="11:00 pm">11:00pm</option>
-                  <option value="11:30 pm">11:30pm</option>
-
-                </select>
-              </div>
-              <div class="float-start time">
-                To:
-              </div>
-              <div class="float-start">
-                <select name="ContactTimeTo" id="ddl_call_timeto" class="form-control">
-                  <option value="12:00 am">12:00am</option>
-                 
-                  <option value="11:00 pm">11:00pm</option>
-                  <option value="11:30 pm">11:30pm</option>
-
-                </select>
-              </div>
-            </div>
-
+        
             <table class="table borderless">
               <tbody>
                 <tr>
                   <td class="innerTableBorder text-center">
-                    <a href="{% url 'users:dispute_register_success_view' %}" type="submit" name="btn_share_complaint" value="Submit Complaint" id="btn_share_complaint" class="btn-primary btn">Submit Complaint</a>
+                    {% comment %} <a href="{% url 'users:dispute_register_success_view' %}" type="submit" name="btn_share_complaint" value="Submit Complaint" id="btn_share_complaint" class="btn-primary btn">Submit Complaint</a> {% endcomment %}
+
+                    <button type="submit" class="btn-primary btn">
+                      Submit Complaint
+                    </button>
                   </td>
                 </tr>
 

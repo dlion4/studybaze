@@ -3369,7 +3369,7 @@ body {
 }
 /* CSS Seals Seal1*/
 .seal_icon1 {
-    background-image: url(../images/sidebar_1_bg.png);
+    background-image: url();
     width: 371px;
     height: 151px;
     position: relative;
@@ -3443,7 +3443,7 @@ body {
 }
 /*CSS Seal2 */
 .sidebar-2 {
-    background: url(../images/sidebar_2_bg.png) no-repeat center center;
+    /* background: url(../images/sidebar_2_bg.png) no-repeat center center; */
     background-size: 100%;
     position: relative;
     height: 194px;
@@ -3562,7 +3562,7 @@ body {
     }
 /*CSS Seal3 */
 .seal {
-    background: url(../images/seal-system-new.png) no-repeat center center/cover;
+    /* background: url(../images/seal-system-new.png) no-repeat center center/cover; */
     height: 205px;
     width: 371px;
     background-size: 100%;

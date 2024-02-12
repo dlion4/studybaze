@@ -1,0 +1,57 @@
+{% if orders %}
+<div class="row mrg-search-section">
+    <div class="col-lg-6 col-md-6 col-sm-12 order-details padd-left">
+      <p>Active Order{{orders.count|pluralize}} ({{orders.count}})</p>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12 text-end padd-right">
+      <div id="custom-search-input">
+        <div class="input-group col-md-12">
+          <input type="text" class="form-control input-lg" id="searchtext" placeholder="Search Order"/>
+          <span class="input-group-btn">
+            <button class="btn btn-info btn-lg" type="submit" id="searchOrder">
+              <i class="fa fa-search"></i>
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--===TABLE STARTS HERE ===-->
+  
+  <div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="table-responsive">
+      <table class="table table-striped aligment-table-text" id="table-orders">
+        <thead class="aligment-table-text">
+          <tr class="td-color">
+            <th>Order ID</th>
+            <th>Project</th>
+            <th>Order Date</th>
+            <th>Delivery Date</th>
+            <th>Order Status</th>
+          </tr>
+        </thead>
+        <tbody class="td-color">
+          {% for order in orders %}
+          <tr>
+            <td>{{order.order.orderId}}</td>
+            <td>{{order.order.title}}</td>
+            <td>{{order.order.timestamp|date:"M d Y"}}</td>
+            <td>{{order.order.deadline|date:"M d Y"}}</td>
+            <td>
+              <a class="PlaceOrderConfirmBtn" href="{{order.order.get_absolute_url}}">Edit order</a>
+              <hr id="rptSelectOrder_ctl01_oblique">
+              <input type="hidden" id="OrderIDtxb" value="ESFOC-12559457"/>
+              <button class="btn btn-primary" data-bs-target="#exampleModalToggle{{order.pk}}" data-bs-toggle="modal">cancel order</button>
+              {% include "pages/order/modals/cancel.html" %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+  <div class="col-lg-12 col-md-12 col-sm-12"></div>
+  {% endif %} 
+  <!--===TABLE STARTS HERE ===-->

@@ -35,3 +35,9 @@ urlpatterns += [
 urlpatterns += [
     path("order/", include("essayfeeds.payments.helpers.urls"))
 ]
+
+# update urls
+
+urlpatterns += [
+    path("userupdate/", include("essayfeeds.users.funcs.urls")),
+]
