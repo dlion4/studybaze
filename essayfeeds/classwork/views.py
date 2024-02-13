@@ -70,3 +70,11 @@ class EssayFeedConfirmOrderView(TemplateView):
 
 
 essay_feed_confirm_order_view = EssayFeedConfirmOrderView.as_view()
+
+
+
+class EssayFeedsFaqView(TemplateView):
+    template_name = "pages/faq.html"
+
+
+essayfeeds_faq_view = EssayFeedsFaqView.as_view()

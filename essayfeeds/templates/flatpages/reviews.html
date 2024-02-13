@@ -1,0 +1,670 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block main %}
+  <!-- //header -->
+  <section class="banner review__banner">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-7">
+          <div class="review_top_wrapper">
+            <hgroup>
+              <h1 class="review_head">Reviews</h1>
+              <div class="get_credit_worth_wrapper">
+                <div class="banner_secnd">
+                  <div class="media">
+                    <img src="{% static 'images/trustpilot_icon.png' %}" alt="Generic placeholder image"/>
+                    <div class="media-body">
+                      <h5 class="mt-0">4.7</h5>
+                      <span>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star star-nine" aria-hidden="true"></i>
+                      </span>
+                      <p>TrustPilot</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="banner_secnd">
+                  <div class="media">
+                    <img src="{% static 'images/ef_web-favicon.png' %}" alt="Generic placeholder image"/>
+                    <div class="media-body">
+                      <h5 class="mt-0">4.9</h5>
+                      <span>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star star-nine" aria-hidden="true"></i>
+                      </span>
+                      <p>EssaysFeed</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="bizprobe_btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  <div class="banner_secnd banner_secnd_web">
+                    <div class="media">
+                      <img src="{% static 'images/biz-banner.png' %}" alt="Generic placeholder image"/>
+                      <div class="media-body">
+                        <h5 class="mt-0">4.9</h5>
+                        <span>
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star star-nine" aria-hidden="true"></i>
+                        </span>
+                        <p>BizProbe</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </hgroup>
+          </div>
+        </div>
+        <div class="col-md-5 d-none d-md-block">
+          <div class="review__banner--right text-right">
+            <img src="{% static 'images/frame.png' %}" alt="frame" class="img-fluid"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="review_content">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="review_breadcrumb">
+                <nav aria-label="breadcrumb ">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                      <a href="reviews.php.html">Home</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Reviews</li>
+                  </ol>
+                </nav>
+              </div>
+              <div class="review_area">
+                <div class="rv_top">
+                  <h5>Reviews</h5>
+                  <hr/>
+
+                  <p>
+                    Learn more about EssaysFeed by reading our latest reviews and share your own experience with our services. By providing your valuable feedback, you can assist fellow students in making wise decisions about their education.
+                  </p>
+                </div>
+              </div>
+              <div class="overall__reviews d-flex align-items-center justify-content-between mb-3">
+                <div class="overall__reviews--left">
+                  <h6>Overall Rating</h6>
+                  <p>
+                    <span class="rating">4.9</span>
+                    <span class="stars__reviews">
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--half.png' %}" alt="star"/>
+                    </span>
+                    <span>
+                      (30576 Ratings)
+                    </span>
+                  </p>
+                </div>
+                <div class="overall__reviews--right">
+                  <div class="review__btn--wrapper">
+                    <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#writereview" class="review__btn">Write a Review</a>
+                  </div>
+                </div>
+              </div>
+              <div class="review__cards" id="reviews_container">
+                <div class="review__card">
+                  <div class="review__head d-flex justify-content-between align-items-center">
+                    <div class="review__details--wrapper d-flex align-items-center">
+                      <div class="review__icon--wrapper">
+                        <i class="fas fa-user"></i>
+                      </div>
+                      <div class="review__details">
+                        <h5 class="reviewer__name">Customer ID #251639</h5>
+                        <h6 class="review__description">Research Paper, 8 months ago, Masters</h6>
+                      </div>
+                    </div>
+                    <div class="review__ratings">
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--half.png' %}" alt="star"/>
+                    </div>
+                  </div>
+                  <hr/>
+                  <div class="review__body">
+                    <p>
+                      Their website is always my top priority for any kind of urgent task because I know they can handle it.
+                    </p>
+                  </div>
+                </div>
+                <div class="review__card">
+                  <div class="review__head d-flex justify-content-between align-items-center">
+                    <div class="review__details--wrapper d-flex align-items-center">
+                      <div class="review__icon--wrapper">
+                        <i class="fas fa-user"></i>
+                      </div>
+                      <div class="review__details">
+                        <h5 class="reviewer__name">Customer ID #251640</h5>
+                        <h6 class="review__description">Assignment, 8 months ago, Masters</h6>
+                      </div>
+                    </div>
+                    <div class="review__ratings">
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--half.png' %}" alt="star"/>
+                    </div>
+                  </div>
+                  <hr/>
+                  <div class="review__body">
+                    <p>
+                      Very easy and most convenient site. There is no difficult process for placing the order and even for payment of services, it is very easy.
+                    </p>
+                  </div>
+                </div>
+                <div class="review__card">
+                  <div class="review__head d-flex justify-content-between align-items-center">
+                    <div class="review__details--wrapper d-flex align-items-center">
+                      <div class="review__icon--wrapper">
+                        <i class="fas fa-user"></i>
+                      </div>
+                      <div class="review__details">
+                        <h5 class="reviewer__name">Customer ID #251689</h5>
+                        <h6 class="review__description">Thesis, 8 months ago, Undergraduate</h6>
+                      </div>
+                    </div>
+                    <div class="review__ratings">
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--half.png' %}" alt="star"/>
+                    </div>
+                  </div>
+                  <hr/>
+                  <div class="review__body">
+                    <p>
+                      I hope this is the beginning of long-term cooperation with this brilliant company. I am so much impressed with their amazing work quality.
+                    </p>
+                  </div>
+                </div>
+                <div class="review__card">
+                  <div class="review__head d-flex justify-content-between align-items-center">
+                    <div class="review__details--wrapper d-flex align-items-center">
+                      <div class="review__icon--wrapper">
+                        <i class="fas fa-user"></i>
+                      </div>
+                      <div class="review__details">
+                        <h5 class="reviewer__name">Customer ID #251690</h5>
+                        <h6 class="review__description">Homework Assignment, 8 months ago, Masters</h6>
+                      </div>
+                    </div>
+                    <div class="review__ratings">
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--half.png' %}" alt="star"/>
+                    </div>
+                  </div>
+                  <hr/>
+                  <div class="review__body">
+                    <p>100% satisfied with their high quality work. Really appreciated.</p>
+                  </div>
+                </div>
+                <div class="review__card">
+                  <div class="review__head d-flex justify-content-between align-items-center">
+                    <div class="review__details--wrapper d-flex align-items-center">
+                      <div class="review__icon--wrapper">
+                        <i class="fas fa-user"></i>
+                      </div>
+                      <div class="review__details">
+                        <h5 class="reviewer__name">Customer ID #251719</h5>
+                        <h6 class="review__description">Homework Assignment, 8 months ago, Masters</h6>
+                      </div>
+                    </div>
+                    <div class="review__ratings">
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--half.png' %}" alt="star"/>
+                    </div>
+                  </div>
+                  <hr/>
+                  <div class="review__body">
+                    <p>
+                      The most interesting part of their service is they give you royalty points after every single order. Later you can redeem those points and get the credit.
+                    </p>
+                  </div>
+                </div>
+                <div class="review__card">
+                  <div class="review__head d-flex justify-content-between align-items-center">
+                    <div class="review__details--wrapper d-flex align-items-center">
+                      <div class="review__icon--wrapper">
+                        <i class="fas fa-user"></i>
+                      </div>
+                      <div class="review__details">
+                        <h5 class="reviewer__name">Customer ID #251707</h5>
+                        <h6 class="review__description">Assignment, 8 months ago, Ph.D.</h6>
+                      </div>
+                    </div>
+                    <div class="review__ratings">
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--half.png' %}" alt="star"/>
+                    </div>
+                  </div>
+                  <hr/>
+                  <div class="review__body">
+                    <p>
+                      So far it's been really easy, fast, and affordable service. Now, I am consciously waiting to see my project.
+                    </p>
+                  </div>
+                </div>
+                <div class="review__card">
+                  <div class="review__head d-flex justify-content-between align-items-center">
+                    <div class="review__details--wrapper d-flex align-items-center">
+                      <div class="review__icon--wrapper">
+                        <i class="fas fa-user"></i>
+                      </div>
+                      <div class="review__details">
+                        <h5 class="reviewer__name">Customer ID #251886</h5>
+                        <h6 class="review__description">Dissertation, 8 months ago, Ph.D.</h6>
+                      </div>
+                    </div>
+                    <div class="review__ratings">
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--half.png' %}" alt="star"/>
+                    </div>
+                  </div>
+                  <hr/>
+                  <div class="review__body">
+                    <p>You are simply unbelievable. Thank you so much for your help and support.</p>
+                  </div>
+                </div>
+                <div class="review__card">
+                  <div class="review__head d-flex justify-content-between align-items-center">
+                    <div class="review__details--wrapper d-flex align-items-center">
+                      <div class="review__icon--wrapper">
+                        <i class="fas fa-user"></i>
+                      </div>
+                      <div class="review__details">
+                        <h5 class="reviewer__name">Customer ID #251911</h5>
+                        <h6 class="review__description">Thesis, 8 months ago, Masters</h6>
+                      </div>
+                    </div>
+                    <div class="review__ratings">
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--half.png' %}" alt="star"/>
+                    </div>
+                  </div>
+                  <hr/>
+                  <div class="review__body">
+                    <p>Everything seems quick and easy so far. I highly recommend them to everyone. Good luck.</p>
+                  </div>
+                </div>
+                <div class="review__card">
+                  <div class="review__head d-flex justify-content-between align-items-center">
+                    <div class="review__details--wrapper d-flex align-items-center">
+                      <div class="review__icon--wrapper">
+                        <i class="fas fa-user"></i>
+                      </div>
+                      <div class="review__details">
+                        <h5 class="reviewer__name">Customer ID #251931</h5>
+                        <h6 class="review__description">Thesis, 8 months ago, Undergraduate</h6>
+                      </div>
+                    </div>
+                    <div class="review__ratings">
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--half.png' %}" alt="star"/>
+                    </div>
+                  </div>
+                  <hr/>
+                  <div class="review__body">
+                    <p>
+                      I want to admire their helping customer support service. Their customer service was more than five stars!
+                    </p>
+                  </div>
+                </div>
+                <div class="review__card">
+                  <div class="review__head d-flex justify-content-between align-items-center">
+                    <div class="review__details--wrapper d-flex align-items-center">
+                      <div class="review__icon--wrapper">
+                        <i class="fas fa-user"></i>
+                      </div>
+                      <div class="review__details">
+                        <h5 class="reviewer__name">Customer ID #251970</h5>
+                        <h6 class="review__description">Homework Assignment, 8 months ago, Masters</h6>
+                      </div>
+                    </div>
+                    <div class="review__ratings">
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--full.png' %}" alt="star"/>
+                      <img src="{% static 'images/review__star--half.png' %}" alt="star"/>
+                    </div>
+                  </div>
+                  <hr/>
+                  <div class="review__body">
+                    <p>
+                      They are never rude to their customers no matter how much they are busy or stuck in their work. They always answer the questions calmly and try to make you comfortable.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <input type="hidden" id="offset" value="420"/>
+              <div class="more__reviews--wrapper">
+                <button id="toggle">VIEW MORE</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="benefit_mdl_lft">
+            <div class="benefit_mdl_tp justify-content-center">
+              <h3 class="text-white text-center">Our Free Features</h3>
+            </div>
+            <div class="benefit_mdl_btm">
+              <ul>
+                <li>
+                  Choose a 5-star Writer
+                  <span>
+                    $10.00
+                  </span>
+                </li>
+                <li>
+                  Contact Writer
+                  <span>
+                    $10.00
+                  </span>
+                </li>
+                <li>
+                  Unlimited Revisions
+                  <span>
+                    $9.00
+                  </span>
+                </li>
+                <li>
+                  Paper Formatting
+                  <span>
+                    $7.00
+                  </span>
+                </li>
+                <li>
+                  Cover Page
+                  <span>
+                    $10.00
+                  </span>
+                </li>
+                <li>
+                  Outline
+                  <span>
+                    $10.00
+                  </span>
+                </li>
+                <li>
+                  Referencing
+                  <span>
+                    $7.00
+                  </span>
+                </li>
+                <li>
+                  Dedicated User Area
+                  <span>
+                    $7.00
+                  </span>
+                </li>
+                <li>
+                  24/7 Order Tracking
+                  <span>
+                    $10.00
+                  </span>
+                </li>
+                <li>
+                  Periodic Email Alerts
+                  <span>
+                    $10.00
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="csp/loadReviews.js"></script>
+  </section>
+  <section class="modal_area">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <!-- Modal -->
+
+          <div class="modal fade" id="writereview" tabindex="-1" aria-labelledby="writereviewLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header align-items-center">
+                  <p class="modal-title font-weight-bold display-5" id="writereviewLabel">Leave A Review</p>
+                  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form action="" method="post" class="review__form" id="review__form">
+                    <div class="row mb-3">
+                      <div class="col-md-5">
+                        <label for="name" class="frm_label">Full Name</label>
+                      </div>
+                      <div class="col-md-7">
+                        <input type="text" id="reviewer_name" placeholder="Enter your full name" required=""/>
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                      <div class="col-md-5">
+                        <label for="email" class="frm_label">Email Address</label>
+                      </div>
+                      <div class="col-md-7">
+                        <input type="email" id="reviewer_email" placeholder="Enter your email address" required=""/>
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                      <div class="col-md-5">
+                        <label for="email" class="frm_label">Rating</label>
+                      </div>
+                      <div class="col-md-7">
+                        <div class="star-rating">
+                          <input type="radio" id="5-stars" name="rating" value="5"/>
+                          <label for="5-stars" class="star">&#9733;</label>
+                          <input type="radio" id="4-stars" name="rating" value="4"/>
+                          <label for="4-stars" class="star">&#9733;</label>
+                          <input type="radio" id="3-stars" name="rating" value="3"/>
+                          <label for="3-stars" class="star">&#9733;</label>
+                          <input type="radio" id="2-stars" name="rating" value="2"/>
+                          <label for="2-stars" class="star">&#9733;</label>
+                          <input type="radio" id="1-star" name="rating" value="1"/>
+                          <label for="1-star" class="star">&#9733;</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                      <div class="col-md-5">
+                        <label for="email" class="frm_label">Review</label>
+                      </div>
+                      <div class="col-md-7">
+                        <textarea name="comments" id="reviewer_comments" rows="5" placeholder="Write a review and share your experience" class="w-100" required=""></textarea>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <button type="submit" class="submitreview ml-3" id="submitreview">Submit</button>
+                    </div>
+                  </form>
+                  <div id="auto-response-popup">
+                    <p>Thank you for coming to EssaysFeed. We will be with you shortly.</p>
+                  </div>
+                  <div class="result"></div>
+                  <!-- /.result -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="popup_form_wrapper">
+    <div id="login" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <button data-bs-dismiss="modal" class="close">&times;</button>
+            <div class="container" id="container">
+              <div class="form-container sign-in-container">
+                <div class="contact_wrapper calculate_order calculate_order_form">
+                  <form id="lead_form_popup" method="POST" action="lite_common/form_handler.php">
+                    <div class="order-form">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="contact_left p-0">
+                            <div class="form-title text-center">
+                              <h3>Act Fast - Save Big!</h3>
+                            </div>
+                            <div class="form_dis_banner">
+                              <p>
+                                <span>50%</span>
+                                DISCOUNT</p>
+
+                              <div class="banner-ribon">
+                                <p>
+                                  UP TO 20%
+                                  <span>EXTRA DISCOUNT</span>
+                                  ON BIG ORDERS
+                                </p>
+                              </div>
+                              <div class="arrow-left1"></div>
+                            </div>
+                            <div class="row mb-3 form-start">
+                              <div class="col-md-12">
+                                <input type="hidden" name="origin" value="reviews.php"/>
+                                <input type="hidden" name="website" value="essaysfeed.com"/>
+                                <input type="hidden" name="RefrenceNo" value=""/>
+                                <input type="hidden" name="ReferalURL" value=""/>
+                                <label>Name
+                                  <span class="text-danger">*</span></label>
+                                <i class="fas fa-user ml-3 icons"></i>
+                                <input type="text" id="f_name_popup" name="name" class="mb-2" placeholder="Enter Your Full Name" required=""/>
+                                <span id="nameError_popup" class="text-danger password_require pop_cmn_err d-none"></span>
+                              </div>
+                              <div class="col-md-12">
+                                <label>Email Address
+                                  <span class="text-danger">*</span></label>
+                                <i class="fas fa-envelope ml-3 icons"></i>
+                                <input type="email" id="f_email_popup" name="email" class="mb-2" placeholder="Enter Your Email Address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required=""/>
+                                <span id="emailError_popup" class="text-danger password_require pop_cmn_err d-none"></span>
+                              </div>
+                     
+                              <div class="col-md-12">
+                                <label>Select Country
+                                  <span class="text-danger">*</span></label>
+                                <div class="form_sel_wrapper">
+                                  <input type="hidden" id="Phonecode_popup" name="Phonecode" value=""/>
+                                  <input type="hidden" id="CountryIsoCode_popup" name="CountryIsoCode" value=""/>
+                                  <i class="fas fa-globe"></i>
+                                  <select name="countrylist" id="countryddl_popup" class="countrylist form-control sel_ctry">
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-12">
+                                <label>Phone Number
+                                  <span class="text-danger">*</span></label>
+                                <div class="form_phone">
+                                  <i class="fas fa-phone-alt"></i>
+                                  <input type="tel" name="phone" id="phone_popup" class="form_control" data-default-region="US" pattern="^[0-9\-\+\s\(\)]*$" minlength="7" maxlength="17" placeholder="Enter Your Phone Number" required=""/>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-12 sbmt_btn_adj">
+                          <div class="coupon-wrapper">
+                            <div class="coupon-wrapper-adj">
+                              <div class="lowest_lft">
+                                <p>Lowest
+                                  <br/>Price</p>
+                                <p>GUARANTEED</p>
+                                <div class="arrow-down3"></div>
+                              </div>
+                              <div class="coupan_details">
+                                <h4>Coupons Left Today</h4>
+                                <p>
+                                  <span>Get it</span>
+                                  Before offer Ends!</p>
+                              </div>
+                              <div class="coupan_square">
+                                <p class="ReviewCounter-container">
+                                  <span class="ReviewCounter">
+                                    <span class="odometer" data-value="9"></span>
+                                  </span>
+                                </p>
+                                <p>Coupons</p>
+                                <div class="vl">
+                                  <div class="small_circle_top"></div>
+                                  <div class="small_circle_btm"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <span class="ripple_yellow ripple_yellow_submit_cal">
+                            <button name="contact_with_expert_form" value="submit" id="f_submit1" class="btn btn-success black-btn2 mt-2 mb-2 OrderNow" type="button">
+                              Place Your Order Now
+                            </button>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                  <!--Error Message-->
+                  <div class="col-md-12 pad-25">
+                    <div id="auto-response">
+                      <p>Warning! Operation Unsuccessfull,Invalid Data</p>
+                    </div>
+                  </div>
+                  <div class="result"></div>
+                  <!-- /.result -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock main %}

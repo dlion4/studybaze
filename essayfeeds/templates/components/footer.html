@@ -67,15 +67,7 @@
         <h4 class="text-light footer-head">Why Choose Us</h4>
         <p class="mt-4 chose-para-adg">Thousands of students and professionals rely on us for their writing tasks to achieve their goals in academic life. Our services are offered as a fusion of quality, affordability, reliability and utmost dedication.</p>
         <div class="footer_seats">
-          <ul>
-            <li>
-              <a href="javascript:void(0)"><img src="{% static 'images/secure-g1.png' %}" alt="seals"></a>
-            </li>
-            <li>
-              <a href="javascript:void(0)"><img src="{% static 'images/secure-g2.png' %}" alt="seals"></a>
-
-            </li>
-          </ul>
+          
 
         </div>
         <!--end icon-->
@@ -86,7 +78,7 @@
         </h4>
         <ul class="list-unstyled footer-list mt-4">
           <li>
-            <a href="index.htm" class="text-foot">
+            <a href="{% url 'home' %}" class="text-foot">
               <i class="fas fa-chevron-right mr-1"></i>Home</a>
           </li>
           <!-- Home + All Service & Lead Pages TopHeader Navigation Starts -->
@@ -123,13 +115,10 @@
               <i class="fas fa-chevron-right mr-1"></i>Comparison</a>
           </li>
           <li>
-            <a href="#faq" class="text-foot">
+            <a href="{% url 'fags' %}" class="text-foot">
               <i class="fas fa-chevron-right mr-1"></i>FAQs</a>
           </li>
-          <li>
-            <a href="#about" class="text-foot">
-              <i class="fas fa-chevron-right mr-1"></i>About Us</a>
-          </li>
+         
           <!--/- Home + All Service & Lead Pages TopHeader Navigation Ends -->
           {% for page in flatpages %}
           <li>

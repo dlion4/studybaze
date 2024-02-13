@@ -230,7 +230,15 @@ SESSION_COOKIE_HTTPONLY = True
 CSRF_COOKIE_HTTPONLY = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#x-frame-options
 X_FRAME_OPTIONS = "DENY"
+#https://pypi.org/project/django-cors-headers/#CSRFIntegration
 
+CSRF_TRUSTED_ORIGINS = [
+    "http://*.example.com",
+    "http://127.0.0.1:8000",
+    "https://*.ngrok-free.app",
+    # "http://0.0.0.0"
+    "https://studybaze.com",
+]
 # EMAIL
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-backend

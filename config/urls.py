@@ -68,3 +68,10 @@ if settings.DEBUG:
 urlpatterns += [
     path('paypal/', include("paypal.standard.ipn.urls")),
 ]
+from django.contrib.flatpages import views as flatpage_views
+# FLATEPAGES URLS
+urlpatterns += [
+    path("privacy/", flatpage_views.flatpage, {"url": "/privacy/"}, name="privacy"),
+    path("reviews/", flatpage_views.flatpage, {"url": "/reviews/"}, name="reviews"),
+    path("about-us/", flatpage_views.flatpage, {"url": "/about/"}, name="about"),
+]

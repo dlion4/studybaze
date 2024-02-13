@@ -1429,12 +1429,12 @@ button.login-btn.btn_cmn {
 }
 
 .side-word {
-    color: #2f55d4;
+    color: #08A9E6;
     transition: all 500ms ease;
 }
 
     .side-word:hover {
-        color: #2eca8b;
+        color: #f0b50d;
     }
 
 .sign-up-right svg {

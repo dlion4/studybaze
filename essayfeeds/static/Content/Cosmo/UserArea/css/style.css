@@ -714,7 +714,7 @@ textarea {
 }
 
 .orderPriceBg {
-    background-image: url('../images/customerSupportBg.png');
+    /* background-image: url('../images/customerSupportBg.png'); */
     background-position: center center;
     background-repeat: no-repeat;
     padding-bottom: 0px;
