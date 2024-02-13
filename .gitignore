@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ### Python template
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -68,8 +67,8 @@ celerybeat-schedule
 
 # Environments
 .venv
-venv/
-ENV/
+# venv/
+# ENV/
 
 # Rope project settings
 .ropeproject
@@ -281,5 +280,5 @@ essayfeeds/media/
 # .envs/*
 # !.envs/.local/
 # =======
-env/
+# env/
 
