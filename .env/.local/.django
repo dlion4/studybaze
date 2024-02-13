@@ -1,0 +1,17 @@
+# General
+DJANGO_READ_DOT_ENV_FILE=True
+DATABASE_URL='postgres://postgres:1234@localhost:5432/essayfeeds'
+
+# ------------------------------------------------------------------------------
+USE_DOCKER=yes
+IPYTHONDIR=/app/.ipython
+# Redis
+# ------------------------------------------------------------------------------
+REDIS_URL=redis://redis:6379/0
+
+# Celery
+# ------------------------------------------------------------------------------
+
+# Flower
+CELERY_FLOWER_USER=debug
+CELERY_FLOWER_PASSWORD=debug

@@ -277,9 +277,9 @@ essayfeeds/media/
 
 .pytest_cache/
 .ipython/
-.env
-.envs/*
-!.envs/.local/
-=======
+# .env
+# .envs/*
+# !.envs/.local/
+# =======
 env/
->>>>>>> 5eb349de90c5b940f83fa739abe146224c43a375
+
