@@ -64,13 +64,14 @@ class OrderForm(forms.ModelForm):
             "service": forms.Select(choices=(
                 ("Writing","Writing"),("Editing","Editing"),("Proof","Proof")
             )),
+            
             "academic_level": forms.Select(choices=(
                 ("HighSchool","High School"),("College","College"),("Masters","Masters"), ("PhD",'PhD')
             )),
             
             "title": forms.TextInput(attrs={"class": ""}),
             "instructions": forms.Textarea(),
-            "references":forms.NumberInput(attrs={"min":"1"}),
+            "references":forms.NumberInput(attrs={"min":"0"}),
             "pages_number":forms.NumberInput(attrs={"min":"1"}),
             "files": MultipleFileInput(attrs={'multiple': True, "class": "form-control"})
         }

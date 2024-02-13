@@ -25,9 +25,9 @@ class Order(models.Model):
     type_of_work = models.CharField(max_length=100, default="Meal")
     academic_level = models.CharField(max_length=100)
     title = models.CharField(max_length=100)
-    subject = models.CharField(max_length=100, )
+    subject = models.CharField(max_length=100)
     deadline = models.DateTimeField()
-    pages_number = models.IntegerField(default=1)
+    pages_number = models.PositiveIntegerField(default=1)
     word_count = models.IntegerField(default=275)
     instructions = models.TextField(blank=True, null=True)
     citation_style = models.CharField(max_length=100,default="MLA")
@@ -53,9 +53,27 @@ class Order(models.Model):
         return self.price
     
     def get_deadline_countdown(self):
-        return self.deadline -timezone.now()
+        return self.deadline - timezone.now()
+    
+    def get_level_pricing(self):
+        self.price = 0
+        if self.academic_level == "HighSchool":
+            # assign price
+            self.price += 0
+        elif self.academic_level == 'College':
+            # assign price
+            self.price += 0
+        elif self.academic_level == 'Masters':
+            # assign price
+            self.price += 0
+        elif self.academic_level == 'PhD':
+            # assign price
+            self.price += 0
+        return self.price
+    
     
     def get_formated_deadline_countdown(self):
+
         seconds = self.get_deadline_countdown().seconds
         hour=0
         minutes=0
@@ -64,18 +82,24 @@ class Order(models.Model):
         elif 216000> seconds > 3600:
             minutes = seconds/3600
         if hour: return "%.0f"%hour
+
         else: return "%.0f"%minutes
     
     def get_deadline_price(self):
+
         self.price = 18
+
         if  self.get_deadline_countdown().days < 1 and int(self.get_formated_deadline_countdown()) < 4:
+
             self.price *= 2
+
         self.price += self.get_reference()
         self.price += self.get_pages_price()
         return self.price
     
     def get_final_price(self):
         self.price+=self.get_deadline_price()
+        self.price += self.get_level_pricing()
         return self.price
     
     
@@ -86,14 +110,14 @@ class Order(models.Model):
         if self.orderId: pass
         else: 
             self.orderId = f"{generate_random_id(length=5)}{self.pk}"
-        self.price=float(int(self.get_deadline_price()))   
+        self.price=float(int(self.get_final_price()))   
         return super().save(*args, **kwargs)
         
 
 class Addon(models.Model):
     addon = models.CharField(max_length=100)
     selected = models.BooleanField(default=False)
-    price = models.FloatField(default=50)
+    price = models.FloatField(default=0.00)
 
     def __str__(self):
         return self.addon
