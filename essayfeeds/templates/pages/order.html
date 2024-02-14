@@ -24,20 +24,20 @@
             
             {% if form.errors %}<h1>{% translate "Please correct the following errors" %}</h1>{% endif %}
             <form enctype="multipart/form-data" action="" method="post">{% csrf_token %}
-              {{ wizard.management_form }}
+              {% comment %} {{ wizard.management_form }}
               {% if wizard.form.forms %}
                   {{ wizard.form.management_form }}
-                  {% for form in wizard.form.forms %}
+                  {% for form in wizard.form.forms %} {% endcomment %}
                       {{ form|crispy }}
-                  {% endfor %}
-              {% else %}
+                  {% comment %} {% endfor %} {% endcomment %}
+              {% comment %} {% else %}
                   {{ wizard.form|crispy }}
-              {% endif %}
+              {% endif %} {% endcomment %}
               </table>
-              {% if wizard.steps.prev %}
+              {% comment %} {% if wizard.steps.prev %}
               <button name="wizard_goto_step" type="submit" class=" " value="{{ wizard.steps.first }}">{% translate "first step" %}</button>
               <button name="wizard_goto_step" type="submit" class="" value="{{ wizard.steps.prev }}">{% translate "prev step" %}</button>
-              {% endif %}
+              {% endif %} {% endcomment %}
               <input type="submit" value="{% translate "submit" %}"/>
             </form>
 
