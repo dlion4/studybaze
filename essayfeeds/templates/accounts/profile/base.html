@@ -1,48 +1,104 @@
 <!DOCTYPE html>
-{% load static %}
-{% load flatpages %}
-{% get_flatpages as flatpages %}
+{% load static %} {% load flatpages %} {% get_flatpages as flatpages %}
 <html lang="en">
-
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-    <meta name="description" content="EssaysFeed provides academic help for students all over the world. Connect with us if you wish to pursue a successful academic career.">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1"
+    />
+    <meta
+      name="description"
+      content="EssaysFeed provides academic help for students all over the world. Connect with us if you wish to pursue a successful academic career."
+    />
     <!--Custom Stylesheets -->
-    <link type="text/css" rel="stylesheet" href="{% static 'content/cosmo/userarea/css/responsive.css' %}?v=20220104">
-    <link type="text/css" rel="stylesheet" href="{% static 'content/Cosmo/UserArea/css/main.css' %}?v=08112023">
-    <link type="text/css" rel="stylesheet" href="{% static 'content/Cosmo/UserArea/css/style.css' %}?v=04142023">
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="{% static 'content/cosmo/userarea/css/responsive.css' %}?v=20220104"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="{% static 'content/Cosmo/UserArea/css/main.css' %}?v=08112023"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="{% static 'content/Cosmo/UserArea/css/style.css' %}?v=04142023"
+    />
     <!--Favicon -->
-    <link rel="icon" href="https://acds3bucketlog.s3.amazonaws.com/images/ef_web-favicon.png" sizes="16x16 32x32" type="image/png">
+    <link
+      rel="icon"
+      href="https://acds3bucketlog.s3.amazonaws.com/images/ef_web-favicon.png"
+      sizes="16x16 32x32"
+      type="image/png"
+    />
     <!-- Bootstrap + FontAwesome + Animate + Fonts CDN's -->
-    <link type="text/css" href="{% static 'content/CustomCDN/css/bootstrap.5.3.2.min.css' %}" rel="stylesheet"/>
-    <link type="text/css" rel="stylesheet" href="{% static 'content/CustomCDN/css/fontawesome6.5.1.all.min.css' %}"/>
+    <link
+      type="text/css"
+      href="{% static 'content/CustomCDN/css/bootstrap.5.3.2.min.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="{% static 'content/CustomCDN/css/fontawesome6.5.1.all.min.css' %}"
+    />
 
     <!-- Common Styling for Colors -->
 
     <style>
       :root {
-        --main-bg-color: #08A9E6;
+        --main-bg-color: #08a9e6;
       }
     </style>
-    <link rel="stylesheet" href="{% static 'content/Cosmo/UserArea/css/new_header_footer_common.css' %}?v=12272023"/>
+    <link
+      rel="stylesheet"
+      href="{% static 'content/Cosmo/UserArea/css/new_header_footer_common.css' %}?v=12272023"
+    />
 
     <!-- Jquery & JavaScript CDN'S, Files -->
-    <script type="text/javascript" src="{% static 'content/CustomCDN/js/jquery.3.7.1.js' %}"></script>
-    <script type="text/javascript" src="{% static 'content/CustomCDN/js/bootstrap.5.3.2.js' %}"></script>
-    <script type="text/javascript" src="{% static 'content/CustomCDN/js/parsley.2.9.2.min.js' %}"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/1.3.8/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="{% static 'content/CustomCDN/js/hcapcha-api.js' %}" async="async" defer="defer"></script>
+    <script
+      type="text/javascript"
+      src="{% static 'content/CustomCDN/js/jquery.3.7.1.js' %}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{% static 'content/CustomCDN/js/bootstrap.5.3.2.js' %}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{% static 'content/CustomCDN/js/parsley.2.9.2.min.js' %}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.datatables.net/1.3.8/js/jquery.dataTables.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{% static 'content/CustomCDN/js/hcapcha-api.js' %}"
+      async="async"
+      defer="defer"
+    ></script>
 
-    <link type="text/css" rel="stylesheet" href="{% static 'content/Cosmo/UserArea/css/userArea.css' %}?v=11242023">
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="{% static 'content/Cosmo/UserArea/css/userArea.css' %}?v=11242023"
+    />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
 
   <body>
-
     <div class="WebClass">
-
       <header id="topnav" class="defaultscroll sticky bg-white w-100">
         <div class="container">
           <div class="row">
@@ -50,15 +106,21 @@
               <!-- mobile nav bar -->
               <nav class="navbar p-0 navbar-expand-lg">
                 <a href="{% url 'home' %}" class="navbar-brand mob_hide">
-                  <img src="https://acds3bucketlog.s3.amazonaws.com/images/ef_web-logo.png" alt="Website logo">
+                  <img
+                    src="https://acds3bucketlog.s3.amazonaws.com/images/ef_web-logo.png"
+                    alt="Website logo"
+                  />
                 </a>
                 <span class="btns_xs">
                   <!--mobile view buttons -->
                   <a href="" class="btn_user_mbile">Dashboard</a>
-
                 </span>
 
-                <span class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav_responsive">
+                <span
+                  class="navbar-toggler"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#nav_responsive"
+                >
                   <i class="fas fa-bars"></i>
                 </span>
 
@@ -68,18 +130,30 @@
                   <span class="mx-auto"></span>
                   <ul class="navbar_btns">
                     <li>
-                      <a href="" class="btn_tel">
-                        <i class="fas fa-phone-alt"></i>
-                        <span>
-                          +1 (877) 728-7387
-                        </span>
+                      <a
+                        href=""
+                        class="btn_tel"
+                        style="
+                          color: #000;
+                          text-decoration: none;
+                          font-weight: bold;
+                        "
+                      >
+                        <span style="color: #e74c3c">Balance $</span
+                        ><span style="color: #2dc98a"> 0.00</span>
                       </a>
                     </li>
                     <li>
-                      <a href="{% url 'account_logout' %}" class="btn_user">Log Out</a>
+                      <a href="{% url 'account_logout' %}" class="btn_user"
+                        >Log Out</a
+                      >
                     </li>
                     <li>
-                      <a href="{% url 'users:detail' request.user.pk %}" class="btn_user hidden-xs">Dashboard</a>
+                      <a
+                        href="{% url 'users:detail' request.user.pk %}"
+                        class="btn_user hidden-xs"
+                        >Dashboard</a
+                      >
                     </li>
                   </ul>
                 </div>
@@ -97,78 +171,163 @@
             <div class="container">
               <!-- Brand and toggle get grouped for better mobile display -->
               <div class="navbar-header header2">
-                {% comment %} <a href=""><img src="{% static 'content/Cosmo/images/icon_home.png' %}" alt="this is home icon image"></a> {% endcomment %}
+                {% comment %}
+                <a href=""
+                  ><img
+                    src="{% static 'content/Cosmo/images/icon_home.png' %}"
+                    alt="this is home icon image"
+                /></a>
+                {% endcomment %}
               </div>
-              <!-- Collect the nav links, forms, and other content for toggling -->
-              <div>
+
+              <style>
+                .navbar-container {
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+
+                  {% comment %} padding: 10px -5px; {% endcomment %}
+                }
+
+                .header3 {
+                  list-style-type: none;
+                  margin: 0;
+                  padding: 0;
+                }
+
+                .header3 li {
+                  display: inline-block;
+                  margin-right: -1px; /* Adjust the spacing between items */
+
+                }
+
+                .dropdown-menu {
+                  display: none;
+                  position: absolute;
+                  background-color: #fff; /* Adjust the background color for the dropdown */
+                  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                  {% comment %} z-index: 1; {% endcomment %}
+                }
+
+                .header3 li:hover .dropdown-menu {
+                  display: block;
+                }
+
+                .dropdown-menu-allignment {
+                  left: 0;
+                }
+
+                .dropdown-header {
+                  padding: 6px -12px;
+                  display: block;
+                  color: #000; /* Adjust the text color for dropdown items */
+                  text-decoration: none;
+                }
+
+                .user-managment-button {
+                  cursor: pointer;
+                  color: #000; /* Adjust the text color for the main button */
+                }
+              </style>
+
+              <div class="navbar-container">
                 <ul class="header3">
                   <li id="drop-hover" class="dropdown mega-dropdown">
-                    <span class="user-managment-button">Account Management
-                      <span class="fa fa-chevron-down "></span></span>
-                    <ul class="dropdown-menu mega-dropdown-menu row dropdown-menu-allignment dropmenuclass">
-                      <li class="col-sm-6 divide">
-                        <ul>
-                          <li class="dropdown-header">
-                            <a href="">Dashboard</a>
-                          </li>
-                          <li class="dropdown-header">
-                            <a href="{% url 'users:user_update_view' %}">Update Profile</a>
-                          </li>
-                          <li class="dropdown-header">Complaints & Disputes</li>
-                          <li>
-                            <a href="{% url 'users:dispute_register_view' %}">Register Complaints</a>
-                          </li>
-                          <li>
-                            <a href="{% url 'users:open_dispute_view' %}">Open Dispute</a>
-                          </li>
-                          <li>
-                            <a href="{% url 'users:dispute_view' %}">View Disputes</a>
-                          </li>
-                          <li class="dropdown-header">
-                            <a href="{% url 'users:loyalty_points_view' %}">Loyalty Points</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li class="col-sm-6">
-                        <ul>
-                          <li class="dropdown-header">
-                            <a href="{% url 'users:referrer' %}">Refer a Friend</a>
-                          </li>
-
-                          {% for page in flatpages %}
-                            <li class="dropdown-header">
-                              <a href="{{page.url}}">{{page.title}}</a>
-                            </li>
-                          {% endfor %}
-                          <li class="dropdown-header">
-                            <a href="{% url 'users:customerfeedback_view' %}">Suggestion & Feedback</a>
-                          </li>
-
-                          <li class="dropdown-header">
-                            <form method='post' action="{% url 'users:logout' %}">
-                              {% csrf_token %}
-                              <button type='submit'>Log Out</button>
-                            </form>
-                          </li>
-                        </ul>
-                      </li>
+                    <span class="user-managment-button"
+                      >Orders <span class="fa fa-chevron-down"></span
+                    ></span>
+                    <ul
+                      class="dropdown-menu mega-dropdown-menu row dropdown-menu-allignment dropmenuclass"
+                    >
+                      <!-- Your dropdown menu content here -->
                     </ul>
                   </li>
                 </ul>
+                <ul class="header3">
+                  <li id="drop-hover" class="dropdown mega-dropdown">
+                    <span class="user-managment-button">Complains </span>
+                    <ul
+                      class="dropdown-menu mega-dropdown-menu row dropdown-menu-allignment dropmenuclass"
+                    >
+                      <li>
+                        <a href="{% url 'users:dispute_register_view' %}"
+                          >Register Complaints</a
+                        >
+                      </li>
+                      <li>
+                        <a href="{% url 'users:open_dispute_view' %}"
+                          >Open Dispute</a
+                        >
+                      </li>
+                      <li>
+                        <a href="{% url 'users:dispute_view' %}"
+                          >View Disputes</a
+                        >
+                      </li>
+                      <!-- Your dropdown menu content here -->
+                    </ul>
+                  </li>
+                </ul>
+
+                <ul class="header3">
+                  <li id="#" class="dropdown mega-dropdown">
+                    <span class="user-managment-button"
+                      ><a href="">Finaces</a>
+                    </span>
+                  </li>
+                </ul>
+                <ul class="header3">
+                  <li id="drop-hover" class="mega-dropdown">
+                    <a href="{% url 'users:user_update_view' %}"
+                      >Update Profile</a
+                    >
+                  </li>
+                </ul>
+
+                <ul class="header3">
+                  <li id="drop-hover" class="dropdown mega-dropdown">
+                    <a href="{% url 'users:loyalty_points_view' %}"
+                      >Loyalty Points</a
+                    >
+                  </li>
+                </ul>
+
+                <ul class="header3">
+                  <li id="drop-hover" class="dropdown mega-dropdown">
+                    <a href="{% url 'users:referrer' %}">Refer a Friend</a>
+                  </li>
+                </ul>
+                <ul class="header3">
+                  <li id="drop-hover" class="dropdown mega-dropdown">
+                    <a href="{% url 'users:customerfeedback_view' %}"
+                      >Suggestion & Feedback</a
+                    >
+                  </li>
+                </ul>
+
+                <!-- Repeat the same structure for additional menu items -->
               </div>
+
+              <!-- Collect the nav links, forms, and other content for toggling -->
+
               <!-- /.nav-collapse -->
             </div>
             <!-- /.container -->
           </div>
           <!-- /.container-fluid -->
         </div>
-        <script type="text/javascript" src="{% static 'content/CSP/MenuBar.js' %}"></script>
+        <script
+          type="text/javascript"
+          src="{% static 'content/CSP/MenuBar.js' %}"
+        ></script>
 
         {% block main %}{% endblock main %}
-
       </div>
 
-      <script type="text/javascript" src="{% static 'content/Cosmo/js/EditProfile.js' %}?v=10252023"></script>
+      <script
+        type="text/javascript"
+        src="{% static 'content/Cosmo/js/EditProfile.js' %}?v=10252023"
+      ></script>
       <!-- Common Footer Included -->
 
       <!-- Footer Copyright-->
@@ -176,27 +335,33 @@
         <div class="container">
           <div class="row">
             <div class="col-sm-12">
-              <p>
-                Copyright &copy; 2024. All Rights Reserved.
-              </p>
+              <p>Copyright &copy; 2024. All Rights Reserved.</p>
             </div>
           </div>
         </div>
       </section>
-      <input type="hidden" id="IPA" value="154.159.252.196"/>
-      <input type="hidden" id="WSN" value="EssaysFeed"/>
+      <input type="hidden" id="IPA" value="154.159.252.196" />
+      <input type="hidden" id="WSN" value="EssaysFeed" />
 
       {% block modal %}{% endblock modal %}
     </div>
     <!--/- Footer HTML section Ends -->
     <!--Start of Tawk.to Script-->
-    <script type="text/javascript" src="{% static 'content/CSP/Tawk.to.js' %}" livechatid="654a111ef2439e1631ec8bfc/1hh42u4as"></script>
+    <script
+      type="text/javascript"
+      src="{% static 'content/CSP/Tawk.to.js' %}"
+      livechatid="654a111ef2439e1631ec8bfc/1hh42u4as"
+    ></script>
     <!--End of Tawk.to Script-->
 
     <!-- End of LiveChat code -->
-    <script type="text/javascript" src="{% static 'content/Cosmo/js/ClicktoCopy.js' %}?v=01302023"></script>
-    <script type="text/javascript" src="{% static 'content/Cosmo/js/userarea.js' %}?v=12272023"></script>
-
+    <script
+      type="text/javascript"
+      src="{% static 'content/Cosmo/js/ClicktoCopy.js' %}?v=01302023"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{% static 'content/Cosmo/js/userarea.js' %}?v=12272023"
+    ></script>
   </body>
-
 </html>

@@ -9,8 +9,8 @@ from dotenv import dotenv_values, load_dotenv
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
 
 
-load_dotenv(str(BASE_DIR/ "./.env/.local/.django"))
-config = dotenv_values(str(BASE_DIR/ "./.env/.local/.django"))
+load_dotenv(str(BASE_DIR / "./.env/.local/.django"))
+config = dotenv_values(str(BASE_DIR / "./.env/.local/.django"))
 # essayfeeds/
 APPS_DIR = BASE_DIR / "essayfeeds"
 env = environ.Env()
@@ -48,7 +48,21 @@ LOCALE_PATHS = [str(BASE_DIR / "locale")]
 # DATABASES
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
-DATABASES = {"default": env.db("DATABASE_URL", default=str(config.get("DATABASE_URL")))}
+# DATABASES = {"default": env.db("DATABASE_URL", default="postgres://postgres:1234@localhost:5433/essayfeeds")}
+
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "essayfeeds",
+        "USER": "postgres",
+        "PASSWORD": 1234,
+        "HOST": "localhost",  # Set to the address where your PostgreSQL server is running
+        "PORT": 5433,  # Set to the port used by your PostgreSQL server
+    }
+}
+
+
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 # https://docs.djangoproject.com/en/stable/ref/settings/#std:setting-DEFAULT_AUTO_FIELD
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
@@ -86,9 +100,9 @@ THIRD_PARTY_APPS = [
     "corsheaders",
     "drf_spectacular",
     "phonenumber_field",
-    'widget_tweaks',
-     'formtools',
-      'paypal.standard.ipn',
+    "widget_tweaks",
+    "formtools",
+    "paypal.standard.ipn",
 ]
 
 LOCAL_APPS = [
@@ -96,8 +110,7 @@ LOCAL_APPS = [
     # Your stuff: custom apps go here
     "essayfeeds.classwork",
     "essayfeeds.payments",
-
-    "essayfeeds.issues"
+    "essayfeeds.issues",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -201,10 +214,9 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 "essayfeeds.users.context_processors.allauth_settings",
             ],
-
             "builtins": [
                 "widget_tweaks.templatetags.widget_tweaks",
-                ],
+            ],
         },
     }
 ]
@@ -230,7 +242,7 @@ SESSION_COOKIE_HTTPONLY = True
 CSRF_COOKIE_HTTPONLY = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#x-frame-options
 X_FRAME_OPTIONS = "DENY"
-#https://pypi.org/project/django-cors-headers/#CSRFIntegration
+# https://pypi.org/project/django-cors-headers/#CSRFIntegration
 
 CSRF_TRUSTED_ORIGINS = [
     "http://*.example.com",
@@ -259,7 +271,7 @@ ADMINS = [("""Jeckonia, Daniel and Sammy""", "inctifra@example.com")]
 MANAGERS = ADMINS
 # https://cookiecutter-django.readthedocs.io/en/latest/settings.html#other-environment-settings
 # Force the `admin` sign in process to go through the `django-allauth` workflow
-DJANGO_ADMIN_FORCE_ALLAUTH =os.environ.get("DJANGO_ADMIN_FORCE_ALLAUTH", default=False)
+DJANGO_ADMIN_FORCE_ALLAUTH = os.environ.get("DJANGO_ADMIN_FORCE_ALLAUTH", default=False)
 
 # LOGGING
 # ------------------------------------------------------------------------------
@@ -320,7 +332,7 @@ CELERY_WORKER_SEND_TASK_EVENTS = True
 CELERY_TASK_SEND_SENT_EVENT = True
 # django-allauth
 # ------------------------------------------------------------------------------
-ACCOUNT_ALLOW_REGISTRATION =os.environ.get("DJANGO_ACCOUNT_ALLOW_REGISTRATION", True)
+ACCOUNT_ALLOW_REGISTRATION = os.environ.get("DJANGO_ACCOUNT_ALLOW_REGISTRATION", True)
 # https://docs.allauth.org/en/latest/account/configuration.html
 ACCOUNT_AUTHENTICATION_METHOD = "email"
 # https://docs.allauth.org/en/latest/account/configuration.html

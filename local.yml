@@ -21,9 +21,9 @@ services:
     #   - ./.envs/.local/.django
     #   - ./.envs/.local/.postgres
     environments:
-      - DATABASE_URL=postgres://postgres:1234@localhost:5432/essayfeeds
+      - DATABASE_URL=postgres://postgres:1234@localhost:5433/essayfeeds
       - POSTGRES_HOST=localhost
-      - POSTGRES_PORT=5432
+      - POSTGRES_PORT=5433
       - POSTGRES_DB=essayfeeds
       - POSTGRES_USER=postgres 
       - POSTGRES_PASSWORD=1234
@@ -59,9 +59,9 @@ services:
     # env_file:
     #   - ./.envs/.local/.postgres
     environments:
-      - DATABASE_URL=postgres://postgres:1234@localhost:5432/essayfeeds
+      - DATABASE_URL=postgres://postgres:1234@localhost:5433/essayfeeds
       - POSTGRES_HOST=localhost
-      - POSTGRES_PORT=5432
+      - POSTGRES_PORT=5433
       - POSTGRES_DB=essayfeeds
       - POSTGRES_USER=postgres 
       - POSTGRES_PASSWORD=1234
@@ -93,7 +93,7 @@ services:
     #   - ./.envs/.local/.django
     environments:
       - DJANGO_READ_DOT_ENV_FILE=True
-      - DATABASE_URL=postgres://postgres:1234@localhost:5432/essayfeeds
+      - DATABASE_URL=postgres://postgres:1234@localhost:5433/essayfeeds
 
     # ------------------------------------------------------------------------------
       - USE_DOCKER=yes

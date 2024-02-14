@@ -33,10 +33,10 @@ decorator==5.1.1
 defusedxml==0.7.1
 dill==0.3.8
 distlib==0.3.8
-Django==5.0.1
+Django
 django-allauth==0.60.1
 django-appconf==1.0.6
-django-celery-beat==2.5.0
+django-celery-beat
 django-compressor==4.4
 django-cors-headers==4.3.1
 django-coverage-plugin==3.1.0

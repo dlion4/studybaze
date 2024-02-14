@@ -1,6 +1,4 @@
-{% load static %}
-{% load flatpages %}
-{% get_flatpages as flatpages %}
+{% load static %} {% load flatpages %} {% get_flatpages as flatpages %}
 <!-- Footer Start -->
 <footer class="footer">
   <div class="container">
@@ -15,7 +13,6 @@
                 </div>
                 <div class="media-body">
                   <h5 class="mt-0 footer-head">Get Started</h5>
-
                 </div>
               </div>
             </a>
@@ -23,34 +20,32 @@
           <!--end col-->
           <div class="col-md-4 mt-4 col-4 mt-sm-0 pt-2 pt-sm-0 pmtp-0">
             <a class="btm-icons-align" href="">
-
               <div class="media footer-media">
                 <div class="icons text-primary text-center">
-                  <i class="fa fa-phone d-block rounded h3 mb-0" aria-hidden="true"></i>
+                  <i
+                    class="fa fa-phone d-block rounded h3 mb-0"
+                    aria-hidden="true"
+                  ></i>
                 </div>
                 <div class="media-body">
-                  <h5 class="footer-head">Call +1.877.728.7387
-                  </h5>
-
+                  <h5 class="footer-head">Call +1.877.728.7387</h5>
                 </div>
               </div>
-
             </a>
           </div>
           <!--end col-->
-          <div class="col-md-4 mt-4 col-4 mt-sm-0 pt-2 pt-sm-0 pmtp-0 last_contact_foot">
+          <div
+            class="col-md-4 mt-4 col-4 mt-sm-0 pt-2 pt-sm-0 pmtp-0 last_contact_foot"
+          >
             <a href="" class="btm-icons-align chaton">
-
               <div class="media footer-media">
                 <div class="icons text-primary text-center mx-auto">
                   <i class="far fa-comment-dots d-block rounded h3 mb-0"></i>
                 </div>
                 <div class="media-body">
                   <h5 class="footer-head">Start Live Chat</h5>
-
                 </div>
               </div>
-
             </a>
           </div>
           <!--end col-->
@@ -65,107 +60,124 @@
     <div class="row">
       <div class="col-lg-5 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
         <h4 class="text-light footer-head">Why Choose Us</h4>
-        <p class="mt-4 chose-para-adg">Thousands of students and professionals rely on us for their writing tasks to achieve their goals in academic life. Our services are offered as a fusion of quality, affordability, reliability and utmost dedication.</p>
-        <div class="footer_seats">
-          
-
-        </div>
+        <p class="mt-4 chose-para-adg">
+          Thousands of students and professionals rely on us for their writing
+          tasks to achieve their goals in academic life. Our services are
+          offered as a fusion of quality, affordability, reliability and utmost
+          dedication.
+        </p>
+        <div class="footer_seats"></div>
         <!--end icon-->
       </div>
       <!--end col-->
       <div class="col-lg-2 col-md-4 col-sm-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
-        <h4 class="text-light footer-head">Quick Links
-        </h4>
+        <h4 class="text-light footer-head">Quick Links</h4>
         <ul class="list-unstyled footer-list mt-4">
           <li>
             <a href="{% url 'home' %}" class="text-foot">
-              <i class="fas fa-chevron-right mr-1"></i>Home</a>
+              <i class="fas fa-chevron-right mr-1"></i>Home</a
+            >
           </li>
           <!-- Home + All Service & Lead Pages TopHeader Navigation Starts -->
           <li>
             <a href="#benefits" class="text-foot">
-              <i class="fas fa-chevron-right mr-1"></i>Benefits</a>
+              <i class="fas fa-chevron-right mr-1"></i>Benefits</a
+            >
           </li>
           <li>
             <a href="#about" class="text-foot">
-              <i class="fas fa-chevron-right mr-1"></i>Our Team</a>
+              <i class="fas fa-chevron-right mr-1"></i>Our Team</a
+            >
           </li>
           <li>
             <a href="#process" class="text-foot">
-              <i class="fas fa-chevron-right mr-1"></i>Process</a>
+              <i class="fas fa-chevron-right mr-1"></i>Process</a
+            >
           </li>
           <li>
             <a href="#testimonials" class="text-foot">
-              <i class="fas fa-chevron-right mr-1"></i>Testimonials</a>
+              <i class="fas fa-chevron-right mr-1"></i>Testimonials</a
+            >
           </li>
 
           <!--/- Home + All Service & Lead Pages TopHeader Navigation Ends -->
-
         </ul>
       </div>
       <!--end col-->
-      <div class="col-lg-2 col-md-4 col-sm-6 ">
-        <h4 class="text-light footer-head d-none d-sm-block">&nbsp;
-        </h4>
-        <ul class="list-unstyled footer-list  mt-4 ql_sec_adj">
-
+      <div class="col-lg-2 col-md-4 col-sm-6">
+        <h4 class="text-light footer-head d-none d-sm-block">&nbsp;</h4>
+        <ul class="list-unstyled footer-list mt-4 ql_sec_adj">
           <!-- Home + All Service & Lead Pages TopHeader Navigation Starts -->
           <li>
             <a href="#comparison" class="text-foot">
-              <i class="fas fa-chevron-right mr-1"></i>Comparison</a>
+              <i class="fas fa-chevron-right mr-1"></i>Comparison</a
+            >
           </li>
           <li>
             <a href="{% url 'fags' %}" class="text-foot">
-              <i class="fas fa-chevron-right mr-1"></i>FAQs</a>
+              <i class="fas fa-chevron-right mr-1"></i>FAQs</a
+            >
           </li>
-         
+
           <!--/- Home + All Service & Lead Pages TopHeader Navigation Ends -->
           {% for page in flatpages %}
           <li>
             <a href="{{ page.url }}" class="text-foot">
-              <i class="fas fa-chevron-right mr-1"></i>{{ page.title|title }}</a>
+              <i class="fas fa-chevron-right mr-1"></i>{{ page.title|title }}</a
+            >
           </li>
-          <li>
-          {% endfor %}
+          <li>{% endfor %}</li>
         </ul>
       </div>
       <!--end col-->
-      <div class="col-lg-3 col-md-4 col-sm-6 mt-4 mt-sm-0 pt-2 pt-sm-0 ">
-        <h4 class="text-light footer-head footer-head-last">Connect with Us
-        </h4>
+      <div class="col-lg-3 col-md-4 col-sm-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
+        <h4 class="text-light footer-head footer-head-last">Connect with Us</h4>
         <ul class="list-unstyled footer-list mt-4">
           <li class="mobile d-block d-sm-none">
             <i class="fa fa-envelope spin"></i>
-            <a class="email text-foot" href="">
-              care@essaysfeed.com
-            </a>
+            <a class="email text-foot" href=""> care@Studybaze.com </a>
           </li>
           <li class="desktop d-none d-sm-block">
             <i class="fa fa-envelope spin"></i>
             <div class="mail-text">
-              <a class="email text-foot" href="">
-                care@essaysfeed.com
-              </a>
+              <a class="email text-foot" href=""> care@Studybaze.com </a>
             </div>
           </li>
           <li>
             <a href="" class="text-foot btn_call">
-              <i class="fas fa-phone mr-1" style="transform:rotate(-270deg)"></i>+1.877.728.7387</a>
+              <i
+                class="fas fa-phone mr-1"
+                style="transform: rotate(-270deg)"
+              ></i
+              >+1.877.728.7387</a
+            >
           </li>
           <li>
             <a href="javascript:void(0)" class="chaton text-foot">
-              <i class="fas fa-comments mr-1"></i>Start Live Chat</a>
+              <i class="fas fa-comments mr-1"></i>Start Live Chat</a
+            >
           </li>
           <li>
-            <a href="https://www.facebook.com/EssaysFeed-113962403579838" target="_blank" class="text-foot">
-              <i class="fab fa-facebook-f mr-1"></i>Follow Us on Facebook</a>
+            <a
+              href="https://www.facebook.com/EssaysFeed-113962403579838"
+              target="_blank"
+              class="text-foot"
+            >
+              <i class="fab fa-facebook-f mr-1"></i>Follow Us on Facebook</a
+            >
           </li>
         </ul>
         <ul class="list-unstyled payment-cards mb-0">
           <li>
             <h4 class="text-light footer-head mt-3">Payment Options</h4>
           </li>
-          <li class="list-inline-item"><img src="{% static 'images/estrual.png' %}" alt="Payment methods" class="payment-method"></li>
+          <li class="list-inline-item">
+            <img
+              src="{% static 'images/estrual.png' %}"
+              alt="Payment methods"
+              class="payment-method"
+            />
+          </li>
         </ul>
       </div>
     </div>
@@ -173,12 +185,18 @@
 </footer>
 <!--end footer-->
 
-<hr>
+<hr />
 <footer class="footer footer-bar">
   <div class="container text-center">
     <div class="row align-items-center">
       <div class="col-12">
-        <p>Disclaimer: Our custom writing services are designed solely for the purposes of study and research. We do not condone or support the direct submission of our content to educational institutions, organizations, or any entities that have policies against the use of custom writing services.</p>
+        <p>
+          Disclaimer: Our custom writing services are designed solely for the
+          purposes of study and research. We do not condone or support the
+          direct submission of our content to educational institutions,
+          organizations, or any entities that have policies against the use of
+          custom writing services.
+        </p>
         <p class="mb-0">Copyrights © 2024 EssaysFeed. All Rights Reserved.</p>
       </div>
     </div>

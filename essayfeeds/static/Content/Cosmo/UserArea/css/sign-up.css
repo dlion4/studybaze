@@ -13,21 +13,21 @@
     position: relative;
 }
 
-    #topnav .navbar .navbar-brand {
-        outline: none !important;
-        height: 50px;
-        padding: 4px 0 0;
-    }
+#topnav .navbar .navbar-brand {
+    outline: none !important;
+    height: 50px;
+    padding: 4px 0 0;
+}
 
-        #topnav .navbar .navbar-brand img {
-            max-width: 100%;
-        }
+#topnav .navbar .navbar-brand img {
+    max-width: 100%;
+}
 
 a:hover {
     text-decoration: none;
 }
 
-#topnav .navigation-menu > li > a {
+#topnav .navigation-menu>li>a {
     padding-left: 2px !important;
     padding-right: 2px !important;
 }
@@ -42,58 +42,60 @@ a:hover {
     cursor: pointer;
 }
 
-    #topnav .navbar-toggle .lines {
-        width: 25px;
-        display: block;
-        position: relative;
-        margin: 32px 20px 24px;
-        height: 18px;
-    }
+#topnav .navbar-toggle .lines {
+    width: 25px;
+    display: block;
+    position: relative;
+    margin: 32px 20px 24px;
+    height: 18px;
+}
 
-    #topnav .navbar-toggle span {
-        height: 2px;
-        width: 100%;
-        background-color: #3c4858;
-        display: block;
-        margin-bottom: 5px;
-        -webkit-transition: -webkit-transform .5s ease;
-        transition: -webkit-transform .5s ease;
-        transition: transform .5s ease;
-        transition: transform .5s ease, -webkit-transform .5s ease;
-    }
+#topnav .navbar-toggle span {
+    height: 2px;
+    width: 100%;
+    background-color: #3c4858;
+    display: block;
+    margin-bottom: 5px;
+    -webkit-transition: -webkit-transform .5s ease;
+    transition: -webkit-transform .5s ease;
+    transition: transform .5s ease;
+    transition: transform .5s ease, -webkit-transform .5s ease;
+}
 
-        #topnav .navbar-toggle span:last-child {
-            margin-bottom: 0;
-        }
+#topnav .navbar-toggle span:last-child {
+    margin-bottom: 0;
+}
 
-    #topnav .navbar-toggle.open span {
-        position: absolute;
-    }
+#topnav .navbar-toggle.open span {
+    position: absolute;
+}
 
-        #topnav .navbar-toggle.open span:first-child {
-            top: 6px;
-            -webkit-transform: rotate(45deg);
-            transform: rotate(45deg);
-        }
+#topnav .navbar-toggle.open span:first-child {
+    top: 6px;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
 
-        #topnav .navbar-toggle.open span:nth-child(2) {
-            visibility: hidden;
-        }
+#topnav .navbar-toggle.open span:nth-child(2) {
+    visibility: hidden;
+}
 
-        #topnav .navbar-toggle.open span:last-child {
-            width: 100%;
-            top: 6px;
-            -webkit-transform: rotate(-45deg);
-            transform: rotate(-45deg);
-        }
+#topnav .navbar-toggle.open span:last-child {
+    width: 100%;
+    top: 6px;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
 
-        #topnav .navbar-toggle.open span:hover {
-            background-color: var(--main-bg-color);
-        }
+#topnav .navbar-toggle.open span:hover {
+    background-color: var(--main-bg-color);
+}
 
-    #topnav .navbar-toggle .navigation-menu > li > a:hover, #topnav .navbar-toggle:focus, #topnav .navbar-toggle:hover {
-        background-color: transparent;
-    }
+#topnav .navbar-toggle .navigation-menu>li>a:hover,
+#topnav .navbar-toggle:focus,
+#topnav .navbar-toggle:hover {
+    background-color: transparent;
+}
 
 #topnav .navigation-menu {
     list-style: none;
@@ -110,31 +112,32 @@ a:hover {
     object-fit: contain;
 }
 
-#topnav .navigation-menu > li {
+#topnav .navigation-menu>li {
     display: inline-block;
     position: relative;
     margin: 0 8px;
 }
 
-    #topnav .navigation-menu > li > a {
-        display: block;
-        color: #3c4858;
-        font-size: 12px;
-        font-weight: 700;
-        letter-spacing: 1px;
-        line-height: 24px;
-        text-transform: uppercase;
-        -webkit-transition: all .5s;
-        transition: all .5s;
-        padding-left: 7px;
-        padding-right: 7px;
-        outline: none !important;
-        cursor: pointer !important;
-    }
+#topnav .navigation-menu>li>a {
+    display: block;
+    color: #3c4858;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 24px;
+    text-transform: uppercase;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+    padding-left: 7px;
+    padding-right: 7px;
+    outline: none !important;
+    cursor: pointer !important;
+}
 
-        #topnav .navigation-menu > li > a:active, #topnav .navigation-menu > li > a:hover {
-            color: var(--main-bg-color);
-        }
+#topnav .navigation-menu>li>a:active,
+#topnav .navigation-menu>li>a:hover {
+    color: var(--main-bg-color);
+}
 
 #topnav .menu-extras {
     float: right;
@@ -152,52 +155,52 @@ a:hover {
     font-size: 0;
 }
 
-    #topnav .navbar_btns li {
-        display: inline-block;
-        padding: 0px 3px;
-    }
+#topnav .navbar_btns li {
+    display: inline-block;
+    padding: 0px 3px;
+}
 
-        #topnav .navbar_btns li a {
-            display: block;
-            font-size: 16px;
-            line-height: 1;
-            font-weight: 800;
-            padding: 10px;
-            min-width: 100px;
-            text-align: center;
-            color: var(--main-bg-color);
-            background-color: transparent;
-            border: 2px solid var(--main-bg-color);
-            border-radius: 10px;
-            transition: all .3s linear;
-            box-sizing: border-box;
-            text-decoration: none;
-        }
+#topnav .navbar_btns li a {
+    display: block;
+    font-size: 16px;
+    line-height: 1;
+    font-weight: 800;
+    padding: 10px;
+    min-width: 100px;
+    text-align: center;
+    color: var(--main-bg-color);
+    background-color: transparent;
+    border: 2px solid var(--main-bg-color);
+    border-radius: 10px;
+    transition: all .3s linear;
+    box-sizing: border-box;
+    text-decoration: none;
+}
 
-            #topnav .navbar_btns li a:hover {
-                background-color: var(--main-bg-color);
-                color: #fff;
-            }
+#topnav .navbar_btns li a:hover {
+    /* background-color: var(--main-bg-color); */
+    color: #fff;
+}
 
-        #topnav .navbar_btns li:nth-last-child(1) a {
-            background-color: var(--main-bg-color);
-            color: #fff;
-        }
+#topnav .navbar_btns li:nth-last-child(1) a {
+    background-color: var(--main-bg-color);
+    color: #fff;
+}
 
-            #topnav .navbar_btns li:nth-last-child(1) a:hover {
-                color: var(--main-bg-color);
-                background-color: transparent;
-                border: 2px solid var(--main-bg-color);
-            }
+#topnav .navbar_btns li:nth-last-child(1) a:hover {
+    color: var(--main-bg-color);
+    background-color: transparent;
+    border: 2px solid var(--main-bg-color);
+}
 
-        #topnav .navbar_btns li a.btn_tel {
-            font-weight: 700;
-        }
+#topnav .navbar_btns li a.btn_tel {
+    font-weight: 700;
+}
 
-            #topnav .navbar_btns li a.btn_tel i {
-                transform: rotate(92deg);
-                margin-right: 2px;
-            }
+#topnav .navbar_btns li a.btn_tel i {
+    transform: rotate(92deg);
+    margin-right: 2px;
+}
 
 @media screen and (min-width: 768px) {
     #topnav .navbar_btns li a.btn_tel {
@@ -210,7 +213,8 @@ a:hover {
     margin: 0 8px 0 auto;
 }
 
-#topnav .btn_user_mbile, #topnav .btn_user_mbile.logout_btn:hover {
+#topnav .btn_user_mbile,
+#topnav .btn_user_mbile.logout_btn:hover {
     display: inline-block;
     font-size: 14px;
     line-height: 1;
@@ -226,41 +230,42 @@ a:hover {
     box-sizing: border-box;
 }
 
-    #topnav .btn_user_mbile:hover, #topnav .btn_user_mbile.logout_btn {
-        color: var(--main-bg-color);
-        background-color: transparent;
-    }
+#topnav .btn_user_mbile:hover,
+#topnav .btn_user_mbile.logout_btn {
+    color: var(--main-bg-color);
+    background-color: transparent;
+}
 
-    #topnav .btn_user_mbile.btn_animated {
-        display: inline-block;
-        margin-left: 5px;
-        min-width: unset;
-        width: 50px;
-        height: 50px;
-        padding: 7px;
-        background-color: #e9edfb;
-        border: 0;
-        border-radius: 50%;
-        animation: fade 0.7s forwards infinite;
-        text-align: center;
-    }
+#topnav .btn_user_mbile.btn_animated {
+    display: inline-block;
+    margin-left: 5px;
+    min-width: unset;
+    width: 50px;
+    height: 50px;
+    padding: 7px;
+    background-color: #e9edfb;
+    border: 0;
+    border-radius: 50%;
+    animation: fade 0.7s forwards infinite;
+    text-align: center;
+}
 
-        #topnav .btn_user_mbile.btn_animated i {
-            font-size: 16px;
-            line-height: 30px;
-            color: var(--main-bg-color);
-            display: inline-block;
-            width: 36px;
-            height: 36px;
-            padding: 0px;
-            text-align: center;
-            background: #fff;
-            border: 2px solid var(--main-bg-color);
-            border-radius: 50%;
-            transition: all .3s linear;
-            box-sizing: border-box;
-            position: relative;
-        }
+#topnav .btn_user_mbile.btn_animated i {
+    font-size: 16px;
+    line-height: 30px;
+    color: var(--main-bg-color);
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    padding: 0px;
+    text-align: center;
+    background: #fff;
+    border: 2px solid var(--main-bg-color);
+    border-radius: 50%;
+    transition: all .3s linear;
+    box-sizing: border-box;
+    position: relative;
+}
 
 #topnav .navbar-toggler {
     padding: 0;
@@ -278,11 +283,11 @@ a:hover {
     display: none;
 }
 
-#topnav .dropdown-toggle > i {
+#topnav .dropdown-toggle>i {
     transition: transform .3s linear;
 }
 
-#topnav .dropdown-toggle:hover > i {
+#topnav .dropdown-toggle:hover>i {
     transform: rotate(180deg);
 }
 
@@ -297,27 +302,27 @@ a:hover {
     box-shadow: 0 0 3px rgba(60, 72, 88, 0.15);
 }
 
-    #topnav .dropdown-menu .dropdown-item {
-        display: block;
-        color: #3c4858;
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 1.5px;
-        text-transform: uppercase;
-        -webkit-transition: all .5s;
-        transition: all .5s;
-        padding: 15px 10px;
-        margin-bottom: 5px;
-        outline: none !important;
-    }
+#topnav .dropdown-menu .dropdown-item {
+    display: block;
+    color: #3c4858;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.5px;
+    text-transform: uppercase;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+    padding: 15px 10px;
+    margin-bottom: 5px;
+    outline: none !important;
+}
 
-        #topnav .dropdown-menu .dropdown-item:hover {
-            color: var(--main-bg-color) !important;
-        }
+#topnav .dropdown-menu .dropdown-item:hover {
+    color: var(--main-bg-color) !important;
+}
 
-        #topnav .dropdown-menu .dropdown-item:nth-last-child(1) {
-            margin-bottom: 0 !important;
-        }
+#topnav .dropdown-menu .dropdown-item:nth-last-child(1) {
+    margin-bottom: 0 !important;
+}
 
 hr {
     margin-top: 0;
@@ -340,17 +345,17 @@ hr {
     top: 5px;
 }
 
-    #topnav .sm_link:hover {
-        color: #fff !important;
-        background: var(--main-bg-color);
-    }
+#topnav .sm_link:hover {
+    color: #fff !important;
+    background: var(--main-bg-color);
+}
 
-    #topnav .sm_link i {
-        color: inherit;
-        font-size: 22px;
-        line-height: 36px;
-        font-weight: 400 !important;
-    }
+#topnav .sm_link i {
+    color: inherit;
+    font-size: 22px;
+    line-height: 36px;
+    font-weight: 400 !important;
+}
 
 .WebClass .pull-right {
     float: right;
@@ -363,11 +368,11 @@ a.btn.btn-primary.black-btn {
     border: 2px solid transparent;
 }
 
-    a.btn.btn-primary.black-btn:hover {
-        color: #fff !important;
-        background-color: transparent !important;
-        border: 2px solid #fff;
-    }
+a.btn.btn-primary.black-btn:hover {
+    color: #fff !important;
+    background-color: transparent !important;
+    border: 2px solid #fff;
+}
 
 a.btn.btn-success.black-btn:hover {
     color: #fff !important;
@@ -375,7 +380,9 @@ a.btn.btn-success.black-btn:hover {
     border: 2px solid #fff;
 }
 
-a.btn.btn-primary.black-btn2:hover, .redeem:hover, #order_btn:hover {
+a.btn.btn-primary.black-btn2:hover,
+.redeem:hover,
+#order_btn:hover {
     color: var(--main-bg-color) !important;
     background-color: transparent !important;
 }
@@ -409,10 +416,10 @@ a.btn.btn-primary.black-btn2-2 {
     border: 2px solid var(--main-bg-color);
 }
 
-    a.btn.btn-primary.black-btn2-2:hover {
-        color: white !important;
-        background-color: var(--main-bg-color) !important;
-    }
+a.btn.btn-primary.black-btn2-2:hover {
+    color: white !important;
+    background-color: var(--main-bg-color) !important;
+}
 
 a.btn.btn-success.black-btn2-2:hover {
     color: var(--main-bg-color) !important;
@@ -420,7 +427,7 @@ a.btn.btn-success.black-btn2-2:hover {
 }
 
 @media only screen and (min-width:768px) {
-    #topnav .dropdown:hover > .dropdown-menu {
+    #topnav .dropdown:hover>.dropdown-menu {
         display: block;
         transition: all .5s;
     }
@@ -443,11 +450,11 @@ a.btn.btn-success.black-btn2-2:hover {
         padding: 0 !important;
     }
 
-        #topnav .navbar_btns li a {
-            font-size: 12px;
-            padding: 5px;
-            min-width: 50px;
-        }
+    #topnav .navbar_btns li a {
+        font-size: 12px;
+        padding: 5px;
+        min-width: 50px;
+    }
 
     .preview .ml-auto.col-lg-5.col-md-12 {
         margin-left: unset !important;
@@ -491,20 +498,21 @@ a.btn.btn-success.black-btn2-2:hover {
         padding: 10px 5px 10px 55px !important;
     }
 
-        .sign-up-right p {
-            font-size: 15px !important;
-            min-height: 39px;
-        }
+    .sign-up-right p {
+        font-size: 15px !important;
+        min-height: 39px;
+    }
 }
 
 
 
 @media only screen and (min-width:992px) {
-    #topnav .navigation-menu > li:hover > .menu-arrow {
+    #topnav .navigation-menu>li:hover>.menu-arrow {
         border-color: var(--main-bg-color);
     }
 
-    #topnav .navigation-menu > li.active > a, #topnav .navigation-menu > li:hover {
+    #topnav .navigation-menu>li.active>a,
+    #topnav .navigation-menu>li:hover {
         color: var(--main-bg-color) !important;
     }
 
@@ -530,38 +538,38 @@ a.btn.btn-success.black-btn2-2:hover {
         padding: 9px 0;
     }
 
-        #topnav .navigation-menu > li > a {
-            color: #3c4858;
-            padding: 8px 15px !important;
-        }
+    #topnav .navigation-menu>li>a {
+        color: #3c4858;
+        padding: 8px 15px !important;
+    }
 
-        #topnav .sm_link {
-            min-width: 45px;
-        }
+    #topnav .sm_link {
+        min-width: 45px;
+    }
 
-            #topnav .sm_link i {
-                line-height: 42px;
-            }
+    #topnav .sm_link i {
+        line-height: 42px;
+    }
 
-        #topnav .menu-extras .menu-item {
-            border-color: #8492a6;
-        }
+    #topnav .menu-extras .menu-item {
+        border-color: #8492a6;
+    }
 
-        #topnav #nav_responsive {
-            position: relative;
-            top: 10px;
-            background-color: #f0f8ff;
-            padding: 0;
-            margin: 0px;
-        }
+    #topnav #nav_responsive {
+        position: relative;
+        top: 10px;
+        background-color: #f0f8ff;
+        padding: 0;
+        margin: 0px;
+    }
 
-            #topnav #nav_responsive.navbar-collapse.collapse.show {
-                transition: all 0.3s linear;
-            }
+    #topnav #nav_responsive.navbar-collapse.collapse.show {
+        transition: all 0.3s linear;
+    }
 
-        #topnav .navbar_btns {
-            padding: 0 0 10px 15px;
-        }
+    #topnav .navbar_btns {
+        padding: 0 0 10px 15px;
+    }
 
     .footer .footer-head {
         margin-top: 20px;
@@ -588,7 +596,7 @@ a.btn.btn-success.black-btn2-2:hover {
         border: 2px solid var(--main-bg-color);
     }
 
-    #topnav .navigation-menu > li > a {
+    #topnav .navigation-menu>li>a {
         color: #fff;
         padding: 8px 15px !important;
     }
@@ -621,7 +629,7 @@ a.btn.btn-success.black-btn2-2:hover {
         margin-top: 10px;
     }
 
-    #topnav .navigation-menu > li {
+    #topnav .navigation-menu>li {
         display: block;
         margin: 0;
         text-align: left;
@@ -631,9 +639,9 @@ a.btn.btn-success.black-btn2-2:hover {
         display: inherit;
     }
 
-        .btn-set3 a.btn {
-            width: 220px;
-        }
+    .btn-set3 a.btn {
+        width: 220px;
+    }
 
     a.btn {
         width: 225px;
@@ -656,7 +664,7 @@ a.btn.btn-success.black-btn2-2:hover {
 }
 
 @media only screen and (min-width:768px) {
-    .WebClass #topnav .dropdown:hover > .dropdown-menu {
+    .WebClass #topnav .dropdown:hover>.dropdown-menu {
         display: block;
         transition: all .5s;
     }
@@ -679,11 +687,11 @@ a.btn.btn-success.black-btn2-2:hover {
         padding: 0 !important;
     }
 
-        .WebClass #topnav .navbar_btns li a {
-            font-size: 12px;
-            padding: 5px;
-            min-width: 50px;
-        }
+    .WebClass #topnav .navbar_btns li a {
+        font-size: 12px;
+        padding: 5px;
+        min-width: 50px;
+    }
 }
 
 @media only screen and (min-width:992px) {
@@ -709,34 +717,34 @@ a.btn.btn-success.black-btn2-2:hover {
         padding: 9px 0;
     }
 
-        .WebClass #topnav .sm_link {
-            min-width: 45px;
-        }
+    .WebClass #topnav .sm_link {
+        min-width: 45px;
+    }
 
-            .WebClass #topnav .sm_link i {
-                line-height: 42px;
-            }
+    .WebClass #topnav .sm_link i {
+        line-height: 42px;
+    }
 
-        .WebClass #topnav .menu-extras .menu-item {
-            border-color: #8492a6;
-        }
+    .WebClass #topnav .menu-extras .menu-item {
+        border-color: #8492a6;
+    }
 
-        .WebClass #topnav #nav_responsive {
-            position: relative;
-            top: 10px;
-            background-color: #f0f8ff;
-            padding: 0;
-            margin: 0px;
-        }
+    .WebClass #topnav #nav_responsive {
+        position: relative;
+        top: 10px;
+        background-color: #f0f8ff;
+        padding: 0;
+        margin: 0px;
+    }
 
-            .WebClass #topnav #nav_responsive.navbar-collapse.collapse.in {
-                transition: all 0.3s linear;
-                display: block;
-            }
+    .WebClass #topnav #nav_responsive.navbar-collapse.collapse.in {
+        transition: all 0.3s linear;
+        display: block;
+    }
 
-        .WebClass #topnav .navbar_btns {
-            padding: 15px 0 15px 10px;
-        }
+    .WebClass #topnav .navbar_btns {
+        padding: 15px 0 15px 10px;
+    }
 }
 
 @media only screen and (max-width:767px) {
@@ -758,10 +766,10 @@ a.btn.btn-success.black-btn2-2:hover {
         padding: 5px 5px;
     }
 
-        .WebClass #topnav .btn_user_mbile i.fas.fa-phone {
-            transform: rotate(98deg);
-            margin-right: 2px;
-        }
+    .WebClass #topnav .btn_user_mbile i.fas.fa-phone {
+        transform: rotate(98deg);
+        margin-right: 2px;
+    }
 
     .WebClass .hidden-xs {
         display: none !important;
@@ -786,7 +794,7 @@ a.btn.btn-success.black-btn2-2:hover {
         float: left;
     }
 
-    .WebClass .nav-tabs > li {
+    .WebClass .nav-tabs>li {
         width: auto !important;
     }
 
@@ -799,9 +807,9 @@ a.btn.btn-success.black-btn2-2:hover {
         display: inherit;
     }
 
-        .WebClass .btn-set3 a.btn {
-            width: 220px;
-        }
+    .WebClass .btn-set3 a.btn {
+        width: 220px;
+    }
 
     .WebClass a.btn {
         width: 225px;
@@ -866,11 +874,12 @@ header {
     font-weight: 800;
 }
 
-    .WebClass .btn:hover, .WebClass .btn-primary:hover {
-        color: #fff !important;
-        background: var(--main-bg-color) !important;
-        border-color: var(--main-bg-color) !important;
-    }
+.WebClass .btn:hover,
+.WebClass .btn-primary:hover {
+    color: #fff !important;
+    background: var(--main-bg-color) !important;
+    border-color: var(--main-bg-color) !important;
+}
 
 .WebClass .card-panel .form-group {
     width: 100%;
@@ -892,7 +901,7 @@ header {
 
 body {
     font-size: 14px;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #555;
 }
 
@@ -914,7 +923,8 @@ pre {
     background: none;
 }
 
-input, button {
+input,
+button {
     height: 35px;
     margin: 0;
     padding: 6px 12px;
@@ -924,11 +934,13 @@ input, button {
     color: inherit;
 }
 
-    input[disabled], button[disabled] {
-        background-color: #eee;
-    }
+input[disabled],
+button[disabled] {
+    background-color: #eee;
+}
 
-input, select {
+input,
+select {
     border: 1px solid #CCC;
     width: 250px;
 }
@@ -947,23 +959,32 @@ input, select {
     color: #7A7A7A;
 }
 
-#sectionA input[type="text"], #sectionA input[type="password"], #sectionB input[type="text"], #sectionB input[type="password"] {
+#sectionA input[type="text"],
+#sectionA input[type="password"],
+#sectionB input[type="text"],
+#sectionB input[type="password"] {
     color: #7A7A7A;
     opacity: 1;
     font-weight: normal;
 }
 
-    #sectionA input[type="text"]:focus, #sectionA input[type="password"]:focus, #sectionB input[type="text"]:focus, #sectionB input[type="password"]:focus {
-        color: #010101;
-        opacity: 1;
-        font-weight: normal;
-    }
+#sectionA input[type="text"]:focus,
+#sectionA input[type="password"]:focus,
+#sectionB input[type="text"]:focus,
+#sectionB input[type="password"]:focus {
+    color: #010101;
+    opacity: 1;
+    font-weight: normal;
+}
 
-    #sectionA input[type="text"]:active, #sectionA input[type="password"]:active, #sectionB input[type="text"]:active, #sectionB input[type="password"]:active {
-        color: #010101;
-        opacity: 1;
-        font-weight: normal;
-    }
+#sectionA input[type="text"]:active,
+#sectionA input[type="password"]:active,
+#sectionB input[type="text"]:active,
+#sectionB input[type="password"]:active {
+    color: #010101;
+    opacity: 1;
+    font-weight: normal;
+}
 
 button {
     color: #FFF;
@@ -971,11 +992,11 @@ button {
     border: 1px solid #357EBD;
 }
 
-    button:hover {
-        background-color: #3276B1;
-        border-color: #285E8E;
-        cursor: pointer;
-    }
+button:hover {
+    background-color: #ff8a00;
+    border-color: #285E8E;
+    cursor: pointer;
+}
 
 .mainSignUp .btn-primary {
     margin-top: 10px !important;
@@ -1067,7 +1088,9 @@ button {
     border-radius: 4px;
 }
 
-.nav-tabs .signUpButton > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+.nav-tabs .signUpButton>li.active>a,
+.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover {
     -moz-border-bottom-colors: none;
     -moz-border-left-colors: none;
     -moz-border-right-colors: none;
@@ -1081,14 +1104,14 @@ button {
     cursor: default;
 }
 
-.nav-tabs > li {
+.nav-tabs>li {
     float: left;
     margin-bottom: -1px;
     padding: 0;
     background: #d4d4d4 none repeat;
 }
 
-.nav > li > a {
+.nav>li>a {
     color: #908F8F;
     font-size: 20px;
     padding: 5px 15px;
@@ -1097,14 +1120,16 @@ button {
 }
 
 
-.nav-tabs .signUpButton .nav-tabs > li:hover {
+.nav-tabs .signUpButton .nav-tabs>li:hover {
     background-color: red;
     color: #fff;
     cursor: default;
 }
 
 
-.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover {
     background-color: #eee !important;
     border-color: #ddd #ddd transparent;
     border-image: none;
@@ -1120,7 +1145,8 @@ button {
     box-shadow: 2px 9px 23px -15px;
 }
 
-.nav > li > a:focus, .nav > li > a:hover {
+.nav>li>a:focus,
+.nav>li>a:hover {
     text-decoration: none;
     background-color: #eee;
     width: 100%;
@@ -1283,7 +1309,8 @@ div .iti-flag {
     margin-right: 5px;
 }
 
-#txt_email_login, #txt_pass_login {
+#txt_email_login,
+#txt_pass_login {
     background-color: white !important;
 }
 
@@ -1318,7 +1345,7 @@ div .iti-flag {
     display: inline-block;
     right: 13px;
     width: 32px;
-    bottom:5px;
+    bottom: 5px;
 }
 
 .country-code {
@@ -1357,9 +1384,9 @@ body {
     background: #fff !important;
 }
 
-    .intellectualswing .paddingRow {
-        padding-top: 9px !important;
-    }
+.intellectualswing .paddingRow {
+    padding-top: 9px !important;
+}
 
 @media (min-width: 1200px) {
     .container {
@@ -1371,11 +1398,16 @@ body {
     font-family: 'Nunito', sans-serif !important;
 }
 
-    .mainSignUp h1, .mainSignUp h2, .mainSignUp h3, .mainSignUp h4, .mainSignUph5, .mainSignUp h6 {
-        font-family: 'Nunito', sans-serif !important;
-        font-weight: 400;
-        margin-top: 0;
-    }
+.mainSignUp h1,
+.mainSignUp h2,
+.mainSignUp h3,
+.mainSignUp h4,
+.mainSignUph5,
+.mainSignUp h6 {
+    font-family: 'Nunito', sans-serif !important;
+    font-weight: 400;
+    margin-top: 0;
+}
 
 .sign-up-outer {
     border: 1px solid #dddddd;
@@ -1386,12 +1418,12 @@ body {
     margin: 4px 0 0;
 }
 
-    .sign-up-outer h4 {
-        font-size: 22px;
-        font-weight: 800;
-        background-color: white;
-        color: #575454;
-    }
+.sign-up-outer h4 {
+    font-size: 22px;
+    font-weight: 800;
+    background-color: white;
+    color: #575454;
+}
 
 .sign-up-right {
     padding: 18px 15px 18px 60px;
@@ -1400,7 +1432,12 @@ body {
     border-bottom: 1px solid rgba(68, 102, 216, 0.4);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Nunito', sans-serif !important;
 }
 
@@ -1433,9 +1470,9 @@ button.login-btn.btn_cmn {
     transition: all 500ms ease;
 }
 
-    .side-word:hover {
-        color: #f0b50d;
-    }
+.side-word:hover {
+    color: #f0b50d;
+}
 
 .sign-up-right svg {
     fill: var(--main-bg-color) !important;
@@ -1457,29 +1494,29 @@ button.login-btn.btn_cmn {
     margin: 3px auto 0;
 }
 
-    .sign-up-right .features_icons.icon1 {
-        background-position: 0px -150px;
-    }
+.sign-up-right .features_icons.icon1 {
+    background-position: 0px -150px;
+}
 
-    .sign-up-right .features_icons.icon2 {
-        background-position: 0px 95px;
-    }
+.sign-up-right .features_icons.icon2 {
+    background-position: 0px 95px;
+}
 
-    .sign-up-right .features_icons.icon3 {
-        background-position: 0px 0px;
-    }
+.sign-up-right .features_icons.icon3 {
+    background-position: 0px 0px;
+}
 
-    .sign-up-right .features_icons.icon4 {
-        background-position: 0px -99px;
-    }
+.sign-up-right .features_icons.icon4 {
+    background-position: 0px -99px;
+}
 
-    .sign-up-right .features_icons.icon5 {
-        background-position: 0px -50px;
-    }
+.sign-up-right .features_icons.icon5 {
+    background-position: 0px -50px;
+}
 
-    .sign-up-right .features_icons.icon6 {
-        background-position: 0px 43px;
-    }
+.sign-up-right .features_icons.icon6 {
+    background-position: 0px 43px;
+}
 
 .gradient {
     display: none;
@@ -1492,7 +1529,8 @@ button.login-btn.btn_cmn {
 
 
 /*Form Styling*/
-.card-panel, .customForm {
+.card-panel,
+.customForm {
     background-color: #fff !important;
     text-align: left;
 }
@@ -1569,15 +1607,15 @@ button.login-btn.btn_cmn {
     border-top: 1px solid #ddd;
 }
 
-    .cancel_area p {
-        margin: 0 auto 10px;
-        font-size: 18px !important;
-        text-transform: none !important;
-        line-height: 16px;
-        color: #333 !important;
-        font-weight: 500;
-        padding-top: 10px;
-    }
+.cancel_area p {
+    margin: 0 auto 10px;
+    font-size: 18px !important;
+    text-transform: none !important;
+    line-height: 16px;
+    color: #333 !important;
+    font-weight: 500;
+    padding-top: 10px;
+}
 
 #btnForgotPassword {
     color: #07354F;
@@ -1639,7 +1677,7 @@ button.login-btn.btn_cmn {
 
 .mainSignUp .paddingRow {
     padding-top: 9px !important;
-    position:relative;
+    position: relative;
 }
 
 .main_bg {
@@ -1746,7 +1784,8 @@ button.login-btn.btn_cmn {
         font-size: 16px !important;
     }
 
-    #sectionsignup, #sectionlogin {
+    #sectionsignup,
+    #sectionlogin {
         font-size: 15px !important;
     }
 
@@ -1760,14 +1799,14 @@ button.login-btn.btn_cmn {
         margin: 0 -10px;
     }
 
-        .sign-up-right h5 {
-            font-size: 14px;
-        }
+    .sign-up-right h5 {
+        font-size: 14px;
+    }
 
-        .sign-up-right p {
-            font-size: 13px;
-            line-height: 15px;
-        }
+    .sign-up-right p {
+        font-size: 13px;
+        line-height: 15px;
+    }
 
     .mainSignUp .preview .col-lg-6 .col-md-12 {
         padding: 0;
@@ -1790,7 +1829,11 @@ button.login-btn.btn_cmn {
         font-size: 16px !important;
     }
 
-    button, input, select, textarea, .form-control {
+    button,
+    input,
+    select,
+    textarea,
+    .form-control {
         font-size: 100% !important;
     }
 }
@@ -1834,4 +1877,5 @@ input#txt_phone {
         width: 56%;
     }
 }
+
 /************************************SIGN-UP************************************/
