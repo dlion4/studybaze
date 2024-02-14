@@ -73,7 +73,7 @@ class OrderForm(forms.ModelForm):
             "instructions": forms.Textarea(),
             "references":forms.NumberInput(attrs={"min":"0"}),
             "pages_number":forms.NumberInput(attrs={"min":"1"}),
-            "files": MultipleFileInput(attrs={'multiple': True, "class": "form-control"})
+            "files": MultipleFileInput(attrs={"class": "form-control"})
         }
         labels = {
             "title": "Please enter the project title to proceed.",

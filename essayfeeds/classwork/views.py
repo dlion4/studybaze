@@ -37,28 +37,32 @@ def show_message_form_condition(wizard):
     # check if the field ``leave_message`` was checked.
     return cleaned_data.get('profile', True)
 
-class EssayFeedOrderView(LoginRequiredMixin, SessionWizardView):
+class EssayFeedOrderView(LoginRequiredMixin, TemplateView):
     template_name = "pages/order.html"
-    form_list = [OrderForm,]
+    form_class = OrderForm
     # preview_template = 'pages/order/order_preview.html'
     file_storage = FileSystemStorage(location=os.path.join(settings.MEDIA_ROOT, 'photos'))
 
-    def get_context_data(self, form, **kwargs):
-        context = super().get_context_data(form, **kwargs)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
         context['client'] = Profile.objects.get(user=self.request.user)
+        context['form'] = self.form_class()
         return context
     
-    def done(self, form_list, **kwargs):
-        order_form = form_list[0]
+    def post(self, request,*args, **kwargs):
+        order_form = self.form_class(request.POST, request.FILES)
         if order_form.is_valid():
             order = order_form.save(commit=True)
             order.profile=Profile.objects.get(user=self.request.user)
             if Order.objects.filter(pk=order.pk).exists():
-                pass
+                return redirect(order)
             order.save()
             return redirect(order)
-        # redirect to oirder payment
-        return HttpResponseRedirect(self.request.META.get("HTTP_REFERER"))
+        context = {
+            **self.get_context_data(**kwargs),
+            "form":order_form
+        }
+        return render(request, self.template_name, context)
 
 
 essay_feed_order_view = EssayFeedOrderView.as_view()
