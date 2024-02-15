@@ -107,7 +107,7 @@
               <nav class="navbar p-0 navbar-expand-lg">
                 <a href="{% url 'home' %}" class="navbar-brand mob_hide">
                   <img
-                    src="https://acds3bucketlog.s3.amazonaws.com/images/ef_web-logo.png"
+                    src="{% static 'images/studybaze4.png' %}"
                     alt="Website logo"
                   />
                 </a>
@@ -139,7 +139,7 @@
                           font-weight: bold;
                         "
                       >
-                        <span style="color: #e74c3c">Balance $</span
+                        <span style="color: #e74c3c">Bal $</span
                         ><span style="color: #2dc98a"> 0.00</span>
                       </a>
                     </li>
@@ -155,6 +155,10 @@
                         >Dashboard</a
                       >
                     </li>
+
+                   
+            
+                    
                   </ul>
                 </div>
               </nav>
@@ -180,146 +184,285 @@
                 {% endcomment %}
               </div>
 
-              <style>
-                .navbar-container {
-                  display: flex;
-                  justify-content: space-between;
-                  align-items: center;
 
-                  {% comment %} padding: 10px -5px; {% endcomment %}
-                }
 
-                .header3 {
-                  list-style-type: none;
-                  margin: 0;
-                  padding: 0;
-                }
+<style>
 
-                .header3 li {
-                  display: inline-block;
-                  margin-right: -1px; /* Adjust the spacing between items */
+.container1 {
+  width: 100%;
+  margin: auto;
+  top: 10px;
+  position: relative;
+}
+.flexnav,
+.flexnav ul {
+  list-style: none;
+  margin: 0;
+}
+.flexnav,
+.menu-button1 {
+  font-family: Lato, Helvetica, sans-serif;
+  line-height: 1;
+  background: #2b2f3a;
+}
+.flexnav {
+  padding: 0;
+  display: block;
+  overflow: visible;
+  width: 100%;
+}
+.flexnav > li > a,
+.menu-button1 {
+  padding: 10px 10px;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+.flexnav:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.menu-button1 {
+  display: none;
+  color: #7a8189;
+  cursor: pointer;
+}
+.flexnav > li {
+  float: left;
+  display: block;
+  position: relative;
+}
+.flexnav li a {
+  color: #7a8189;
+  -webkit-transition: color 0.2s ease-out;
+  -moz-transition: color 0.2s ease-out;
+  -ms-transition: color 0.2s ease-out;
+  -o-transition: color 0.2s ease-out;
+  transition: color 0.2s ease-out;
+}
+.flexnav > li > a {
+  display: block;
+  font-weight: 250;
+  text-decoration: none;
+}
+.flexnav li a:hover {
+  color: #fff;
+}
+.flexnav > .item-with-ul > a {
+  padding-right: 10px;
+}
+touch-button {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 54px;
+  height: 54px;
+  z-index: 99;
+  cursor: pointer;
+  background: 0 0;
+}
+.touch-button::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border: 1px solid #7a8189;
+  right: 13px;
+  top: 13px;
+  border-radius: 23px;
+}
+.touch-button::before {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  border-bottom: 1px solid #7a8189;
+  border-left: 1px solid #7a8189;
+  right: 21px;
+  top: 20px;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.flexnav li:hover > .touch-button::before,
+.sm-screen .submenu-open::before {
+  border-bottom-color: #fff;
+  border-left-color: #fff;
+}
+.flexnav li:hover > .touch-button::after,
+.sm-screen .submenu-open::after {
+  border-color: #fff;
+}
+.flexnav ul {
+  position: absolute;
+  left: 0;
+  padding: 0;
+}
+.flexnav ul ul {
+  left: 244px;
+  top: -1px;
+}
+.flexnav ul li {
+  display: block;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid #31353f;
+}
+.flexnav ul li a {
+  background: #2b2f3a;
+  padding: 12px 22px;
+  display: block;
+  width: 200px;
+  text-decoration: none;
+}
+.flexnav ul .touch-button {
+  width: 40px;
+  height: 40px;
+  border-left: 1px solid #31353f;
+}
+.flexnav ul .touch-button::after {
+  top: 8px;
+  right: 8px;
+  width: 22px;
+  height: 22px;
+}
+.flexnav ul .touch-button::before {
+  right: 17px;
+  top: 16px;
+  height: 7px;
+  width: 7px;
+  -webkit-transform: rotate(-135deg);
+  -moz-transform: rotate(-135deg);
+  -ms-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
+@media all and (max-width: 800px) {
+  .flexnav {
+    overflow: hidden;
+    max-height: 0;
+  }
+  .flexnav.show {
+    overflow: visible;
+    max-height: 3000px;
+  }
+  .flexnav li {
+    float: none;
+  }
+  .flexnav ul li a {
+    width: auto;
+    padding-left: 42px;
+  }
+  .flexnav > li {
+    border-top: 1px solid #31353f;
+  }
+  .flexnav ul,
+  .flexnav ul ul {
+    position: relative;
+    left: 0;
+    width: 100%;
+  }
+  .flexnav.show .touch-button,
+  .menu-button1 .touch-button {
+    border-left: 1px solid #31353f;
+    z-index: 999;
+  }
+  .flexnav ul .touch-button::before {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    right: 16px;
+    top: 15px;
+  }
+  .menu-button1 {
+    display: block;
+  }
+  .menu-button1 .touch-button::before {
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -o-transform: rotate(0);
+    transform: rotate(0);
+    border-left: 0;
+    border-top: 2px solid #7a8189;
+    border-bottom: 2px solid #7a8189;
+    height: 2px;
+    width: 12px;
+    top: 22px;
+  }
+  .menu-button1::after {
+    display: block;
+    width: 12px;
+    height: 2px;
+    content: "";
+    position: absolute;
+    background: #7a8189;
+    right: 21px;
+    top: 30px;
+  }
+  .flexnav ul ul li a {
+    padding-left: 62px;
+  }
+  .flexnav ul ul ul li a {
+    padding-left: 82px;
+  }
+}
 
-                }
+</style>
 
-                .dropdown-menu {
-                  display: none;
-                  position: absolute;
-                  background-color: #fff; /* Adjust the background color for the dropdown */
-                  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-                  {% comment %} z-index: 1; {% endcomment %}
-                }
-
-                .header3 li:hover .dropdown-menu {
-                  display: block;
-                }
-
-                .dropdown-menu-allignment {
-                  left: 0;
-                }
-
-                .dropdown-header {
-                  padding: 6px -12px;
-                  display: block;
-                  color: #000; /* Adjust the text color for dropdown items */
-                  text-decoration: none;
-                }
-
-                .user-managment-button {
-                  cursor: pointer;
-                  color: #000; /* Adjust the text color for the main button */
-                }
-              </style>
-
-              <div class="navbar-container">
-                <ul class="header3">
-                  <li id="drop-hover" class="dropdown mega-dropdown">
-                    <span class="user-managment-button"
-                      >Orders <span class="fa fa-chevron-down"></span
-                    ></span>
-                    <ul
-                      class="dropdown-menu mega-dropdown-menu row dropdown-menu-allignment dropmenuclass"
-                    >
-                      <!-- Your dropdown menu content here -->
-                    </ul>
-                  </li>
+<div class="container1">
+        <div class="menu-button1">&#9776;  |  Menu</div> <!-- Hamburger Icon -->
+        <ul class="flexnav" data-breakpoint="800">
+            <li><a href="#">Orders</a></li>
+            <li><a href="#">Long-Term Orders</a></li>
+            <li>
+                <a href="#">Complaints</a>
+                <ul>
+                    <li><a href="{% url 'users:dispute_register_view' %}">Register Complaints</a></li>
+                    <li><a href="{% url 'users:open_dispute_view' %}">Open Dispute</a></li>
+                    <li><a href="{% url 'users:dispute_view' %}">View Disputes</a></li>
                 </ul>
-                <ul class="header3">
-                  <li id="drop-hover" class="dropdown mega-dropdown">
-                    <span class="user-managment-button">Complains </span>
-                    <ul
-                      class="dropdown-menu mega-dropdown-menu row dropdown-menu-allignment dropmenuclass"
-                    >
-                      <li>
-                        <a href="{% url 'users:dispute_register_view' %}"
-                          >Register Complaints</a
-                        >
-                      </li>
-                      <li>
-                        <a href="{% url 'users:open_dispute_view' %}"
-                          >Open Dispute</a
-                        >
-                      </li>
-                      <li>
-                        <a href="{% url 'users:dispute_view' %}"
-                          >View Disputes</a
-                        >
-                      </li>
-                      <!-- Your dropdown menu content here -->
-                    </ul>
-                  </li>
-                </ul>
+            </li>
+            <li><a href="#">Finances </a></li>
+            <li><a href="{% url 'users:referrer' %}">Refer a Friend</a></li>
+            <li><a href="{% url 'users:customerfeedback_view' %}">Survey</a></li>
+            <li><a href="{% url 'users:user_update_view' %}">Update Profile</a></li>
+        </ul>
+    </div>
 
-                <ul class="header3">
-                  <li id="#" class="dropdown mega-dropdown">
-                    <span class="user-managment-button"
-                      ><a href="">Finaces</a>
-                    </span>
-                  </li>
-                </ul>
-                <ul class="header3">
-                  <li id="drop-hover" class="mega-dropdown">
-                    <a href="{% url 'users:user_update_view' %}"
-                      >Update Profile</a
-                    >
-                  </li>
-                </ul>
 
-                <ul class="header3">
-                  <li id="drop-hover" class="dropdown mega-dropdown">
-                    <a href="{% url 'users:loyalty_points_view' %}"
-                      >Loyalty Points</a
-                    >
-                  </li>
-                </ul>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <script>
+    $(document).ready(function() {
+        // Hide dropdown menus initially
+        $('.flexnav > li > ul').hide();
 
-                <ul class="header3">
-                  <li id="drop-hover" class="dropdown mega-dropdown">
-                    <a href="{% url 'users:referrer' %}">Refer a Friend</a>
-                  </li>
-                </ul>
-                <ul class="header3">
-                  <li id="drop-hover" class="dropdown mega-dropdown">
-                    <a href="{% url 'users:customerfeedback_view' %}"
-                      >Suggestion & Feedback</a
-                    >
-                  </li>
-                </ul>
+        // Show/hide dropdown on click
+        $('.flexnav > li').click(function() {
+            $(this).children('ul').slideToggle();
+        });
 
-                <!-- Repeat the same structure for additional menu items -->
-              </div>
+        // Toggle navbar on small screens
+        $('.menu-button1').click(function() {
+            $('.flexnav').toggleClass('show');
+        });
+    });
+</script>
 
-              <!-- Collect the nav links, forms, and other content for toggling -->
 
-              <!-- /.nav-collapse -->
-            </div>
-            <!-- /.container -->
-          </div>
-          <!-- /.container-fluid -->
-        </div>
-        <script
-          type="text/javascript"
-          src="{% static 'content/CSP/MenuBar.js' %}"
-        ></script>
+
+<script  type="text/javascript">
+  $(".flexnav").flexNav()
+  </script>
+
 
         {% block main %}{% endblock main %}
       </div>
@@ -363,5 +506,8 @@
       type="text/javascript"
       src="{% static 'content/Cosmo/js/userarea.js' %}?v=12272023"
     ></script>
+    <script  type="text/javascript">
+  $(".flexnav").flexNav()
+  </script>
   </body>
 </html>

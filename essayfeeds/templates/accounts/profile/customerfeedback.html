@@ -1,124 +1,149 @@
-{% extends "accounts/profile/base.html" %}
-
-{% load static %}
-
+{% extends "accounts/profile/base.html" %} {% load static %}
+<!---->
 {% block css %}{% endblock css %}
-
+<!---->
 {% block main %}
-  <!-- Page Content -->
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 main_title">
-        <h1>
-          <span>Feedback Form</span>
-        </h1>
-        <span class="subheader">
-          We assure you that your suggestions and feedback will be treated with confidentiality and acted upon accordingly.
-        </span>
-        <!--End Row-->
-      </div>
+<!-- Page Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 main_title">
+      <h1>
+        <span>Feedback Form</span>
+      </h1>
+      <span class="subheader">
+        We assure you that your suggestions and feedback will be treated with
+        confidentiality and acted upon accordingly.
+      </span>
+      <!--End Row-->
     </div>
   </div>
-  {{ block.super }}
-  <div class="container sidebarpages">
-    <!-- Team Members Row -->
-    <div class="row mt-3">
-      <div class="col-lg-8 col-sm-12">
-        <form name="form1" method="post" action="" id="form1" target="_self" class="mt-n18">
-          <table class="myformpre">
-            <tbody>
-              <tr>
-                <td></td>
-              </tr>
-              <tr>
-                <td class="tableHeader">
-                  Order Process
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p class="userfeedbackp">
-                    Do you have any suggestions related to our order process?
-                  </p>
-                  <textarea name="FeedbackOrderProcess" rows="2" cols="20" id="txt_orderProcess" class="form-control"></textarea><br>
-                </td>
-              </tr>
-              <tr>
-                <td class="tableHeader">
-                  Provided Order Quality
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p class="userfeedbackp">
-                    Would you like to share your thoughts regarding the quality of the paper?
-                  </p>
-                  <textarea name="FeedbackPaperQuality" rows="2" cols="20" id="txt_PaperQuality" class="form-control"></textarea><br>
-                </td>
-              </tr>
-              <tr>
-                <td class="tableHeader">
-                  Online Customer Support
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p class="userfeedbackp">
-                    Would you like to share the experience you had, with our online customer support?
-                  </p>
-                  <textarea name="FeedbackCustomerSupportService" rows="2" cols="20" id="txt_support" class="form-control"></textarea><br>
-                </td>
-              </tr>
-              <tr>
-                <td class="tableHeader">
-                  Other
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p class="userfeedbackp">
-                    Do you have any other feedback or suggestion for us?
-                  </p>
-                  <textarea name="FeedbackOther" rows="2" cols="20" id="txt_other" class="form-control"></textarea>
-                </td>
-              </tr>
-              <tr class="mt-2">
-                <td class="text-center">
-
-                  {% comment %} <button href="{% url 'dispute_register_success_view' %}" type="submit" name="btn_feedback" value="Submit" id="btn_feedback" class="btn-primary btn btn_wid200">Submit</button> {% endcomment %}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </form>
-        <div class="row mb-3">
-          <div class="col-lg-12">
-            <hr>
-            <div class="ctaSmall">
-              <div class="float-md-start">
-                <p>
-                  <span class="ctaSmall-tag">Need Assistance? Get Connected Now!</span>
+</div>
+{{ block.super }}
+<div class="container sidebarpages">
+  <!-- Team Members Row -->
+  <div class="row mt-3">
+    <div class="col-lg-8 col-sm-12">
+      <form
+        name="form1"
+        method="post"
+        action=""
+        id="form1"
+        target="_self"
+        class="mt-n18"
+      >
+        <table class="myformpre">
+          <tbody>
+            <tr>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="tableHeader">Order Process</td>
+            </tr>
+            <tr>
+              <td>
+                <p class="userfeedbackp">
+                  Do you have any suggestions related to our order process?
                 </p>
-                <p>
-                  <span class="ctaSmall-contact">
-                    <a class="chaton" href="#">Start Live Chat</a>
-                    OR Call: +1 (877) 728-7387
-                  </span>
+                <textarea
+                  name="FeedbackOrderProcess"
+                  rows="2"
+                  cols="20"
+                  id="txt_orderProcess"
+                  class="form-control"
+                ></textarea
+                ><br />
+              </td>
+            </tr>
+            <tr>
+              <td class="tableHeader">Provided Order Quality</td>
+            </tr>
+            <tr>
+              <td>
+                <p class="userfeedbackp">
+                  Would you like to share your thoughts regarding the quality of
+                  the paper?
                 </p>
-              </div>
-              <p>
-                <a class="order-button1" href="{% url 'order' %}">ORDER NOW!</a>
-              </p>
-            </div>
+                <textarea
+                  name="FeedbackPaperQuality"
+                  rows="2"
+                  cols="20"
+                  id="txt_PaperQuality"
+                  class="form-control"
+                ></textarea
+                ><br />
+              </td>
+            </tr>
+            <tr>
+              <td class="tableHeader">Online Customer Support</td>
+            </tr>
+            <tr>
+              <td>
+                <p class="userfeedbackp">
+                  Would you like to share the experience you had, with our
+                  online customer support?
+                </p>
+                <textarea
+                  name="FeedbackCustomerSupportService"
+                  rows="2"
+                  cols="20"
+                  id="txt_support"
+                  class="form-control"
+                ></textarea
+                ><br />
+              </td>
+            </tr>
+            <tr>
+              <td class="tableHeader">Other</td>
+            </tr>
+            <tr>
+              <td>
+                <p class="userfeedbackp">
+                  Do you have any other feedback or suggestion for us?
+                </p>
+                <textarea
+                  name="FeedbackOther"
+                  rows="2"
+                  cols="20"
+                  id="txt_other"
+                  class="form-control"
+                ></textarea>
+              </td>
+            </tr>
+            <tr class="mt-2">
+              <td class="text-center">
+                {% comment %}
+                <button
+                  href="{% url 'dispute_register_success_view' %}"
+                  type="submit"
+                  name="btn_feedback"
+                  value="Submit"
+                  id="btn_feedback"
+                  class="btn-primary btn btn_wid200"
+                >
+                  Submit
+                </button>
+                {% endcomment %}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+      <!--
+          
+        -->
+      <div class="row mb-3">
+        <div class="col-lg-12">
+          <hr />
+          <div class="ctaSmall">
+            <a class="order-button1" href="{% url 'order' %}">ORDER NOW!</a>
           </div>
         </div>
       </div>
-      <div class="col-lg-4 col-sm-12">
-        {% include "accounts/profile/refcard.html" %}
-      </div>
     </div>
+    <div class="col-lg-4 col-sm-12"></div>
   </div>
+</div>
 
-  <!-- Common Footer Included -->
+<!-- Common Footer Included -->
 
 {% endblock main %}

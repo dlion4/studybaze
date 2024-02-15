@@ -5,13 +5,20 @@
     <div class="row">
       <div class="col-lg-12">
         <nav class="navbar p-0 navbar-expand-xl">
-
-          <a href="{% url 'home' %}" class="navbar-brand"><img src="{% static 'images/ef_web-logo.png' %}" alt="Website logo"></a>
+          <a href="{% url 'home' %}" class="navbar-brand"
+            ><img src="{% static 'images/studybaze4.png' %}" alt="Website logo"
+          /></a>
 
           <span class="btns_xs">
-            <a href="{% url 'order' %}" class="btn_user_mbile shared_order">Order Now</a>
+            <a href="{% url 'order' %}" class="btn_user_mbile shared_order"
+              >Order Now</a
+            >
           </span>
-          <span class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav_responsive">
+          <span
+            class="navbar-toggler"
+            data-bs-toggle="collapse"
+            data-bs-target="#nav_responsive"
+          >
             <i class="fas fa-bars"></i>
           </span>
           <!-- desktop header -->
@@ -20,7 +27,10 @@
             <div id="custom_navbar_xs" class="hidden-md">
               <div class="logo_wrap_xs">
                 <a href="{% url 'home' %}" class="navbar-brand">
-                  <img src="{% static 'images/ef_web-logo.png' %}" alt="Website logo">
+                  <img
+                    src="{% static 'images/studybaze2.png' %}"
+                    alt="Website logo"
+                  />
                 </a>
               </div>
               <span id="navbar_closer">X</span>
@@ -30,15 +40,16 @@
                 <div class="banner_seals twenty-four"></div>
 
                 <span class="twnty">24/7 Available</span>
-
               </li>
-              
             </ul>
             <ul class="navbar_btns">
               {% if request.user.is_authenticated %}
               <li>
-                <a href="{% url 'users:detail' request.user.pk %}" class="btn_user bordered_btn">
-                 Dashboard
+                <a
+                  href="{% url 'users:detail' request.user.pk %}"
+                  class="btn_user bordered_btn"
+                >
+                  Dashboard
                 </a>
               </li>
               <li class="hidden-xs">
@@ -46,15 +57,16 @@
                   Order Now
                 </a>
               </li>
-              {% else %} 
-              {% if ACCOUNT_ALLOW_REGISTRATION %}
+              {% else %} {% if ACCOUNT_ALLOW_REGISTRATION %}
               <li>
-                <a href="{% url 'account_login' %}" class="btn_user bordered_btn">
+                <a
+                  href="{% url 'account_login' %}"
+                  class="btn_user bordered_btn"
+                >
                   {% translate "Log In" %}
                 </a>
               </li>
-              {% endif %}
-              {% endif %}
+              {% endif %} {% endif %}
             </ul>
           </div>
         </nav>
@@ -94,12 +106,7 @@
             </li>
           </ul>
         </div>
-      -->
-      </div>
+      --></div>
     </div>
   </div>
 </header>
-
-
-
-

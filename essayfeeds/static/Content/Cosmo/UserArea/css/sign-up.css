@@ -394,7 +394,7 @@ a.btn.btn-success.black-btn2:hover {
 
 .WebClass section.copyright_footer {
     background: var(--main-bg-color);
-    padding: 20px 0 17px;
+    /* padding: 2px 0 17px; */
     margin: 0px 0 0;
     color: #fff;
 }

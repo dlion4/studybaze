@@ -1418,7 +1418,7 @@ body>div.WebClass>div.container>div>div.col-lg-8>div:nth-child(3)>div>hr {
 
 .WebClass .place-order a {
     color: #fff;
-    background: var(--main-bg-color);
+    background: #f0b50d;
 }
 
 .WebClass .nav-tabs .signUpButton>li.active>a,
@@ -2048,7 +2048,7 @@ ul.ratings_ul.star-rating li {
 
     .WebClass .place-order a {
         padding: 12px 6px;
-        background: var(--main-bg-color);
+        background: #f0b50d;
         color: #fff;
         font-size: 14px;
         text-align: center;
@@ -2843,7 +2843,7 @@ a.btn.btn-success.black-btn2-2:hover {
 
     #topnav .navbar .navbar-brand img {
         max-width: 160px;
-        margin-top: 10px;
+        margin-top: 6px;
     }
 
     #topnav .navigation-menu>li {
@@ -3354,7 +3354,7 @@ body {
 /*Footer CopyRight Style*/
 .WebClass section.copyright_footer {
     background: var(--main-bg-color);
-    padding: 20px 0 17px;
+    /* padding: 20px 0 17px; */
     margin: 0px 0 0;
     color: #fff;
 }

@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # essayfeeds
 
 Edjango academic writing website
