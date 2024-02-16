@@ -12,8 +12,11 @@ from formtools.wizard.views import SessionWizardView
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import OrderItem
 from paypal.standard.forms import PayPalPaymentsForm
+from django.contrib import messages
+from essayfeeds.finance.models import Deposit
+
 # Create your views here.
-class EssayFeedOrderItemView(TemplateView):
+class EssayFeedOrderItemView(LoginRequiredMixin, TemplateView):
     template_name = "pages/confirm_order.html"
 
     def get_order_object(self, **kwargs):
@@ -26,34 +29,37 @@ class EssayFeedOrderItemView(TemplateView):
         # context['form'] = self.get_payment_context_data(**kwargs)
         return context
     
-    # def get_payment_context_data(self, **kwargs):
-    #     order = self.get_order_object(**kwargs)
-    #     paypal_dict = {
-    #         "business": "receiver_email@example.com",
-    #         "amount": float(order.price),
-    #         "item_name": str(order.title),
-    #         "invoice":  str(order.orderId),
-    #         # "notify_url": self.request.build_absolute_uri(reverse('paypal-ipn')),
-    #         "return": self.request.build_absolute_uri(reverse('payment-success')),
-    #         "cancel_return": self.request.build_absolute_uri(reverse('payment-failed')),
-    #         # "custom": "premium_plan",  # Custom command to correlate to some function later (optional)
-    #     }
-    #     form = PayPalPaymentsForm(initial=paypal_dict)
-    #     return form
     
     def post(self, request, *args, **kwargs):
         order = self.get_order_object(**kwargs)
-        # order_item, _ = OrderItem.objects.update_or_create(order=order, price=order.price)
-        # order_item.save()
         order_item = OrderItem.objects.filter(order=order)
+        is_deposit = Deposit.objects.filter(client=Profile.objects.get(user=request.user))
         if order_item.exists():
             new_order_item = order_item.first()
             new_order_item.order=order
             new_order_item.price=order.price
             new_order_item.save()
+            if is_deposit:
+                deposit = Deposit.objects.get(client=Profile.objects.get(user=request.user))
+                if deposit.amount > new_order_item.price:
+                    new_deposit = deposit.amount - float(new_order_item.price)
+                    deposit.amount = new_deposit
+                    deposit.save()
+                    messages.success(request, "Order placed succesfully")
+                    return redirect(request.user)
+                return redirect(new_order_item)
             return redirect(new_order_item)
         else:
             order_item, _ = OrderItem.objects.update_or_create(order=order, price=order.price)
+            if is_deposit:
+                deposit = Deposit.objects.get(client=Profile.objects.get(user=request.user))
+                if deposit.amount > order_item.price:
+                    new_deposit = deposit.amount - float(order_item.price)
+                    deposit.amount = new_deposit
+                    deposit.save()
+                    messages.success(request, "Order placed succesfully")
+                    return redirect(request.user)
+                return redirect(order_item)
             return redirect(order_item)
 
 

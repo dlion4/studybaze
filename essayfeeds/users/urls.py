@@ -6,6 +6,7 @@ from essayfeeds.users.views import (
     user_update_view,
     account_profile_signup_view
 )
+from essayfeeds.finance.views import EssayFeedsFinanceView, EssayFeedsPaymentButton
 
 app_name="users"
 urlpatterns = [
@@ -28,6 +29,7 @@ urlpatterns += [
     path("loyalty-points/", views.essay_feed_loyalty_point_view, name="loyalty_points_view"),
     path("referrer-friend/", views.essay_feed_referral_view, name="referrer"),
     path("customerfeedback/", views.essay_feed_customerfeedback_view, name="customerfeedback_view"),
+    
 ]
 
 # orderitem urls
@@ -40,4 +42,10 @@ urlpatterns += [
 
 urlpatterns += [
     path("userupdate/", include("essayfeeds.users.funcs.urls")),
+]
+# finance urls
+
+urlpatterns += [
+    path("finance/", view=EssayFeedsFinanceView.as_view(), name="finance"),
+    path("payment/<id>/", view=EssayFeedsPaymentButton.as_view(), name="payment"),
 ]

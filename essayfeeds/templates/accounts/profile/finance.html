@@ -1,0 +1,84 @@
+{% extends "accounts/profile/base.html" %} {% load static %}
+<!---->
+{% block css %}{% endblock css %}
+<!---->
+{% block main %}
+<!-- Page Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 main_title">
+      <h1>
+        <span>Feedback Form</span>
+      </h1>
+      <span class="subheader">
+        We assure you that your suggestions and feedback will be treated with
+        confidentiality and acted upon accordingly.
+      </span>
+      <!--End Row-->
+    </div>
+  </div>
+</div>
+{{ block.super }}
+<div class="container sidebarpages">
+  <!-- Team Members Row -->
+  <div class="row mt-3">
+    <div class="col-lg-8 col-sm-12">
+      <form
+        method="post"
+        action=""
+
+        class="mt-n18"
+      >
+      {% csrf_token %}
+        <table class="myformpre">
+          <tbody>
+            <tr>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="tableHeader">Current Amount</td>
+            </tr>
+            <tr>
+              <td>
+                <p class="userfeedbackp">
+                  Do you have any suggestions related to our order process?
+                </p>
+                <input type="number" class="form-control" name="deposit" value="{{deposit.amount}}" />
+             <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="tableHeader">New amount</td>
+            </tr>
+            <tr>
+              <td>
+                <p class="userfeedbackp">
+                  Would you like to share your thoughts regarding the quality of
+                  the paper?
+                </p>
+                <input class="form-control" name="deposit1" value="" type="number" />
+               <br />
+              </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <button type="submit">submit</button>
+                </td>
+            </tr>
+           
+          </tbody>
+         
+        </table>
+      </form>
+      <!--
+          
+        -->
+    </div>
+    <div class="col-lg-4 col-sm-12"></div>
+  </div>
+</div>
+
+<!-- Common Footer Included -->
+
+{% endblock main %}

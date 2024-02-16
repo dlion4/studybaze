@@ -140,7 +140,7 @@
                         "
                       >
                         <span style="color: #e74c3c">Bal $</span
-                        ><span style="color: #2dc98a"> 0.00</span>
+                        ><span style="color: #2dc98a"> {{balance.amount|default:"0.00"}}</span>
                       </a>
                     </li>
                     <li>
@@ -421,7 +421,7 @@ touch-button {
 <div class="container1">
         <div class="menu-button1">&#9776;  |  Menu</div> <!-- Hamburger Icon -->
         <ul class="flexnav" data-breakpoint="800">
-            <li><a href="#">Orders</a></li>
+            <li><a href="{% url 'order' %}">Orders</a></li>
             <li><a href="#">Long-Term Orders</a></li>
             <li>
                 <a href="#">Complaints</a>
@@ -431,7 +431,7 @@ touch-button {
                     <li><a href="{% url 'users:dispute_view' %}">View Disputes</a></li>
                 </ul>
             </li>
-            <li><a href="#">Finances </a></li>
+            <li><a href="{% url 'users:finance' %}">Finances </a></li>
             <li><a href="{% url 'users:referrer' %}">Refer a Friend</a></li>
             <li><a href="{% url 'users:customerfeedback_view' %}">Survey</a></li>
             <li><a href="{% url 'users:user_update_view' %}">Update Profile</a></li>

@@ -12,7 +12,6 @@ from  django.db.models.signals import post_save
 from essayfeeds.utils import generate_random_id
 
 
-
 class User(AbstractUser):
     """
     Default custom user model for essayfeeds.
@@ -72,4 +71,7 @@ def profile_post_save_on_user_create_receiver(sender, instance, created, **kwarg
         Profile.objects.create(user=instance)
     else:
         instance.profile_user.save()
+    
+
+
     

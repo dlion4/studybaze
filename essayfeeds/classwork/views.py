@@ -50,7 +50,7 @@ class EssayFeedOrderView(LoginRequiredMixin, TemplateView):
         return context
     
     def post(self, request,*args, **kwargs):
-        order_form = self.form_class(request.POST, request.FILES)
+        order_form = self.form_class(request.POST)
         if order_form.is_valid():
             order = order_form.save(commit=True)
             order.profile=Profile.objects.get(user=self.request.user)

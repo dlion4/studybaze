@@ -58,7 +58,7 @@ DATABASES = {
         "USER": "postgres",
         "PASSWORD": 1234,
         "HOST": "localhost",  # Set to the address where your PostgreSQL server is running
-        "PORT": 5433,  # Set to the port used by your PostgreSQL server
+        "PORT": "",  # Set to the port used by your PostgreSQL server
     }
 }
 
@@ -111,6 +111,7 @@ LOCAL_APPS = [
     "essayfeeds.classwork",
     "essayfeeds.payments",
     "essayfeeds.issues",
+    "essayfeeds.finance",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -213,6 +214,8 @@ TEMPLATES = [
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
                 "essayfeeds.users.context_processors.allauth_settings",
+
+                "essayfeeds.finance.context_processors.get_finance_context_data",
             ],
             "builtins": [
                 "widget_tweaks.templatetags.widget_tweaks",
