@@ -9,6 +9,7 @@ class Deposit(models.Model):
     client = models.OneToOneField(Profile, on_delete=models.CASCADE)
     amount = models.FloatField()
     timestamp = models.DateTimeField(auto_now_add=True)
+    is_verified=models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.client.user.email} {self.amount}"

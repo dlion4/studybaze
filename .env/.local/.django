@@ -1,6 +1,6 @@
 # General
 DJANGO_READ_DOT_ENV_FILE=True
-DATABASE_URL='postgres://postgres:1234@localhost:5432/essayfeeds'
+DATABASE_URL='postgres://postgres:1234@localhost:5433/essayfeeds'
 
 # ------------------------------------------------------------------------------
 USE_DOCKER=yes

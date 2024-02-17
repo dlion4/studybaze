@@ -1,9 +1,14 @@
 from .models import Deposit
 from essayfeeds.users.models import Profile
+from django.db.models import Sum
+
 
 def get_finance_context_data(request):
     if request.user.is_authenticated:
         profile = Profile.objects.get(user=request.user)
-        return {
-            "balance":Deposit.objects.get(client=profile)
-        }
+        try:
+            return {
+                "balance": Deposit.objects.filter(client=profile, is_verified=True).aggregate(balance=Sum("amount"))
+            }
+        except Deposit.DoesNotExist:
+            return {"balance": float("0.00")}

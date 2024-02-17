@@ -58,7 +58,7 @@ DATABASES = {
         "USER": "postgres",
         "PASSWORD": 1234,
         "HOST": "localhost",  # Set to the address where your PostgreSQL server is running
-        "PORT": "",  # Set to the port used by your PostgreSQL server
+        "PORT": "5433",  # Set to the port used by your PostgreSQL server
     }
 }
 
@@ -214,7 +214,6 @@ TEMPLATES = [
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
                 "essayfeeds.users.context_processors.allauth_settings",
-
                 "essayfeeds.finance.context_processors.get_finance_context_data",
             ],
             "builtins": [
