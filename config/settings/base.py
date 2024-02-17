@@ -51,12 +51,23 @@ LOCALE_PATHS = [str(BASE_DIR / "locale")]
 # DATABASES = {"default": env.db("DATABASE_URL", default="postgres://postgres:1234@localhost:5433/essayfeeds")}
 
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "essayfeeds",
+#         "USER": "postgres",
+#         "PASSWORD": 1234,
+#         "HOST": "localhost",  # Set to the address where your PostgreSQL server is running
+#         "PORT": "",  # Set to the port used by your PostgreSQL server
+#     }
+# }
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "essayfeeds",
-        "USER": "postgres",
-        "PASSWORD": 1234,
+        "USER": "essayfeeds_user",
+        "PASSWORD": 'Mzeemara@123',
         "HOST": "localhost",  # Set to the address where your PostgreSQL server is running
         "PORT": "",  # Set to the port used by your PostgreSQL server
     }
