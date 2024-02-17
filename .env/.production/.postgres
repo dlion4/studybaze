@@ -5,3 +5,5 @@ POSTGRES_PORT = 5433
 POSTGRES_DB = essayfeeds
 POSTGRES_USER = debug
 POSTGRES_PASSWORD = debug
+
+

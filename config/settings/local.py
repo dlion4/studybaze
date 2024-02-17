@@ -11,7 +11,7 @@ SECRET_KEY = os.environ.get(
     default="j7oJdj04zdiqY38EdB3L0nKWMkN7auCYZKQMj7uIjEceMJlpR05wmst4acvBW1DJ",
 )
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", ".ngrok-free.app", "https://studybaze.com"]
+ALLOWED_HOSTS = ["*", ".ngrok-free.app"]
 
 # CACHES
 # ------------------------------------------------------------------------------

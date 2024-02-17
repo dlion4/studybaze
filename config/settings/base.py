@@ -58,7 +58,7 @@ LOCALE_PATHS = [str(BASE_DIR / "locale")]
 #         "USER": "postgres",
 #         "PASSWORD": 1234,
 #         "HOST": "localhost",  # Set to the address where your PostgreSQL server is running
-#         "PORT": "",  # Set to the port used by your PostgreSQL server
+#         "PORT": "5433",  # Set to the port used by your PostgreSQL server
 #     }
 # }
 
@@ -66,8 +66,8 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "essayfeeds",
-        "USER": "essayfeeds_user",
-        "PASSWORD": 'Mzeemara@123',
+        "USER": "postgres",
+        "PASSWORD": "Mzeemara@123",
         "HOST": "localhost",  # Set to the address where your PostgreSQL server is running
         "PORT": "",  # Set to the port used by your PostgreSQL server
     }
@@ -258,10 +258,9 @@ X_FRAME_OPTIONS = "DENY"
 # https://pypi.org/project/django-cors-headers/#CSRFIntegration
 
 CSRF_TRUSTED_ORIGINS = [
-    "http://*.example.com",
-    "http://127.0.0.1:8000",
     "https://*.ngrok-free.app",
     # "http://0.0.0.0"
+    "http://studybaze.com",
     "https://studybaze.com",
 ]
 # EMAIL
@@ -394,3 +393,10 @@ SPECTACULAR_SETTINGS = {
 }
 # Your stuff...
 # ------------------------------------------------------------------------------
+
+
+# aaaaawwwwwwsssss
+USE_S3 = "TRUE"
+AWS_ACCESS_KEY_ID = "AKIAXRPBJOI4UZWAGRY7"
+AWS_SECRET_ACCESS_KEY = "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"
+AWS_STORAGE_BUCKET_NAME = "studybaze"
