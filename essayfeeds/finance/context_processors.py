@@ -7,8 +7,10 @@ def get_finance_context_data(request):
     if request.user.is_authenticated:
         profile = Profile.objects.get(user=request.user)
         try:
+            print(Deposit.objects.filter(client=profile, is_verified=True).aggregate(balance=Sum("amount")))
             return {
-                "balance": Deposit.objects.filter(client=profile, is_verified=True).aggregate(balance=Sum("amount"))
+                "balance": Deposit.objects.filter(client=profile, is_verified=True).aggregate(balance=Sum("amount"))['balance']
             }
         except Deposit.DoesNotExist:
-            return {"balance": float("0.00")}
+            return {"balance":"0.00"}
+    return  {"balance": "0.00"}
